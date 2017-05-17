@@ -5,29 +5,28 @@
 
 <table>
 	<tr>
-		<th>Order id</th>
-		<th>Status</th>
-		<th>Paid?</th>
-		<th>Total</th>
+		<th>Order id 	</th>
+		<th>status 		</th>
+		<th>Paid? 		</th>
+		<th>Total  		</th>
 		<%# <th>Refund</th>  %>
 	</tr>
 
-	<%#
-		<% @orders.each do |order| 
+	
+		<% @orders.each do |order| %>
 		<tr>
-			<td><%= order.id</td>
-			<td><%= order.status </td>
-			<td><%= order.paid? </td>
-			<td><%= order.total </td>
-			<td><%= order.refund</td> <%#This line may not be needed 
+			<td>	<%= order.id %>    	</td>
+			<td>	<%= order.status %>	</td>
+			<td>	<%= order.paid %>  	</td>
+			<td>	<%= order.total %> 	</td>
+			<td>	<%= order.refund %>	</td> <%#This line may not be needed %>
 		</tr>
-		close loop
+		<% end %>
+		
 
 		<tr>
-		<td><%=@orders.total.reduce(:+)   </td>	show the total of all orders
+			<td><%=@orders.total.reduce(:+)%></td>	<%#show the total of all orders  %>
 		</tr>
-	 %>
-
 
 </table>
 
