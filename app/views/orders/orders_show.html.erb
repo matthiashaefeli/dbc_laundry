@@ -6,7 +6,7 @@
 <table>
 	<tr>
 		<th>Order id 	</th>
-		<th>status 		</th>
+		<th>Status 		</th>
 		<th>Paid? 		</th>
 		<th>Total  		</th>
 		<%# <th>Refund</th>  %>
@@ -15,11 +15,11 @@
 	
 		<% @orders.each do |order| %>
 		<tr>
-			<td>	<%= order.id %>    	</td>
-			<td>	<%= order.status %>	</td>
-			<td>	<%= order.paid %>  	</td>
-			<td>	<%= order.total %> 	</td>
-			<td>	<%= order.refund %>	</td> <%#This line may not be needed %>
+			<td> <a href=""><%= order.id %> </a></td> <%# Needs a route %>
+			<td>	<%= order.status %>			</td>
+			<td>	<%= order.paid %>  			</td>
+			<td>	<%= order.total %> 			</td>
+			<td>	<%= order.refund %>			</td> <%#This line may not be needed %>
 		</tr>
 		<% end %>
 		
