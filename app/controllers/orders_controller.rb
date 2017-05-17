@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
 	end
 
 	def show
-		@order = Order.find(params[:id]) #Show an order
+		@order = Order.find(params[:id]) #Show an order by user or...?
 	end
 
 	def index 
