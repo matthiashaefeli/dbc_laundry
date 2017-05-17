@@ -12,3 +12,8 @@ this is "home"
   <%= link_to("Client Login", new_client_session_path) %> <br>
 <% end %>
 
+<%if current_shipper  %>
+  <%= link_to("Shipper Logout", destroy_shipper_session_path, method: "delete") %> <br>
+<% else %>
+  <%= link_to("Shipper Login", new_shipper_session_path) %> <br>
+<% end %>
