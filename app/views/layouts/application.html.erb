@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DbcLaundry</title>
+    <title>Dbc Laundry</title>
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -26,21 +27,36 @@
     <div class="container">
       <%= yield %>
     </div>
-
-    <footer class="footer row justify-content-center">
-
-      <% if current_admin %>
-        <%= link_to("Admin Logout ", destroy_admin_session_path, method: "delete") %> <br>
-      <% else %>
+  
+    <footer class="footer row justify-content-center">   
+      <div class="row justify-content-center col-xs-12">
+        
+      <% if !current_client && !current_admin && !current_shipper %>
         <%= link_to("Admin Login ", new_admin_session_path) %> <br>
       <% end %>
+  
+      <%if !current_client && !current_admin && current_shipper %>
 
       <%if current_shipper  %>
         <%= link_to("Shipper Logout ", destroy_shipper_session_path, method: "delete") %> <br>
-      <% else %>
+      <% elsif !current_client && !current_shipper && !current_admin  %>
         <%= link_to("Shipper Login ", new_shipper_session_path) %> <br>
       <% end %>
 
+      </div>
+      <br>
+      
+
+      <div class="row justify-content-center col-lg-12">
+      <p>DBC Laundry all rights reserved. 2017 / </p><p>
+      <a href=""><i class="fa fa-github" aria-hidden="true">matias</i></a>
+      <a href=""><i class="fa fa-github" aria-hidden="true">karina</i></a>
+      <a href=""><i class="fa fa-github" aria-hidden="true">raymond</i></a>
+      <a href=""> <i class="fa fa-github" aria-hidden="true">litola</i></a>
+      </p>
+      
+      </div>
+      
     </footer>
   </body>
 </html>

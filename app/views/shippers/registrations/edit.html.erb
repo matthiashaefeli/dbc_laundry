@@ -4,6 +4,8 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.hidden_field :business_id, value: current_admin.business.id%>
+  
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
