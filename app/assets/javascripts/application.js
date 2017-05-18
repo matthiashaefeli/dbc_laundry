@@ -18,7 +18,7 @@ $(document).ready(function(){
   $('.menu-item').mouseover(function(event) {
     $(this).addClass('animated pulse')
   })
-   $('.menu-item').mouseleave(function(event) {
+  $('.menu-item').mouseleave(function(event) {
     $(this).removeClass('animated pulse')
   })
 
