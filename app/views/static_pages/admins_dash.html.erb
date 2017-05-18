@@ -2,10 +2,10 @@
 <div class="admin-header">
 <div class="admin-menu d-flex justify-content-around mb-3">
     <div class="col-sm-3 menu-item d-flex justify-content-center">
-      <a href="#admin"><i class="fa fa-2x fa-user-plus" aria-hidden="true"> Admin</i></a>
+     <i class="fa fa-2x fa-user-plus" aria-hidden="true"> <%= link_to("Admins",new_admin_path) %></i>
     </div>
     <div class="col-sm-3 menu-item  d-flex justify-content-center">
-      <a href="#shipper"><i class="fa fa-2x fa-truck" aria-hidden="true"> Shipper</i></a>
+      <i class="fa fa-2x fa-truck" aria-hidden="true"><%= link_to("Shippers",new_shipper_path) %></i>
     </div>
     <div class="col-sm-3 menu-item  d-flex justify-content-center">
       <a href="#business"><i class="fa fa-2x fa-line-chart" aria-hidden="true"> Business</i></a>
@@ -20,3 +20,6 @@
 </div>
 </div>
 <hr>
+
+<%= render "businesses/form" %>
+
