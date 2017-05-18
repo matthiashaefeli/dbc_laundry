@@ -1,17 +1,20 @@
 class OrdersController < ApplicationController
 	def new
-		@order = Order.new #Need to pass params of order details
+		@order = Order.new
 	end
 
 	def show
-		@order = Order.find(params[:id]) #Show an order by user or...?
+		@order = Order.find(params[:id])
 	end
 
-	def index 
-		if params[:client_id]
-		@orders = Order.where(client_id = ?, current_user.id) #Show all user orders, needs devise to work
-		elsif params [:business_id]
-		@orders = Order.where(business_id = ?, params[:business_id]) #show all orders belonging to a business
-		end
+	def create
+		@order = Order.create(client_id: current_client.id, business_id: 1, box_in: 5, status: "In Box", paid: false)
+		render "./home.html.erb"
+	end
+
+	def update
+		binding.pry
+		@order = Order.find(params[:id])
+		@order.update_attributes() #missing params from select to update @order
 	end
 end

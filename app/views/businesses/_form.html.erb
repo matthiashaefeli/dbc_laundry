@@ -5,16 +5,19 @@
 		<th>Status Payment</th>
 	</tr>
 	<tr>
+	<% @orders = Order.all %>
 	<% @orders.each do |order| %>
-	<td>order.id</td>
+	<td><%= order.id %></td>
 	<td>
 		<select name="post[order_status]" id="order_status">
-			<option value="1">In House</option>
+			<option value="1">In Box</option>
+			<option value="1">Incomming</option>
 			<option value="2">Processing</option>
 			<option value="3">Shiping</option>
 		</select>
-	</td>
-	<td>order.payed</td>
+		<p><%= link_to "Save change", order_path(order.id), :method => :put %></p>
+		</td>
+		<td><%= order.paid %></td>
+		</tr>
 	<% end %>
-	</tr>
 </table>
