@@ -13,10 +13,8 @@
 //= require jquery
 //= require bootstrap
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 $(document).ready(function(){
-
   $('.menu-item').mouseover(function(event) {
     $(this).addClass('animated pulse')
   })

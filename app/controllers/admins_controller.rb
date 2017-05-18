@@ -6,6 +6,7 @@ class AdminsController < ApplicationController
   end
 
   def admin_create
+# missing handling error messages and if not saved
    @admin = Admin.create(admin_params) 
    redirect_to root_path
   end
