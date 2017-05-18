@@ -11,13 +11,12 @@
 
   <body>
 
-  <% if !current_admin %>
-   <%= render "layouts/clients_nav.html.erb" %>
-  <% elsif current_admin%>
-    <%= render "layouts/admins_nav.html.erb" %>
-  <% elsif current_shipper%>
-    <%= render "#Shipper" %>
-  <% end %>
+    <%= render "layouts/clients_nav.html.erb" if current_client %>
+
+    <%= render "layouts/admins_nav.html.erb" if current_admin %>
+
+    <%= render "layouts/shippers_nav.html.erb" if current_shipper %>
+
     <!-- Devise notice and alert -->
     <div class="row justify-content-center">
       <p class="notice"><%= notice %></p>
