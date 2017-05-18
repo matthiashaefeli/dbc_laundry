@@ -1,4 +1,4 @@
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+<!--     <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -16,16 +16,47 @@
         <a class="nav-link" href="#">Link</a>
       </li>
      
-    </ul>
-  
-      <%if current_client  %>
-       <%= link_to("Logout", destroy_client_session_path, method: "delete", class:"btn btn-danger")%>
+    </ul> -->
+  <br>
+<div class="admin-header">
+<div class="admin-menu d-flex justify-content-around mb-3">
+<!--     <div class="col-sm-12 col-md-3 menu-item d-flex justify-content-center">
+     <i class="fa fa-2x fa-user-plus" aria-hidden="true"> <%= link_to("Register",new_admin_path) %></i>
+    </div>
+   
+    
+    <div class="col-sm-12 col-md-3 menu-item d-flex justify-content-center">
+      <a href="/"><i class="fa fa-2x fa-pencil-square-o" aria-hidden="true">Orders</i></a>
+    </div><br> -->
+
+     <%if current_client  %>
+      <div class="col-xs-12 col-md-3 menu-item d-flex justify-content-center">
+       <i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"><%= link_to("Home", "")%></i>
+      </div><br>
+      <div class="col-md-3 menu-item d-flex justify-content-center">
+       <i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"><%= link_to("History", "")%></i>
+      </div><br>
+      
+      <div class="col-md-3 menu-item d-flex justify-content-center">
+       <i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"><%= link_to("New Order", "", method: "delete")%></i>
+      </div>
+
+      <div class="col-md-3 menu-item d-flex justify-content-center">
+       <i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"><%= link_to("Logout", destroy_client_session_path, method: "delete")%></i>
+      </div> <br> 
+    
+       
       <% elsif !current_admin && !current_client%>
-        <%= link_to("Login", new_client_session_path,  class:"btn btn-success") %>
-        <%= link_to("Register", new_client_registration_path,  class:"btn btn-primary") %> 
-        <% elsif current_admin && !current_client  %>
-           <%= link_to("Logout", destroy_admin_session_path, method: "delete", class:"btn btn-danger")%>
+       <div class="col-sm-12 col-md-3 menu-item d-flex justify-content-center">
+        <i class="fa fa-2x fa-truck" aria-hidden="true"><%= link_to("Login", new_client_session_path,  class:"")%></i>
+      </div>
+      <div class="col-sm-12 col-md-3 menu-item  d-flex justify-content-center">
+      <i class="fa fa-2x fa-user-plus" aria-hidden="true"><%= link_to("Register", new_client_registration_path) %> </i>
       <% end %>
+    </div>
+        
+</div>
+     
 
   </div>
 </nav>
