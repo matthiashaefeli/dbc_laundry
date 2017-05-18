@@ -1,3 +1,5 @@
+
+
 this is "home"
 <br>
 
@@ -18,15 +20,14 @@ this is "home"
 <% else %>
   <%= link_to("Shipper Login", new_shipper_session_path) %> <br>
 <% end %>
-<br>
-<br>
+
 <% if current_client %>
 <%= render "orders/form" %>
 <% end %>
+
 <% if current_admin %>
 <%= render "businesses/form" %>
 <% end %>
-
 
 
 

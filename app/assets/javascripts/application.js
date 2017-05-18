@@ -15,3 +15,16 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(document).ready(function(){
+
+  $('.menu-item').mouseover(function(event) {
+    $(this).addClass('animated pulse')
+  })
+   $('.menu-item').mouseleave(function(event) {
+    $(this).removeClass('animated pulse')
+  })
+
+
+  
+});
+
