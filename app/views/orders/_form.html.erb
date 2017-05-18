@@ -1,0 +1,28 @@
+<div>
+	<h1>Your Orders</h1>
+</div>
+
+
+<table>
+	<tr>
+		<th>Order id 	</th>
+		<th>Status 		</th>
+		<th>Paid? 		</th>
+		<th>Total  		</th>
+	</tr>
+		<tr>
+		<% current_client.orders.each do |order| %>
+	
+			<td><%= link_to(order.id, order_path(order.id)) %> </td>
+			<td>	<%= order.status %>			</td>
+			<td>	<%= order.paid %>  			</td>
+			<td>	<%= order.total %> 			</td>
+		</tr>
+		<% end %>
+</table>
+<br>
+<p><%= link_to("Add new Order", new_order_path) %></p>
+
+
+
+
