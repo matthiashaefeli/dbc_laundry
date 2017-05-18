@@ -10,12 +10,8 @@ class ShippersController < ApplicationController
    redirect_to root_path
   end
 
-
-
-
-
   protected
   def shipper_params
-     params.require(:shippers).permit(:phone,:email, :password)
+     params.require(:shippers).permit(:phone,:email, :password, :business_id)
   end
 end

@@ -11,19 +11,37 @@
 
   <body>
 
-<% if !current_admin %>
- <%= render "layouts/clients_nav.html.erb" %>
-<% elsif current_admin%>
-  <%=render "layouts/admins_nav.html.erb" %>
-<% elsif current_shipper%>
-  <%= render "Shipper" %>
-<% end %>
+  <% if !current_admin %>
+   <%= render "layouts/clients_nav.html.erb" %>
+  <% elsif current_admin%>
+    <%= render "layouts/admins_nav.html.erb" %>
+  <% elsif current_shipper%>
+    <%= render "#Shipper" %>
+  <% end %>
     <!-- Devise notice and alert -->
+    <div class="row justify-content-center">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
+    </div>
+   
     <div class="container">
-      
       <%= yield %>
     </div>
+
+    <footer class="footer row justify-content-center">   
+
+      <% if current_admin %>
+        <%= link_to("Admin Logout ", destroy_admin_session_path, method: "delete") %> <br>
+      <% else %>
+        <%= link_to("Admin Login ", new_admin_session_path) %> <br>
+      <% end %>
+  
+      <%if current_shipper  %>
+        <%= link_to("Shipper Logout ", destroy_shipper_session_path, method: "delete") %> <br>
+      <% else %>
+        <%= link_to("Shipper Login ", new_shipper_session_path) %> <br>
+      <% end %>
+
+    </footer>
   </body>
 </html>
