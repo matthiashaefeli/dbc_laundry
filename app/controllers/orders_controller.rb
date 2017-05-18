@@ -13,8 +13,9 @@ class OrdersController < ApplicationController
 	end
 
 	def update
-		binding.pry
 		@order = Order.find(params[:id])
-		@order.update_attributes() #missing params from select to update @order
+		@order.update_attributes(status: params[:order][:area])
+		@order.save
+		redirect_to root_path
 	end
 end
