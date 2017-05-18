@@ -4,29 +4,29 @@
 <!--     <div class="col-sm-12 col-md-3 menu-item d-flex justify-content-center">
      <i class="fa fa-2x fa-user-plus" aria-hidden="true"> <%= link_to("Register",new_admin_path) %></i>
     </div>
-   
-    
+
+
     <div class="col-sm-12 col-md-3 menu-item d-flex justify-content-center">
       <a href="/"><i class="fa fa-2x fa-pencil-square-o" aria-hidden="true">Orders</i></a>
     </div><br> -->
 
      <%if current_client  %>
       <div class="col-xs-12 col-md-3 menu-item d-flex justify-content-center">
-       <i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"><%= link_to("Home", "")%></i>
+       <i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"><%= link_to("Home", root_path)%></i>
       </div><br>
       <div class="col-md-3 menu-item d-flex justify-content-center">
-       <i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"><%= link_to("History", "")%></i>
+       <i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"><%= link_to("History", history_path)%></i>
       </div><br>
-      
+
       <div class="col-md-3 menu-item d-flex justify-content-center">
-       <i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"><%= link_to("New Order", "", method: "delete")%></i>
+       <i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"><%= link_to("New Order", new_order_path)%></i>
       </div>
 
       <div class="col-md-3 menu-item d-flex justify-content-center">
        <i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"><%= link_to("Logout", destroy_client_session_path, method: "delete")%></i>
-      </div> <br> 
-    
-       
+      </div> <br>
+
+
       <% elsif !current_admin && !current_client%>
        <div class="col-sm-12 col-md-3 menu-item d-flex justify-content-center">
         <i class="fa fa-2x fa-truck" aria-hidden="true"><%= link_to("Login", new_client_session_path,  class:"")%></i>
@@ -35,9 +35,9 @@
       <i class="fa fa-2x fa-user-plus" aria-hidden="true"><%= link_to("Register", new_client_registration_path) %> </i>
       <% end %>
     </div>
-        
+
 </div>
-     
+
 
   </div>
 </nav>
