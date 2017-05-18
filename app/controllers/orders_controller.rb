@@ -14,10 +14,17 @@ class OrdersController < ApplicationController
 
 	def update
 		@order = Order.find(params[:id])
-		@order.update_attributes(status: params[:order][:area])
-		@order.save
-		if @order.status == "shipping"
-			UserNotifier.send_update_email(@order.client).deliver
+		if params[:order][:area] == nil
+			if params[:order][:amount] == ""
+				redirect_to root_path and return
+			else
+				@order.update_attributes(status: "Delivered", box_out: params[:order][:amount])
+				@order.save
+				# UserNotifier.send_update_email(@order.client).deliver
+			end
+		else
+			@order.update_attributes(status: params[:order][:area])
+			@order.save
 		end
 		redirect_to root_path
 	end
