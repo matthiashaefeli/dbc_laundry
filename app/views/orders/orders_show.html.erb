@@ -1,0 +1,34 @@
+<div>
+	<h1>Your Orders</h1>
+</div>
+
+
+<table>
+	<tr>
+		<th>Order id 	</th>
+		<th>Status 		</th>
+		<th>Paid? 		</th>
+		<th>Total  		</th>
+		<%# <th>Refund</th>  %>
+	</tr>
+
+	
+		<% @orders.each do |order| %>
+		<tr>
+			<td> <a href=""><%= order.id %> </a></td> <%# Needs a route %>
+			<td>	<%= order.status %>			</td>
+			<td>	<%= order.paid %>  			</td>
+			<td>	<%= order.total %> 			</td>
+			<td>	<%= order.refund %>			</td> <%#This line may not be needed %>
+		</tr>
+		<% end %>
+		
+
+		<tr>
+			<td><%=@orders.total.reduce(:+)%></td>	<%#show the total of all orders  %>
+		</tr>
+
+</table>
+
+
+
