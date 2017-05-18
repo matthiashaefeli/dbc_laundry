@@ -8,5 +8,4 @@ class Order < ApplicationRecord
 	validates  :business_id, presence: true
 	validates  :box_in, presence: true
   
-
 end

@@ -2,6 +2,7 @@
 
 this is "home"
 <br>
+
 <% if current_admin %>
   <%= link_to("Admin Logout", destroy_admin_session_path, method: "delete") %> <br>
 <% else %>
@@ -20,11 +21,13 @@ this is "home"
   <%= link_to("Shipper Login", new_shipper_session_path) %> <br>
 <% end %>
 
+<% if current_client %>
+<%= render "orders/form" %>
+<% end %>
 
-<div class="div1">
-  casdfeasdgfqweasD
+<% if current_admin %>
+<%= render "businesses/form" %>
+<% end %>
 
-  <div class="div2">
-    dsfads
-  </div>
-</div>
+
+
