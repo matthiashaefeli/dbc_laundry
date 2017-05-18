@@ -14,8 +14,9 @@ class OrdersController < ApplicationController
 
 	def update
 		@order = Order.find(params[:id])
+		@order.update_attributes(status: params[:order][:area])
+		@order.save
 		UserNotifier.send_test_email
-		# @order.update_attributes() #missing params from select to update @order
 		redirect_to root_path
 	end
 end
