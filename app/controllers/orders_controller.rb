@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
 		@order = Order.find(params[:id])
 		@order.update_attributes(status: params[:order][:area])
 		@order.save
-		UserNotifier.send_test_email.deliver
+		UserNotifier.send_update_email(@order.client).deliver
 		redirect_to root_path
 	end
 end
