@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'laundry@awesomeapp.com'
+  default from: 'dbc.laundry@gmail.com'
   layout 'mailer'
 end
