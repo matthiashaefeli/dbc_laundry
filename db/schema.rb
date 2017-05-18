@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20170517215958) do
   enable_extension "plpgsql"
 
 
-  create_table "buisnesses", force: :cascade do |t|
+  create_table "businesses", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "hash_password"
