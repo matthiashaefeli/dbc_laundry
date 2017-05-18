@@ -21,7 +21,9 @@
 
 
 $( document ).ready(function() {
-    $('.set_order').on('click',function(){
-	console.log('Button Works!');
-})
+
+	$('form.new_order').on('submit',function(e){
+		e.preventDefault();
+		console.log('Button Works!');
+	})
 });

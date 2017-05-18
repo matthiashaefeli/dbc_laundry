@@ -9,8 +9,6 @@ class OrdersController < ApplicationController
 
 	def create
 		@order = Order.create(client_id: current_client.id, business_id: 1, box_in: 5, status: "In Box", paid: false)
-		
-		
 	end
 
 	def update
