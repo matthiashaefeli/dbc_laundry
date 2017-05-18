@@ -13,8 +13,9 @@ class OrdersController < ApplicationController
 	end
 
 	def update
-		binding.pry
 		@order = Order.find(params[:id])
-		@order.update_attributes() #missing params from select to update @order
+		UserNotifier.send_test_email
+		# @order.update_attributes() #missing params from select to update @order
+		redirect_to root_path
 	end
 end
