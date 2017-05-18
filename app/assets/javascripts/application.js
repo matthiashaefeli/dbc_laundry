@@ -25,5 +25,14 @@ $( document ).ready(function() {
 	$('form.new_order').on('submit',function(e){
 		e.preventDefault();
 		console.log('Button Works!');
+		$form = $(this)
+		$.ajax({
+			method: $form.attr('method'),
+			url: $form.attr('action')
+		})
+		.done(function(resp){
+			console.log(resp)
+		})
 	})
+
 });
