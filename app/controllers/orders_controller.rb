@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
 
-
+	
 
 
 	def new
@@ -14,12 +14,15 @@ class OrdersController < ApplicationController
 	def create
 		# binding.pry
 		# if request.xhr?
-			result = ZXing.decode File.open('static_qr_code_without_logo.png')
-			p result
-		# 	{stuff: 'something'}.to_json
+		
+		
+		something =  Qrio::Qr.load("public/static_qr_code_without_logo2.png").qr.text
+		if something == '@'
+			something = 1
+		end
 		# end
-			
-		@order = Order.create(client_id: current_client.id, business_id: 1, box_in: 5, status: "In Box", paid: false)
+			binding.pry
+		#@order = Order.create(client_id: current_client.id, business_id: 1, box_in: 5, status: "In Box", paid: false)
 	end
 
 	def update
