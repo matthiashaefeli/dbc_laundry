@@ -28,4 +28,10 @@ class OrdersController < ApplicationController
 		end
 		redirect_to root_path
 	end
+
+
+	def history
+
+	end
 end
+
