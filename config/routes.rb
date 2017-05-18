@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 	resources :businesses
+  get 'orders/history', to: 'orders#history', as: 'history'
 	resources :orders
   resources :charges, only: [:new, :create]
 

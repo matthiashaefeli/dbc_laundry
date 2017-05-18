@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Dbc Laundry</title>
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,22 +12,22 @@
 
   <body>
 
-  <% if !current_admin %>
-   <%= render "layouts/clients_nav.html.erb" %>
-  <% elsif current_admin%>
-    <%= render "layouts/admins_nav.html.erb" %>
-  <% elsif current_shipper%>
-    <%= render "#Shipper" %>
-  <% end %>
+    <%= render "layouts/clients_nav.html.erb" if current_client %>
+
+    <%= render "layouts/admins_nav.html.erb" if current_admin %>
+
+    <%= render "layouts/shippers_nav.html.erb" if current_shipper %>
+
     <!-- Devise notice and alert -->
     <div class="row justify-content-center">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     </div>
-   
+
     <div class="container">
       <%= yield %>
     </div>
+<<<<<<< HEAD
   
     <footer class="footer row justify-content-center">   
       <div class="row justify-content-center col-xs-12">
@@ -36,6 +37,18 @@
       <% end %>
   
       <%if !current_client && !current_admin && current_shipper %>
+=======
+
+    <footer class="footer row justify-content-center">
+
+      <% if current_admin %>
+        <%= link_to("Admin Logout ", destroy_admin_session_path, method: "delete") %> <br>
+      <% else %>
+        <%= link_to("Admin Login ", new_admin_session_path) %> <br>
+      <% end %>
+
+      <%if current_shipper  %>
+>>>>>>> master
         <%= link_to("Shipper Logout ", destroy_shipper_session_path, method: "delete") %> <br>
       <% elsif !current_client && !current_shipper && !current_admin  %>
         <%= link_to("Shipper Login ", new_shipper_session_path) %> <br>
