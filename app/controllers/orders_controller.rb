@@ -1,4 +1,8 @@
 class OrdersController < ApplicationController
+
+
+
+
 	def new
 		@order = Order.new
 	end
@@ -8,12 +12,12 @@ class OrdersController < ApplicationController
 	end
 
 	def create
-		binding.pry
-		if request.xhr?
-			
-
-			{stuff: 'something'}.to_json
-		end
+		# binding.pry
+		# if request.xhr?
+			result = ZXing.decode File.open('static_qr_code_without_logo.png')
+			p result
+		# 	{stuff: 'something'}.to_json
+		# end
 			
 		@order = Order.create(client_id: current_client.id, business_id: 1, box_in: 5, status: "In Box", paid: false)
 	end
