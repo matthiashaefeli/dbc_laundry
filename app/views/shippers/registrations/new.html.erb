@@ -1,9 +1,14 @@
 <h2>Create a new Shipper</h2>
 
 <%= form_for(:shippers) do |f| %>
+  <%= f.hidden_field :business_id, value: current_admin.business.id%>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
   <div class="field">
     <%= f.label :phone %><br />
-    <%= f.text_field :phone, autofocus: true %>
+    <%= f.text_field :phone%>
   </div>
   <div class="field">
     <%= f.label :email %><br />

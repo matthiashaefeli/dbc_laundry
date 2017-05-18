@@ -2,8 +2,7 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-    
-
+  
    <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true %>
@@ -17,6 +16,11 @@
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email%>
+  </div>
+
+  <div class="field">
+    <%= f.label :business_id %><br />
+    <%= f.select :business_id, options_for_select(Business.all.collect { | b | [b.name, b.id] })%>
   </div>
 
   <div class="field">
