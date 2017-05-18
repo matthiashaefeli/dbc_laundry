@@ -1,11 +1,10 @@
-<h2>Create new Admin user</h2>
+<h2>Create a new Shipper</h2>
 
-<%= form_for(:admins) do |f| %>
-   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+<%= form_for(:shippers) do |f| %>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone, autofocus: true %>
   </div>
-
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email%>
@@ -25,7 +24,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Create admin" %>
+    <%= f.submit "Create Shipper" %>
   </div>
 <% end %>
-
+https://github.com/litola/dbc_laundryhttps://github.com/litola/dbc_laundry

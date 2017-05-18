@@ -7,5 +7,5 @@ class Order < ApplicationRecord
 	validates  :client_id, presence: true
 	validates  :business_id, presence: true
 	validates  :box_in, presence: true
-
+  
 end

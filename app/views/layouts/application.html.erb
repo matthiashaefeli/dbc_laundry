@@ -5,11 +5,13 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <!-- Devise notice and alert -->
+
+<% if !current_admin %>
     <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -32,17 +34,21 @@
   
       <%if current_client  %>
        <%= link_to("Logout", destroy_client_session_path, method: "delete", class:"btn btn-danger")%>
-      <% else %>
+      <% elsif !current_admin && !current_client%>
         <%= link_to("Login", new_client_session_path,  class:"btn btn-success") %>
         <%= link_to("Register", new_client_registration_path,  class:"btn btn-primary") %> 
+        <% elsif current_admin && !current_client  %>
+           <%= link_to("Logout", destroy_admin_session_path, method: "delete", class:"btn btn-danger")%>
       <% end %>
 
   </div>
 </nav>
-
+<% end %>
+    <!-- Devise notice and alert -->
+     <!--  <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p> -->
     <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      
       <%= yield %>
     </div>
   </body>
