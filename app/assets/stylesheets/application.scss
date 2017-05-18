@@ -30,25 +30,19 @@
 }
 .menu-item{
    border-right: 1px solid #293241;
-
 }
 
-
-/*Experiment*/
-body{
-  background-color:#FAFDFF;
-  color: #red;
+.footer{
+  background-color: blue;
+  color:white;
+  position: fixed;
+  height: 8%;
+  bottom: 0;
+  width: 100%;
+  margin:0;
+  padding: 0;
 }
-.navbar{
-  background-color:#293241;
+.footer a{
+  color:white;
 }
 
-/*.div1{
-  background-color:#AFD2E9;
-  color:#6F6F71;
-}
-
-.div2{
-  background-color:#6F6F71;
-  color:#AFD2E9;
-}*/
