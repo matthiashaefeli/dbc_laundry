@@ -3,7 +3,7 @@
 
 <!-- <button class="set_order">Make Order</button> -->
 
-<%= form_for @order do |f| %>
+<%= form_for @order, remote: true do |f| %>
  <%= f.label :CreateOrder %>:
   <%= f.text_field :id %><br />
 
