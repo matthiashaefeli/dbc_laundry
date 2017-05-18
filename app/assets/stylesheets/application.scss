@@ -12,3 +12,43 @@
  *
  */
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+
+/*Admin dash */
+.admin-header{
+  margin: 0px;
+}
+.admin-menu a{
+  background-color: #FAFDFF;
+}
+.logout{
+  color:red;
+  font-size: 1em;
+  text-decoration: none;
+}
+.menu-item{
+   border-right: 1px solid #293241;
+
+}
+
+
+/*Experiment*/
+body{
+  background-color:#FAFDFF;
+  color: #red;
+}
+.navbar{
+  background-color:#293241;
+}
+
+/*.div1{
+  background-color:#AFD2E9;
+  color:#6F6F71;
+}
+
+.div2{
+  background-color:#6F6F71;
+  color:#AFD2E9;
+}*/
