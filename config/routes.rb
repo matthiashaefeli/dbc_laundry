@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 	resources :businesses
-
-end
-
+	resources :orders
   devise_for :shippers
   devise_for :clients
   devise_for :admins
