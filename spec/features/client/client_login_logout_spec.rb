@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 feature "Client can log in " do
   scenario "Valid client can log in" do
     business = Business.create(name: "wash", email: "wash@wash.com", hash_password: "password")
