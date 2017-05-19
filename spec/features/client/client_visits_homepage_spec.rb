@@ -21,3 +21,4 @@ feature "visiting the clients homepage" do
     expect(page).to have_current_path new_client_registration_path
   end
 end
+
