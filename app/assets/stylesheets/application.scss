@@ -12,3 +12,40 @@
  *
  */
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+
+.container{
+  margin-bottom: 8%;
+}
+/*Admin dash */
+.admin-header{
+  margin: 0px;
+}
+.admin-menu a{
+  background-color: #FAFDFF;
+}
+.logout{
+  color:red;
+  font-size: 1em;
+  text-decoration: none;
+}
+.menu-item{
+   border-right: 1px solid #293241;
+}
+
+.footer{
+  background-color: #33CCFF;
+  color:white;
+  position: fixed;
+  height: 8%;
+  bottom: 0;
+  width: 100%;
+  margin:0;
+  padding: 0;
+}
+.footer a{
+  color:white;
+}
+
