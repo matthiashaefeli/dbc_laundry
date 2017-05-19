@@ -3,7 +3,7 @@
 </div>
 
 
-<table>
+<table style="width:70%">
   <tr>
     <th>Date  </th>
     <th>Status    </th>
@@ -12,7 +12,7 @@
   </tr>
     <tr>
     <% current_client.orders.each do |order| %>
-      <% if order.status ==  "Processing" %>
+      <% if order.status ==  "Delivered" %>
       <td><%= order.created_at.strftime("%B %d, %Y")  %> </td>
       <td>  <%= order.status %>     </td>
       <td>  <%= order.paid %>       </td>

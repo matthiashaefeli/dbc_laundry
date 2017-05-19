@@ -3,7 +3,7 @@
 </div>
 
 
-<table>
+<table style="width:70%">
 	<tr>
 		<th>Order id 	</th>
 		<th>Status 		</th>
@@ -12,14 +12,17 @@
 	</tr>
 		<tr>
 		<% current_client.orders.each do |order| %>
+      
 			<td><%= link_to(order.id, order_path(order.id)) %> </td>
 			<td>	<%= order.status %>			</td>
 			<td>	<%= order.paid %>  			</td>
 			<td>	<%= order.total %> 			</td>
+			
 		</tr>
 		<% end %>
 </table>
 <br>
+
 
 
 
