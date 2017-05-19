@@ -47,7 +47,6 @@ $( document ).ready(function() {
 	function startup() {
 		var video = $('#video');
 		var canvas = $('#canvas');
-		var photo = $('#photo');
 		var startbutton = document.getElementById('startbutton'); 
 
 		startbutton.addEventListener('click', function(e){  
@@ -60,6 +59,19 @@ $( document ).ready(function() {
 	function takepicture() {
 		var context = canvas.getContext('2d');
 		context.drawImage(video, 0, 0, 400, 400);
+		var dataURL = canvas.toDataURL();
+		console.log(dataURL);
+		sendPicture(dataURL);
+
+	}
+
+	function sendPicture(image){
+		
+		$.ajax({
+			method: 'POST',
+			url: '/orders',
+			data: image
+		})
 	}
 
 	window.addEventListener('load', startup, false);

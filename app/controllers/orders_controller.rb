@@ -12,16 +12,14 @@ class OrdersController < ApplicationController
 	end
 
 	def create
-		# binding.pry
+		 binding.pry
 		# if request.xhr?
-		
 		
 		something =  Qrio::Qr.load("public/static_qr_code_without_logo2.png").qr.text
 		if something == '@'
 			something = 1
 		end
 
-		
 		
 		# end
 			
