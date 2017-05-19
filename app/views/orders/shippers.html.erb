@@ -1,0 +1,22 @@
+<table width="100%">
+	<tr>
+		<th>Name</th>
+	</tr>
+	<tr>
+	<% current_admin.business.shippers.each do |shipper| %>
+		<td><%= shipper.name %></td>
+			<table>
+				<tr>
+					<th>Direction</th>
+					<th>Delivered Date</th>
+				</tr>
+				<tr>
+					<% shipper.boxes.each do |box| %>
+					<td><%= box.direction %></td>
+					<td><%= box.updated_at %></td>
+				</tr>
+				<% end %>
+			</table>
+	</tr>
+	<% end %>
+</table>

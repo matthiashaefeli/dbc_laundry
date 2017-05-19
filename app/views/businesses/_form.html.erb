@@ -1,0 +1,27 @@
+<table style="width: 100%">
+	<tr>
+		<th>Order Id</th>
+		<th>Client</th>
+		<th>Status Laundry</th>
+		<th>Status Payment</th>
+		<th>Total $</th>
+	</tr>
+	<tr>
+	<% @orders = Order.all %>
+	<% @orders.each do |order| %>
+	<td><%= order.id %></td>
+	<td><%= order.client.name %></td>
+	<td>
+		<%= form_for :order, url: order_path(order.id), :method => :put do |f| %>
+		<p><%= f.select :order_status,
+				options_for_select([[order.status, order.status],['In Box', 'In Box'],
+				['Incomming', 'Incomming'],['Processing', 'Processing'],
+				['Shipping', 'Shipping']], params[:order_status]) %></p>
+		<p><%= f.submit %></p>
+		<p><% end %></p>
+		</td>
+		<td><%= order.paid %></td>
+		<td><%= order.total %></td>
+		</tr>
+	<% end %>
+</table>

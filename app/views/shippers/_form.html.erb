@@ -1,0 +1,24 @@
+<h1>Orders to deliver</h1>
+<table style="width:70%">
+  <tr>
+  	<th>Order id</th>
+    <th>Box in</th>
+    <th>Box out</th>
+    <th>Order status</th> 
+  </tr>
+		<% current_shipper.business.orders.where(status: "Shipping").each do |order| %>
+	<tr>
+	<td><%= order.id %></td>
+	<td><%= order.box_in %></td>
+	<td>
+	<%= form_for :order, url: order_path(order.id), :method => :put do |f| %>
+	 <p>
+    <%= f.number_field :box_id, :step => 1.0 %>
+    <%= f.submit %>
+    <% end %>
+  </p>
+	</td>
+	<td><%= order.status %></td>
+	</tr>	
+	<% end %>
+</table>
