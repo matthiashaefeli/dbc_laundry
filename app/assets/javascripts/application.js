@@ -14,18 +14,27 @@
 //= require tether
 //= require bootstrap
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 
 
-// Taking Still photos with WEB RTC
-// https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Taking_still_photos
-
-// THINGS TO UNDERSTAND BETTER
-// srcObject
-// onloadedmetadata
-// drawImage
 $( document ).ready(function() {
+
+  $('.menu-item').mouseover(function(event) {
+    $(this).addClass('animated pulse')
+  })
+  $('.menu-item').mouseleave(function(event) {
+    $(this).removeClass('animated pulse')
+  })
+
+	//-------- QR Code------
+  
+  // Taking Still photos with WEB RTC
+  // https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Taking_still_photos
+
+  // THINGS TO UNDERSTAND BETTER
+  // srcObject
+  // onloadedmetadata
+  // drawImage
 	
 
 	$('form.checkies').on('submit',function(){

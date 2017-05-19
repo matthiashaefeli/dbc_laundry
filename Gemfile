@@ -18,9 +18,14 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+
 gem 'qrio'
 
 gem 'rmagick', '~> 2.15', '>= 2.15.4'
+
+gem 'sendgrid-ruby'
+gem 'stripe'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -35,6 +40,8 @@ gem 'jbuilder', '~> 2.5'
   gem 'jquery-rails'
   gem 'bootstrap', '~> 4.0.0.alpha6'
   gem 'json'
+  gem 'font-awesome-sass'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
   
@@ -42,6 +49,9 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
+  gem 'dotenv-rails'
+  gem 'rspec-rails',  '~> 3.5'
+  gem 'capybara'
 end
 
 group :development do
