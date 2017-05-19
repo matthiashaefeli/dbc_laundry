@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   get '/orders/shippers', to: 'orders#shippers', as: 'all_shippers'
 	resources :orders
   resources :charges, only: [:new, :create]
+
   resources :boxes
 
- # Admins with devise and custom routes
+  # Admins with devise and custom routes
   devise_for :admins, :controllers => {:registrations => 'registrations'}
   get '/admins/new', to: 'admins#admin_new', as: 'new_admin'
   post '/admins/new', to: 'admins#admin_create', as: 'create_admin'
