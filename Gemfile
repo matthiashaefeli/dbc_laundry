@@ -21,8 +21,6 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'qrio'
 
-gem 'rmagick', '~> 2.15', '>= 2.15.4'
-
 gem 'sendgrid-ruby'
 gem 'stripe'
 
