@@ -1,32 +1,40 @@
-<h2>Create new Admin user</h2>
+<div class="container">
+  <div class="row">
+    <div class='col'>
+      <h2>Create new Admin user</h2>
+          <%= form_for(:admins) do |f| %>
+          <%= f.hidden_field :business_id, value: current_admin.business.id%>
+         <div class="field">
+          <%= f.label :name %><br />
+          <%= f.text_field :name, autofocus: true %>
+        </div>
 
-<%= form_for(:admins) do |f| %>
-    <%= f.hidden_field :business_id, value: current_admin.business.id%>
-   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email%>
+        </div>
+
+        <div class="field">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Create admin" %>
+        </div>
+      <% end %><br>
+      <br>
+    </div>
+    <div class="col">
+      <%= render "./shippers/registrations/new" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email%>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Create admin" %>
-  </div>
-<% end %>
-
+</div>

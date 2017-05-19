@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
 	resources :businesses
   get 'orders/history', to: 'orders#history', as: 'history'
+  get '/orders/shippers', to: 'orders#shippers', as: 'all_shippers'
 	resources :orders
   resources :charges, only: [:new, :create]
-
-
 
  # Admins with devise and custom routes
   devise_for :admins, :controllers => {:registrations => 'registrations'}
