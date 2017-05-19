@@ -14,10 +14,8 @@ skip_before_action :verify_authenticity_token
 		 
 		# if request.xhr?
 		
-		something =  Qrio::Qr.load("public/static_qr_code_without_logo2.png").qr.text
-		if something == '@'
-			something = 1
-		end
+		
+		
 		
 		png =  Base64.decode64(params[:data]['data:image/png;base64,'.length .. -1])
 
@@ -26,11 +24,14 @@ skip_before_action :verify_authenticity_token
 		 #need to take out this expression (data:image\/jpeg;base64)
 		
 		code = Qrio::Qr.load("pic.png").qr.text
+		if code == '@'
+			code = 1
+		end
 		binding.pry
 		
 		# end
 		
-		@order = Order.create(client_id: current_client.id, business_id: 1, box_in: something, status: "In Box", paid: false)
+		@order = Order.create(client_id: current_client.id, business_id: 1, box_in: code, status: "In Box", paid: false)
 	end
 
 	def update

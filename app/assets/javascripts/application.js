@@ -28,13 +28,14 @@
 $( document ).ready(function() {
 
 	
-
+	var track;
 	var constraints = { audio: false, video: { facingMode: { exact: "environment" } } }
 
 	navigator.mediaDevices.getUserMedia(constraints)
 	.then(function(mediaStream) {
 		var video = document.querySelector('video'); 
 		video.srcObject = mediaStream;
+		track = mediaStream.getTracks()[0];
 		video.onloadedmetadata = function(e) {
 			video.play();
 		};
@@ -57,9 +58,9 @@ $( document ).ready(function() {
 		var context = canvas.getContext('2d');
 		context.drawImage(video, 0, 0, 400, 400);
 		var dataURL = canvas.toDataURL();
-		console.log(dataURL);
+		
 		sendPicture(dataURL);
-
+		cameraOff()
 	}
 
 	function sendPicture(image){
@@ -69,6 +70,12 @@ $( document ).ready(function() {
 			url: '/orders',
 			data: {data: image}
 		})
+	}
+
+	function cameraOff() {
+	    video.pause();
+	    video.src = "";
+	    track.stop();
 	}
 
 	window.addEventListener('load', startup, false);
