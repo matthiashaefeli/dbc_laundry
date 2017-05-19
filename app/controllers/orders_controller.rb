@@ -30,12 +30,12 @@ skip_before_action :verify_authenticity_token
 
 		
 		# code = ''
-		 alt_id = params[:box_id]
-		
+		 alt_id = params[:box_id].to_i
+		binding.pry
 		
 		# end
 		
-		@order = Order.create(client_id: current_client.id, business_id: 1, box_in: alt_id, status: "In Box", paid: false)
+		@order = Order.create(client_id: current_client.id, business_id: 1, box_in: alt_id, box_out: alt_id, status: "In Box", paid: false)
 
 	end
 

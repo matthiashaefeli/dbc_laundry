@@ -39,7 +39,7 @@ $( document ).ready(function() {
 
 	$('form.checkies').on('submit',function(){
 		$form = $(this)
-		
+		debugger;
 		$.ajax({
 			method: 'POST',
 			url: '/orders',
