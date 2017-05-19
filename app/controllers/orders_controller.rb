@@ -14,6 +14,7 @@ skip_before_action :verify_authenticity_token
 		png =  Base64.decode64(params[:data]['data:image/png;base64,'.length .. -1])
 
 		File.open('pic.png', 'w+b') { |f| f.write(png) }
+		binding.pry
 
 		code = Qrio::Qr.load("pic.png").qr.text
 		if code == '@'
@@ -32,7 +33,7 @@ skip_before_action :verify_authenticity_token
 				@order.save
 				current_shipper.update_attributes(box_id: params[:order][:box_id])
 				current_shipper.save
-				UserNotifier.send_update_email(@order.client).deliver
+				# UserNotifier.send_update_email(@order.client).deliver
 			end
 		else
 			@order.update_attributes(status: params[:order][:order_status])
