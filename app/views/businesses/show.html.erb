@@ -3,11 +3,14 @@
   <tr>
     <th>Admin</th>
     <th>Email</th> 
+     <th></th> 
   </tr>
   <% current_admin.business.admins.each do |admin| %>
   <tr>
     <td><%= admin.name %></td>
     <td><%= admin.email %></td> 
+    <td><%= link_to("edit", edit_admin_registration_path(admin)) %></td> 
+
   </tr>
   <% end %>
 </table>
@@ -19,12 +22,16 @@
     <th>Name</th> 
     <th>Email</th> 
     <th>Phone</th>
+    <th></th> 
+
   </tr>
   <% current_admin.business.shippers.each do |shipper| %>
   <tr>
     <td><%= shipper.name %></td> 
     <td><%= shipper.email %></td> 
     <td><%= shipper.phone %></td>
+    <td><%=link_to("edit", edit_shipper_registration_path(shipper)) %></td> 
+
   </tr>
   <% end %>
 </table>
