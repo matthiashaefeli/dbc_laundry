@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 	resources :orders
   resources :charges, only: [:new, :create]
 
- # Admins with devise and custom routes
+  resources :boxes
+
+  # Admins with devise and custom routes
   devise_for :admins, :controllers => {:registrations => 'registrations'}
   get '/admins/new', to: 'admins#admin_new', as: 'new_admin'
   post '/admins/new', to: 'admins#admin_create', as: 'create_admin'
