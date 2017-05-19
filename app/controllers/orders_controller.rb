@@ -20,9 +20,12 @@ class OrdersController < ApplicationController
 		if something == '@'
 			something = 1
 		end
+
+		
+		
 		# end
-			binding.pry
-		#@order = Order.create(client_id: current_client.id, business_id: 1, box_in: 5, status: "In Box", paid: false)
+			
+		@order = Order.create(client_id: current_client.id, business_id: 1, box_in: something, status: "In Box", paid: false)
 	end
 
 	def update

@@ -18,21 +18,50 @@
 //= require_tree .
 
 
+// Taking Still photos with WEB RTC
+// https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Taking_still_photos
 
-
+// THINGS TO UNDERSTAND BETTER
+// srcObject
+// onloadedmetadata
+// drawImage
 $( document ).ready(function() {
 
-	$('form.new_order').on('submit',function(e){
-		e.preventDefault();
-		console.log('Button Works!');
-		$form = $(this)
-		$.ajax({
-			method: $form.attr('method'),
-			url: $form.attr('action')
-		})
-		.done(function(resp){
-			console.log(resp)
-		})
+	$(".something").hide()
+	$('.started').click(function(){
+		$(".something").show()
 	})
+
+	var constraints = { audio: false, video: { facingMode: { exact: "environment" } } }
+
+	navigator.mediaDevices.getUserMedia(constraints)
+	.then(function(mediaStream) {
+		var video = document.querySelector('video'); 
+		video.srcObject = mediaStream;
+		video.onloadedmetadata = function(e) {
+			video.play();
+		};
+	})
+	.catch(function(err) { console.log(err.name + ": " + err.message); }); 
+
+	function startup() {
+		var video = $('#video');
+		var canvas = $('#canvas');
+		var photo = $('#photo');
+		var startbutton = document.getElementById('startbutton'); 
+
+		startbutton.addEventListener('click', function(e){  
+			e.preventDefault();
+			takepicture();
+
+		}, false);  
+	}
+
+	function takepicture() {
+		var context = canvas.getContext('2d');
+		context.drawImage(video, 0, 0, 400, 400);
+	}
+
+	window.addEventListener('load', startup, false);
 
 });

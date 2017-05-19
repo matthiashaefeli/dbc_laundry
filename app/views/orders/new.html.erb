@@ -1,11 +1,21 @@
 <p>add new order</p>
 <!-- <P><%= link_to "add", orders_path, :method => :post %><p> -->
 
-<!-- <button class="set_order">Make Order</button> -->
 
-<%= form_for @order, remote: true do |f| %>
-<%= f.label :CreateOrder %>:
-<%= f.text_field :id %><br />
-<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-<%= f.submit %>
-<% end %>
+
+
+
+
+<button class="started">Start Camera</button>
+
+<div class="something">
+	<div class="camera">
+		<video id="video"></video>
+		<button id="startbutton">Scan Code</button>
+	</div>
+
+
+	<canvas id="canvas" width="600" height="600">
+	</canvas>
+
+</div>
