@@ -13,10 +13,10 @@
 	<td><%= order.client.name %></td>
 	<td>
 		<%= form_for :order, url: order_path(order.id), :method => :put do |f| %>
-		<p><%= f.select :area,
+		<p><%= f.select :order_status,
 				options_for_select([[order.status, order.status],['In Box', 'In Box'],
 				['Incomming', 'Incomming'],['Processing', 'Processing'],
-				['Shipping', 'Shipping']], params[:area]) %></p>
+				['Shipping', 'Shipping']], params[:order_status]) %></p>
 		<p><%= f.submit %></p>
 		<p><% end %></p>
 		</td>
