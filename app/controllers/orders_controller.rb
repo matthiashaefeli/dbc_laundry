@@ -25,17 +25,19 @@ skip_before_action :verify_authenticity_token
 	def update
 		@order = Order.find(params[:id])
 		if params[:order][:order_status] == nil
-			if params[:order][:box_id] == ""
+			if params[:order][:delivered_address] == ""
 				redirect_to root_path and return
 			else
-				@order.update_attributes(status: "Delivered", box_out: params[:order][:box_id])
+				@box = Box.find_by(address: params[:order][:delivered_address])
+				@order.update_attributes(:status => "Delivered", :box_out => @box.id, :shipper_id => current_shipper)
 				@order.save
 				current_shipper.update_attributes(box_id: params[:order][:box_id])
 				current_shipper.save
-				UserNotifier.send_update_email(@order.client).deliver
+				#UserNotifier.send_update_email(@order.client).deliver
 			end
 		else
-			@order.update_attributes(status: params[:order][:order_status])
+			# binding.pry
+			@order.update_attribute(:status, params[:order][:order_status])
 			@order.save
 		end
 		redirect_to root_path
