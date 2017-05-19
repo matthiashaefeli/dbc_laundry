@@ -12,9 +12,9 @@
 	<td><%= order.box_in %></td>
 	<td>
 	<%= form_for :order, url: order_path(order.id), :method => :put do |f| %>
-	 <p>
-    <%= f.number_field :box_id, :step => 1.0 %>
-    <%= f.submit %>
+	 <p><%= f.select :delivered_address,
+				options_for_select(box_array(current_shipper.business.boxes)) %></p>
+		<p><%= f.submit %></p>
     <% end %>
   </p>
 	</td>
