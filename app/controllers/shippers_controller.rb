@@ -12,6 +12,6 @@ class ShippersController < ApplicationController
 
   protected
   def shipper_params
-     params.require(:shippers).permit(:phone,:email, :password, :business_id)
+     params.require(:shippers).permit(:name, :phone,:email, :password, :business_id)
   end
 end
