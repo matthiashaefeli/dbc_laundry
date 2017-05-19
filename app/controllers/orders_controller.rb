@@ -29,12 +29,13 @@ skip_before_action :verify_authenticity_token
 				redirect_to root_path and return
 			else
 				@box = Box.find_by(address: params[:order][:delivered_address])
-				@order.update_attributes(status: "Delivered", box_out: @box.id, shipper_id: current_shipper)
+				@order.update_attributes(:status => "Delivered", :box_out => @box.id, :shipper_id => current_shipper)
 				@order.save
 				# UserNotifier.send_update_email(@order.client).deliver
 			end
 		else
-			@order.update_attributes(status: params[:order][:order_status])
+			# binding.pry
+			@order.update_attribute(:status, params[:order][:order_status])
 			@order.save
 		end
 		redirect_to root_path
