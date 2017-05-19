@@ -36,8 +36,6 @@
       <% end %>
   
       <%if !current_client && !current_admin && current_shipper %>
-
-      <%if current_shipper  %>
         <%= link_to("Shipper Logout ", destroy_shipper_session_path, method: "delete") %> <br>
       <% elsif !current_client && !current_shipper && !current_admin  %>
         <%= link_to("Shipper Login ", new_shipper_session_path) %> <br>
