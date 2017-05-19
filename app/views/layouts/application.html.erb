@@ -12,7 +12,7 @@
 
   <body>
 
-    <%= render "layouts/clients_nav.html.erb" if current_client %>
+    <%= render "layouts/clients_nav.html.erb" if !current_admin && !current_shipper %>
 
     <%= render "layouts/admins_nav.html.erb" if current_admin %>
 
