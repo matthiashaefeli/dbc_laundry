@@ -66,7 +66,7 @@ $( document ).ready(function() {
 	}
 
 	function sendPicture(image){
-		
+
 		$.ajax({
 			method: 'POST',
 			url: '/orders',
