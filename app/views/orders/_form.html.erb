@@ -1,27 +1,11 @@
 <div>
 	<h1>Your Orders</h1>
 </div>
-
-
-<table style="width:70%">
-	<tr>
-		<th>Order id 	</th>
-		<th>Status 		</th>
-		<th>Paid? 		</th>
-		<th>Total  		</th>
-	</tr>
-		<tr>
-		<% current_client.orders.each do |order| %>
-      
-			<td><%= link_to(order.id, order_path(order.id)) %> </td>
-			<td>	<%= order.status %>			</td>
-			<td>	<%= order.paid %>  			</td>
-			<td>	<%= order.total %> 			</td>
-			
-		</tr>
-		<% end %>
-</table>
-<br>
+<% if current_client && current_client.orders %>
+<% current_client.orders.each do |order| %>
+	<%= render partial: "orders/show", locals: {order: order} if current_client.orders %>
+<% end %>
+<% end %>
 
 
 
