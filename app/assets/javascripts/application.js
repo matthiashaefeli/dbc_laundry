@@ -27,10 +27,7 @@
 // drawImage
 $( document ).ready(function() {
 
-	$(".something").hide()
-	$('.started').click(function(){
-		$(".something").show()
-	})
+	
 
 	var constraints = { audio: false, video: { facingMode: { exact: "environment" } } }
 

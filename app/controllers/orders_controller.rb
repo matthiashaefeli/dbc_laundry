@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
  
-
+skip_before_action :verify_authenticity_token
 
 	def new
 		@order = Order.new
@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
 	end
 
 	def create
-		 binding.pry
+		 
 		# if request.xhr?
 		
 		something =  Qrio::Qr.load("public/static_qr_code_without_logo2.png").qr.text
@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
 
 		
 		# end
-			
+		binding.pry	
 		@order = Order.create(client_id: current_client.id, business_id: 1, box_in: something, status: "In Box", paid: false)
 	end
 
