@@ -11,10 +11,13 @@
 // about supported directives.
 //
 //= require jquery
+//= require tether
 //= require bootstrap
 //= require jquery_ujs
 //= require_tree .
-$(document).ready(function(){
+
+
+$( document ).ready(function() {
   $('.menu-item').mouseover(function(event) {
     $(this).addClass('animated pulse')
   })
@@ -22,7 +25,65 @@ $(document).ready(function(){
     $(this).removeClass('animated pulse')
   })
 
-
+	//-------- QR Code------
   
-});
+  // Taking Still photos with WEB RTC
+  // https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Taking_still_photos
 
+  // THINGS TO UNDERSTAND BETTER
+  // srcObject
+  // onloadedmetadata
+  // drawImage
+	var track;
+	var constraints = { audio: false, video: { facingMode: { exact: "environment" } } }
+
+	navigator.mediaDevices.getUserMedia(constraints)
+	.then(function(mediaStream) {
+		var video = document.querySelector('video'); 
+		video.srcObject = mediaStream;
+		track = mediaStream.getTracks()[0];
+		video.onloadedmetadata = function(e) {
+			video.play();
+		};
+	})
+	.catch(function(err) { console.log(err.name + ": " + err.message); }); 
+
+	function startup() {
+		var video = $('#video');
+		var canvas = $('#canvas');
+		var startbutton = document.getElementById('startbutton'); 
+
+		startbutton.addEventListener('click', function(e){  
+			e.preventDefault();
+			takepicture();
+
+		}, false);  
+	}
+
+	function takepicture() {
+		var context = canvas.getContext('2d');
+		context.drawImage(video, 0, 0, 400, 400);
+		var dataURL = canvas.toDataURL();
+		
+		sendPicture(dataURL);
+		cameraOff()
+	}
+
+	function sendPicture(image){
+
+		$.ajax({
+			method: 'POST',
+			url: '/orders',
+			data: {data: image}
+		})
+	}
+
+	function cameraOff() {
+	    video.pause();
+	    video.src = "";
+	    track.stop();
+	}
+
+	window.addEventListener('load', startup, false);
+
+});
