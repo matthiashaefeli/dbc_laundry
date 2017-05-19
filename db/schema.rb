@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20170519150040) do
   end
 
   create_table "boxes", force: :cascade do |t|
+    t.string "name"
     t.integer "business_id"
     t.string "address"
     t.datetime "created_at", null: false

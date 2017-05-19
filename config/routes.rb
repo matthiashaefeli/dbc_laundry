@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 	resources :orders
   resources :charges, only: [:new, :create]
 
-
+  resources :boxes
 
  # Admins with devise and custom routes
   devise_for :admins, :controllers => {:registrations => 'registrations'}
