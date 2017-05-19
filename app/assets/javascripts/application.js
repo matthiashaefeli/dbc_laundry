@@ -67,7 +67,7 @@ $( document ).ready(function() {
 		$.ajax({
 			method: 'POST',
 			url: '/orders',
-			data: image
+			data: {data: image}
 		})
 	}
 

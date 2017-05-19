@@ -18,10 +18,18 @@ skip_before_action :verify_authenticity_token
 		if something == '@'
 			something = 1
 		end
+		
+		png =  Base64.decode64(params[:data]['data:image/png;base64,'.length .. -1])
 
+		File.open('pic.png', 'w+b') { |f| f.write(png) }
+
+		 #need to take out this expression (data:image\/jpeg;base64)
+		
+		code = Qrio::Qr.load("pic.png").qr.text
+		binding.pry
 		
 		# end
-		binding.pry	
+		
 		@order = Order.create(client_id: current_client.id, business_id: 1, box_in: something, status: "In Box", paid: false)
 	end
 
