@@ -32,7 +32,7 @@ skip_before_action :verify_authenticity_token
 				@order.save
 				current_shipper.update_attributes(box_id: params[:order][:box_id])
 				current_shipper.save
-				# UserNotifier.send_update_email(@order.client).deliver
+				UserNotifier.send_update_email(@order.client).deliver
 			end
 		else
 			@order.update_attributes(status: params[:order][:order_status])

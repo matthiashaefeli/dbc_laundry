@@ -51,7 +51,6 @@ GEM
       sass (>= 3.4.19)
     builder (3.2.3)
     byebug (9.0.6)
-
     capybara (2.14.0)
       addressable
       mime-types (>= 1.16)
@@ -164,7 +163,6 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
-    rmagick (2.16.0)
     rspec-core (3.5.4)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
@@ -258,7 +256,6 @@ DEPENDENCIES
   qrio
   rails (~> 5.1.0)
   rails-assets-tether (>= 1.1.0)!
-  rmagick (~> 2.15, >= 2.15.4)
   rspec-rails (~> 3.5)
   sass-rails (~> 5.0)
   sendgrid-ruby
