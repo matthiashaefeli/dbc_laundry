@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature "visiting the admin homepage" do
-  scenario "User can navigate to log in" do
+  scenario "Admin can navigate to log in" do
     visit "/"
 
     within(".footer") do
