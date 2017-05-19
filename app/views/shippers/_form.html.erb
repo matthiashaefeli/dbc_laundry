@@ -13,7 +13,7 @@
 	<td>
 	<%= form_for :order, url: order_path(order.id), :method => :put do |f| %>
 	 <p>
-    <%= f.number_field :amount, :step => 1.0 %>
+    <%= f.number_field :box_id, :step => 1.0 %>
     <%= f.submit %>
     <% end %>
   </p>
