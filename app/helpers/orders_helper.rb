@@ -10,4 +10,12 @@ module OrdersHelper
     }
     status = status_percentage[order.status]
   end
+
+  def shipper_array (shippers)
+    s_array = ["Select Shipper"]
+    shippers.each do |shipper|
+      s_array << [shipper.name]
+    end
+    s_array
+  end
 end
