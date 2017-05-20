@@ -1,6 +1,12 @@
+<%=link_to new_order_path do %>
+<div class="row justify-content-center btn-machine">
+   <img src="/images/new-machine-logo3.jpg" alt="new order machine" >
+</div>
+<% end %>
 <div>
 	<h1>Your Orders</h1>
 </div>
+
 <% if current_client && current_client.orders %>
 <% current_client.orders.each do |order| %>
 	<%= render partial: "orders/show", locals: {order: order} if current_client.orders %>

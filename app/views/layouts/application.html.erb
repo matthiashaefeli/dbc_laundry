@@ -19,18 +19,20 @@
   </head>
 
   <body>
-  <!-- hide in mobil -->
-    <div class="hidden-sm-down"> 
-      <%= render "layouts/clients_nav.html.erb" if !current_admin && !current_shipper %>
-    </div>
-  <!-- NAVBAR MOBIL HOME WITHOUT SIGN INS -->
-    <div class="nav-mobil col-12 hidden-md-up"">
-      a
-    </div>
+  <!-- HOME HEADER WITHOUT LOGIN -->
+      <% if !current_client && !current_admin && !current_shipper %>
+        <div class="nav-mobil">
+          this is a header
+        </div>
+      <% end %>
+  <!-- CLIENT NAVBAR -->
+      <%= render "layouts/clients_nav.html.erb" if current_client %>
+    <!-- </div> -->
       
       <%= render "layouts/admins_nav.html.erb" if current_admin %>
 
       <%= render "layouts/shippers_nav.html.erb" if current_shipper %>
+
     <!-- Devise notice and alert -->
     <div class="row justify-content-center">
       <p class="notice"><%= notice %></p>
