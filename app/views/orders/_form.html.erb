@@ -17,5 +17,7 @@
 	  </p>
 	  <% end %>
   <% end %>
+
 	<%= render partial: "orders/show", locals: {order: order} if current_client.orders %>
+	<% end %>
 <% end %>
