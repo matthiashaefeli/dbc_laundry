@@ -9,7 +9,7 @@
 		<% current_shipper.business.orders.where(status: "Shipping").each do |order| %>
 	<tr>
 	<td><%= order.id %></td>
-	<td><%= order.box_in %></td>
+	<td><% box = Box.find(order.box_in) %><%= box.address %></td>
 	<td>
 	<%= form_for :order, url: order_path(order.id), :method => :put do |f| %>
 	 <p><%= f.select :delivered_address,
