@@ -14,7 +14,7 @@
 	<%= form_for :order, url: order_path(order.id), :method => :put do |f| %>
 	 <p><%= f.select :delivered_address,
 				options_for_select(box_array(current_shipper.business.boxes)), class: "form-group" %></p>
-		<p><%= f.submit, class: "btn btn-success" %></p>
+		<p><%= f.submit%></p>
     <% end %>
   </p>
 	</td>
