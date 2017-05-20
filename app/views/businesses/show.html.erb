@@ -2,12 +2,12 @@
 <table style="width:30%">
   <tr>
     <th>Admin</th>
-    <th>Email</th> 
+    <th>Email</th>
   </tr>
   <% current_admin.business.admins.each do |admin| %>
   <tr>
     <td><%= admin.name %></td>
-    <td><%= admin.email %></td> 
+    <td><%= admin.email %></td>
 
   </tr>
   <% end %>
@@ -17,15 +17,15 @@
 <h1>All Shippers</h1>
 <table style="width:50%">
   <tr>
-    <th>Name</th> 
-    <th>Email</th> 
+    <th>Name</th>
+    <th>Email</th>
     <th>Phone</th>
 
   </tr>
   <% current_admin.business.shippers.each do |shipper| %>
   <tr>
-    <td><%= shipper.name %></td> 
-    <td><%= shipper.email %></td> 
+    <td><%= shipper.name %></td>
+    <td><%= shipper.email %></td>
     <td><%= shipper.phone %></td>
   </tr>
   <% end %>
@@ -35,19 +35,31 @@
 <h1>All Clients</h1>
 <table style="width:100%">
   <tr>
+    <th>  </th>
+    <th>Bag Id</th>
     <th>Name</th>
     <th>Email</th>
     <th>Phone</th>
-    <th>Order count</th> 
+    <th>Order count</th>
     <th>Total $</th>
   </tr>
   <% current_admin.business.clients.each do |client| %>
   <tr>
+     <% if client.bag_id %>
+    <td><%= client.bag_id %></td>
+    <% else %>
+    <td><%= form_tag(add_bag_path, method: "post") do %>
+    <%= hidden_field_tag(:client_id, client.id) %>
+      <%= text_field_tag(:bag_id) %> <%= submit_tag("set")%>
+      <% end %>
+    </td>
+    <% end %>
     <td><%= client.name %></td>
     <td><%= client.email %></td>
     <td><%= client.phone %></td>
-    <td><%= client.orders.count %></td> 
+    <td><%= client.orders.count %></td>
     <td><%= client.orders.sum(:total) %></td>
+
   </tr>
   <% end %>
 </table>
