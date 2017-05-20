@@ -43,7 +43,9 @@ skip_before_action :verify_authenticity_token
 
 	def update
 		@order = Order.find(params[:id])
-		if params[:order][:order_status] == nil
+		if params[:commit] == "Add order to History"
+			@order.history = true
+		elsif params[:order][:order_status] == nil
 			if params[:order][:delivered_address] == ""
 				redirect_to root_path and return
 			else
