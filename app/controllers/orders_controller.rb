@@ -35,7 +35,7 @@ skip_before_action :verify_authenticity_token
 		
 		
 		# end
-		binding.pry
+	
 		
 		@order = Order.create(client_id: current_client.id, business_id: 1, box_in: b.id, status: "In Box", paid: false)
 		redirect_to new_charge_path
@@ -45,6 +45,7 @@ skip_before_action :verify_authenticity_token
 		@order = Order.find(params[:id])
 		if params[:commit] == "Add order to History"
 			@order.history = true
+			@order.save
 		elsif params[:order][:order_status] == nil
 			if params[:order][:delivered_address] == ""
 				redirect_to root_path and return
@@ -52,14 +53,16 @@ skip_before_action :verify_authenticity_token
 				@box = Box.find_by(address: params[:order][:delivered_address])
 				@order.update_attributes(:status => "Delivered", :box_out => @box.id)
 				@order.save
-				current_shipper.update_attributes(box_id: params[:order][:box_id])
-				current_shipper.save
 				#UserNotifier.send_update_email(@order.client).deliver
 			end
 		else
-			shipper = Shipper.find_by(name: params[:order][:assign_shipper_to_order])
-			@order.update_attributes(status: params[:order][:order_status], shipper_id: shipper.id)
-			@order.save
+			if shipper = Shipper.find_by(name: params[:order][:assign_shipper_to_order])
+				@order.update_attributes(status: params[:order][:order_status], shipper_id: shipper.id)
+				@order.save
+			else 
+				@order.update_attributes(status: params[:order][:order_status])
+				@order.save
+			end
 		end
 		redirect_to root_path
 	end

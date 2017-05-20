@@ -5,7 +5,7 @@ module OrdersHelper
       "In Box" => "5",
       "Incomming" => "10",
       "Processing" => "50",
-      "Shipping" => "90",
+      "Shipping" => "75",
       "Delivered" => "100"
     }
     status = status_percentage[order.status]
