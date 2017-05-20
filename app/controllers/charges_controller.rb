@@ -18,9 +18,13 @@ class ChargesController < ApplicationController
       :description => "Bag of clothes",
       :currency => 'usd'
       )
-
+    @order = current_client.orders.last
+    @order.paid = true
   rescue Stripe::CardError => e
+    @order.paid = false
     flash[:error] = e.message
     redirect_to new_order_path
   end
+
+  redirect_to root_path
 end
