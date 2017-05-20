@@ -16,7 +16,7 @@ class ChargesController < ApplicationController
       :customer => customer.id,
       :amount => @amount,
       :description => "Bag of clothes",
-      :statement_descriptor => "Dbc Laundry"
+      :statement_descriptor => "Dbc Laundry",
       :currency => 'usd'
       )
     @order = current_client.orders.last
@@ -28,6 +28,7 @@ class ChargesController < ApplicationController
     @order.paid = false
     flash[:error] = e.message
     redirect_to new_order_path
+
   end
 
 
