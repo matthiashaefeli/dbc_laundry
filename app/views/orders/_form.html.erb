@@ -2,6 +2,7 @@
 	<h1>Your Orders</h1>
 </div>
 <% if current_client && current_client.orders %>
+<p> Bag: <%= current_client.bag_id %></p>
 <% current_client.orders.each do |order| %>
 	<%= render partial: "orders/show", locals: {order: order} if current_client.orders %>
 <% end %>
