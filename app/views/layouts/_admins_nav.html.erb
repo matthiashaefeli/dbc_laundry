@@ -5,21 +5,21 @@
      <i class="fa fa-2x fa-user-plus" aria-hidden="true"> <%= link_to("Setup",new_admin_path) %></i>
     </div>
     <div class="col-sm-3 menu-item  d-flex justify-content-center">
-      <i class="fa fa-2x fa-truck" aria-hidden="true"><%= link_to("Shippers",all_shippers_path) %></i>
+      <i class="fa fa-2x fa-truck" aria-hidden="true"> <%= link_to("Shippers",all_shippers_path) %></i>
     </div>
     <div class="col-sm-3 menu-item  d-flex justify-content-center">
-      <i class="fa fa-2x fa-line-chart" aria-hidden="true"><%= link_to("Business",business_path(current_admin.business)) %></i></a>
+      <i class="fa fa-2x fa-line-chart" aria-hidden="true"> <%= link_to("Business",business_path(current_admin.business)) %> <%= unasigned_bags %></i></a>
     </div>
     <div class="col-sm-3  menu-item d-flex justify-content-center">
-      <a href="/"><i class="fa fa-2x fa-pencil-square-o" aria-hidden="true">Orders</i></a>
+      <a href="/"><i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"> Orders</i></a>
     </div><br>
 </div>
 
 <div class= "d-flex justify-content-end">
-<i class="fa fa-user-plus" aria-hidden="true"><%= link_to("Edit profile", edit_admin_registration_path(current_admin)) %> </i> 
+<i class="fa fa-user-plus" aria-hidden="true"><%= link_to("Edit profile", edit_admin_registration_path(current_admin)) %> </i>
 <i><%= button_to "X logout", destroy_admin_session_path, class: "btn-link logout ", method:"delete"  %></i>
 
 </div>
 </div>
- 
+
 <hr>
