@@ -5,9 +5,17 @@ module OrdersHelper
       "In Box" => "5",
       "Incomming" => "10",
       "Processing" => "50",
-      "Shipping" => "90",
+      "Shipping" => "75",
       "Delivered" => "100"
     }
     status = status_percentage[order.status]
+  end
+
+  def shipper_array (shippers)
+    s_array = ["Select Shipper"]
+    shippers.each do |shipper|
+      s_array << [shipper.name]
+    end
+    s_array
   end
 end
