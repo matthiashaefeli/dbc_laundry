@@ -11,18 +11,6 @@ class AdminsController < ApplicationController
    redirect_to root_path
   end
 
-  def add_bag
-    @client = Client.find(params[:client_id])
-    @client.bag_id = params[:bag_id].to_i
-    binding.pry
-    @client.save
-    redirect_to business_path
-  end
-
-
-
-
-
   protected
   def admin_params
      params.require(:admins).permit(:name,:email, :password, :business_id)

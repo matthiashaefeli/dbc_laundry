@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   devise_for :admins, :controllers => {:registrations => 'registrations'}
   get '/admins/new', to: 'admins#admin_new', as: 'new_admin'
   post '/admins/new', to: 'admins#admin_create', as: 'create_admin'
-  post '/admins/add_bag', to: 'admins#add_bag', as: 'add_bag'
 
 # Shippers routes
  devise_for :shippers, :controllers => {:registrations => 'registrations'}
@@ -19,6 +18,9 @@ Rails.application.routes.draw do
   post '/shippers/new', to: 'shippers#shipper_create', as: 'create_shipper'
 
   devise_for :clients, :controllers => {:registrations => 'registrations'}
+  post '/clients/:id/add_bag', to: 'clients#add_bag', as: 'add_bag'
+  get '/clients/:id/edit_bag', to: 'clients#edit_bag', as: 'edit_bag'
+  patch '/clients/:id/edit_bag', to: 'clients#update_bag', as: 'client'
   get "/admins/dash" => "static_pages#admins_dash"
   root "application#home"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

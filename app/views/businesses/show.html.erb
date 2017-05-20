@@ -45,10 +45,10 @@
   <% current_admin.business.clients.each do |client| %>
   <tr>
      <% if client.bag_id %>
+     <td><%= link_to "edit", edit_bag_path(client) %></td>
     <td><%= client.bag_id %></td>
     <% else %>
-    <td><%= form_tag(add_bag_path, method: "post") do %>
-    <%= hidden_field_tag(:client_id, client.id) %>
+    <td><%= form_tag(add_bag_path(client), method: "post") do %>
       <%= text_field_tag(:bag_id) %> <%= submit_tag("set")%>
       <% end %>
     </td>
