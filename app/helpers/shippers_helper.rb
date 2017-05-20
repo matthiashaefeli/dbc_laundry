@@ -1,7 +1,7 @@
 module ShippersHelper
 
 	def box_array (boxes)
-		b_array = []
+		b_array = ["Select deliver address"]
 		boxes.each do |box|
 			b_array << [box.address]
 		end
