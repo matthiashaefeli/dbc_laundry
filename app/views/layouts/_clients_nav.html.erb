@@ -33,7 +33,7 @@
   </div>
   <% end %>
 </div>
-<!-- CLIENT DESKTOP NAVBAR -->
+<!-- CLIENT MOBIL NAVBAR -->
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded hidden-md-up">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -49,11 +49,9 @@
         <%= link_to("New Order", new_order_path, class: "nav-link")%>
       </li>
        <li class="nav-item">
-        <a class="nav-link" href="#">History</a>
+        <%= link_to("History", history_path, class: "nav-link")%>
       </li>
-       <li class="nav-item">
-        <a class="nav-link" href="#">Payment</a>
-      </li>
+  
        <li class="nav-item">
         <%= link_to("Edit profile", edit_client_registration_path(current_client), class: "nav-link") %> 
       </li>
