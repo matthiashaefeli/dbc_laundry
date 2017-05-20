@@ -1,6 +1,12 @@
+<%=link_to new_order_path do %>
+<div class="row justify-content-center btn-machine">
+   <img src="/images/new-machine-logo3.jpg" alt="new order machine" >
+</div>
+<% end %>
 <div>
 	<h1>Your Orders</h1><br>
 </div>
+
 <% if current_client && current_client.orders %>
 <p> Bag: <%= current_client.bag_id %></p>
 <% current_client.orders.where(:history => false).each do |order| %>
@@ -11,5 +17,7 @@
 	  </p>
 	  <% end %>
   <% end %>
+
 	<%= render partial: "orders/show", locals: {order: order} if current_client.orders %>
+	<% end %>
 <% end %>

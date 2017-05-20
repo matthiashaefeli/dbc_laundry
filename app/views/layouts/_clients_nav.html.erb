@@ -1,10 +1,11 @@
-  <br>
-<div class="admin-header">
+<!-- CLIENT DESKTOP NAVBAR -->
+<div class="admin-header hidden-sm-down">
   <div class="admin-menu d-flex justify-content-around mb-3">
      <%if current_client  %>
       <div class="col-xs-12 col-md-3 menu-item d-flex justify-content-center">
-       <i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"><%= link_to("Home", root_path)%></i>
+        <i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"><%= link_to("Home", root_path)%></i>
       </div><br>
+
       <div class="col-md-3 menu-item d-flex justify-content-center">
        <i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"><%= link_to("History", history_path)%></i>
       </div><br>
@@ -14,22 +15,49 @@
       </div>
 
       <div class="col-md-3 menu-item d-flex justify-content-center">
-       <i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"><%= link_to("Logout", destroy_client_session_path, method: "delete")%></i>
+        <i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"><%= link_to("Logout", destroy_client_session_path, method: "delete")%></i>
       </div> <br> 
 
       <% elsif !current_admin && !current_client%>
-       <div class="col-sm-12 col-md-3 menu-item d-flex justify-content-center">
+      <div class="col-sm-12 col-md-3 menu-item d-flex justify-content-center">
         <i class="fa fa-sign-in fa-2x" aria-hidden="true"><%= link_to("Login", new_client_session_path,  class:"")%></i>
       </div>
       <div class="col-sm-12 col-md-3 menu-item  d-flex justify-content-center">
         <i class="fa fa-2x fa-user-plus" aria-hidden="true"><%= link_to("Register", new_client_registration_path) %> </i>
-        <% end %>
       </div>
-
+      <% end %>
   </div>
-<% if current_client %>
+  <% if current_client %>
   <div class="row justify-content-end client-edit-profile">
     <i class="fa fa-user-plus" aria-hidden="true"><%= link_to("Edit profile", edit_client_registration_path(current_client)) %> </i>
   </div>
-<% end %>
+  <% end %>
 </div>
+<!-- CLIENT MOBIL NAVBAR -->
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded hidden-md-up">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand invisible" href="#">LAUNDRY</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <%= link_to("New Order", new_order_path, class: "nav-link")%>
+      </li>
+       <li class="nav-item">
+        <%= link_to("History", history_path, class: "nav-link")%>
+      </li>
+  
+       <li class="nav-item">
+        <%= link_to("Edit profile", edit_client_registration_path(current_client), class: "nav-link") %> 
+      </li>
+      <li class="nav-item">
+        <%= link_to("Logout", destroy_client_session_path, method: "delete", class: "nav-link")%>
+      </li>
+    </ul>
+  </div>
+</nav>

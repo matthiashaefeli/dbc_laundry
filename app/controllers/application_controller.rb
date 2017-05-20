@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def home
+    
      if current_admin
        render "./static_pages/admins_dash.html.erb"
      else
