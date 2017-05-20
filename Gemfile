@@ -20,7 +20,6 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'qrio'
-
 gem 'sendgrid-ruby'
 gem 'stripe'
 
@@ -37,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
   gem 'devise'
   gem 'jquery-rails'
   gem 'bootstrap', '~> 4.0.0.alpha6'
-  gem 'json'
+  # gem 'json'
   gem 'font-awesome-sass'
 
 # Use Capistrano for deployment
