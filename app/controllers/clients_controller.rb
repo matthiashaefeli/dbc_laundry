@@ -3,7 +3,6 @@ def add_bag
     if current_admin
       @client = Client.find(params[:id])
       @client.bag_id = params[:bag_id].to_i
-      binding.pry
       @client.save
     end
     redirect_to business_path
