@@ -1,13 +1,15 @@
 <div>
-	<h1>Your Orders</h1>
+	<h1>Your Orders</h1><br>
 </div>
 <% if current_client && current_client.orders %>
-<% current_client.orders.each do |order| %>
+<% current_client.orders.where(:history => false).each do |order| %>
+	<% if order.status == "Delivered" %>
+	<%= form_for :order, url: order_path(order.id), :method => :put do |f| %>
+	  <p>
+	    <%= f.submit "Add order to History" %>
+	  </p>
+	  <% end %>
+  <% end %>
 	<%= render partial: "orders/show", locals: {order: order} if current_client.orders %>
+	<% end %>
 <% end %>
-<% end %>
-
-
-
-
-
