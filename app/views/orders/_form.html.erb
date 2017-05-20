@@ -2,6 +2,7 @@
 	<h1>Your Orders</h1><br>
 </div>
 <% if current_client && current_client.orders %>
+<p> Bag: <%= current_client.bag_id %></p>
 <% current_client.orders.where(:history => false).each do |order| %>
 	<% if order.status == "Delivered" %>
 	<%= form_for :order, url: order_path(order.id), :method => :put do |f| %>
@@ -11,5 +12,4 @@
 	  <% end %>
   <% end %>
 	<%= render partial: "orders/show", locals: {order: order} if current_client.orders %>
-	<% end %>
 <% end %>
