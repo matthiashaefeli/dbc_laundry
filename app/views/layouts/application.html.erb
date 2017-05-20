@@ -19,13 +19,18 @@
   </head>
 
   <body>
+  <!-- hide in mobil -->
+    <div class="hidden-sm-down"> 
+      <%= render "layouts/clients_nav.html.erb" if !current_admin && !current_shipper %>
+    </div>
+  <!-- NAVBAR MOBIL HOME WITHOUT SIGN INS -->
+    <div class="nav-mobil col-12 hidden-md-up"">
+      a
+    </div>
+      
+      <%= render "layouts/admins_nav.html.erb" if current_admin %>
 
-    <%= render "layouts/clients_nav.html.erb" if !current_admin && !current_shipper %>
-
-    <%= render "layouts/admins_nav.html.erb" if current_admin %>
-
-    <%= render "layouts/shippers_nav.html.erb" if current_shipper %>
-
+      <%= render "layouts/shippers_nav.html.erb" if current_shipper %>
     <!-- Devise notice and alert -->
     <div class="row justify-content-center">
       <p class="notice"><%= notice %></p>
