@@ -6,7 +6,7 @@
     <th>Box out</th>
     <th>Order status</th> 
   </tr>
-		<% current_shipper.business.orders.where(status: "Shipping").each do |order| %>
+		<% current_shipper.business.orders.where(status: "Shipping",shipper_id: current_shipper.id).each do |order| %>
 	<tr>
 	<td><%= order.id %></td>
 	<td><% box = Box.find(order.box_in) %><%= box.address %></td>
