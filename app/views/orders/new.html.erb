@@ -1,8 +1,11 @@
-
+<h2>Set Box Direction</h1>
+	<%= form_for :orders, url: orders_path, :method => :post do |f| %>
+	 <p><%= f.select :pick_up_address,
+				options_for_select(box_array(current_client.business.boxes)) %></p>
+		<p><%= f.submit %></p>
+    <% end %>
 <!-- <P><%= link_to "add", orders_path, :method => :post %><p> -->
 <section class="something">
-	<h2>Set Box Number</h1>
-
 		<div class="something">
 			<div class="camera">
 				<video id="video"></video>
@@ -17,9 +20,3 @@
 
 		</div>
 	</section>
-
-	<%= form_for :orders, url: orders_path, :method => :post do |f| %>
-	 <p><%= f.select :pick_up_address,
-				options_for_select(box_array(current_client.business.boxes)) %></p>
-		<p><%= f.submit %></p>
-    <% end %>

@@ -35,6 +35,7 @@ skip_before_action :verify_authenticity_token
 		
 		
 		# end
+		binding.pry
 		
 		@order = Order.create(client_id: current_client.id, business_id: 1, box_in: b.id, status: "In Box", paid: false)
 		redirect_to new_charge_path
@@ -47,15 +48,15 @@ skip_before_action :verify_authenticity_token
 				redirect_to root_path and return
 			else
 				@box = Box.find_by(address: params[:order][:delivered_address])
-				@order.update_attributes(:status => "Delivered", :box_out => @box.id, :shipper_id => current_shipper)
+				@order.update_attributes(:status => "Delivered", :box_out => @box.id)
 				@order.save
 				current_shipper.update_attributes(box_id: params[:order][:box_id])
 				current_shipper.save
 				#UserNotifier.send_update_email(@order.client).deliver
 			end
 		else
-			# binding.pry
-			@order.update_attribute(:status, params[:order][:order_status])
+			shipper = Shipper.find_by(name: params[:order][:assign_shipper_to_order])
+			@order.update_attributes(status: params[:order][:order_status], shipper_id: shipper.id)
 			@order.save
 		end
 		redirect_to root_path
