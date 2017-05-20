@@ -1,9 +1,7 @@
 <!-- show in mobil -->
   <!-- ALL HOME MENU -->
   <% if !current_client && !current_admin && !current_shipper %>
-  <div class="hidden-md-up">
     <%= render "/home_mobil.html.erb"  %>
-  </div>
   <% end %>
 
 <%= render "orders/form" if current_client %>
