@@ -2,12 +2,7 @@
 <!-- <P><%= link_to "add", orders_path, :method => :post %><p> -->
 <section class="something">
 	<h2>Set Box Number</h1>
-		<form class="checkies">
-			<input type="radio" name="box_id" value="1">1<br>
-			<input type="radio" name="box_id" value="2">2<br>
-			<input type="radio" name="box_id" value="3">3<br>	
-			<button type="submit">Submit</button>
-		</form>
+
 		<div class="something">
 			<div class="camera">
 				<video id="video"></video>
@@ -17,11 +12,14 @@
 
 			</div>
 
-
 			<canvas id="canvas" width="600" height="600">
 			</canvas>
 
-
-
 		</div>
 	</section>
+
+	<%= form_for :orders, url: orders_path, :method => :post do |f| %>
+	 <p><%= f.select :pick_up_address,
+				options_for_select(box_array(current_client.business.boxes)) %></p>
+		<p><%= f.submit %></p>
+    <% end %>
