@@ -38,6 +38,8 @@ $( document ).ready(function() {
   $('section.camie').hide()
   $('button.cam-activate').on('click',function(){
   	$('section.camie').show()
+
+  	//This is from the webcamjs library created by https://github.com/andrastoth/WebCodeCamJS
   	var arg = {
   		resultFunction: function(result) {
   			document.getElementById("something").value = result.code
