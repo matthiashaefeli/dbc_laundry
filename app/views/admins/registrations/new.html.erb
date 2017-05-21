@@ -1,29 +1,42 @@
-<h2>Sign up</h2>
+<div class="container">
+  <div class="row">
+    <div class='col'>
+      <h2>Create Admin user</h2>
+          <%= form_for(:admins) do |f| %>
+          <%= f.hidden_field :business_id, value: current_admin.business.id%>
+         <div class="form-group">
+          <%= f.text_field :name, autofocus: true , class:"form-control", placeholder: "Name"%>
+        </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+        <div class="form-group">
+          <%= f.email_field :email, class:"form-control", placeholder: "Email"%>
+        </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+        <div class="form-group">
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder: "Password" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder: "Password Confirmation" %>
+        </div>
+
+        <div class="form-group actions">
+          <%= f.submit "Create admin", class: "btn btn-success" %>
+        </div>
+      <% end %><br>
+      <br>
+    </div>
+    <div class="col">
+      <%= render "./shippers/registrations/new" %>
+    </div>
+    <div class="col">
+      <%= render "boxes/new"%>
+      <br>
+      <br>
+    </div>
+
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "admins/shared/links" %>
+</div>
