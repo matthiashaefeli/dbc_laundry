@@ -19,3 +19,5 @@ feature "Client can check its history" do
     expect(page).to have_content "Order history for Client"
   end
 end
+
+
