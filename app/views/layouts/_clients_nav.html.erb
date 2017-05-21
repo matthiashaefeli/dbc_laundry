@@ -11,7 +11,7 @@
       </div><br>
 
       <div class="col-md-3 menu-item d-flex justify-content-center">
-       <i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"><%= link_to("New Order", new_order_path)%></i>
+       <i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"><%= link_to_if current_client.bag_id, "New Order", new_order_path%></i>
       </div>
 
       <div class="col-md-3 menu-item d-flex justify-content-center">
@@ -46,7 +46,7 @@
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <%= link_to("New Order", new_order_path, class: "nav-link")%>
+        <%= link_to_if current_client.bag_id, "New Order", new_order_path, class: "nav-link" %>
       </li>
        <li class="nav-item">
         <%= link_to("History", history_path, class: "nav-link")%>
