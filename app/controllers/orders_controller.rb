@@ -11,9 +11,6 @@ skip_before_action :verify_authenticity_token
 	end
 
 	def create
-		binding.pry
-
-
 		if params[:box_and_location]
 			set = params[:box_and_location].split('-')
 			location = set[0]
