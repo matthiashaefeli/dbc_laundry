@@ -35,18 +35,35 @@ $( document ).ready(function() {
   // srcObject
   // onloadedmetadata
   // drawImage
-	
+  $('section.camie').hide()
+  $('button.cam-activate').on('click',function(){
+  	$('section.camie').show()
+  	var arg = {
+  		resultFunction: function(result) {
+  			document.getElementById("something").value = result.code
+  		}
+  	};
+  	new WebCodeCamJS("canvas").init(arg).play();
+  })
 
-	$('form.checkies').on('submit',function(){
-		$form = $(this)
-		
+	$('form.qrcode_form').on('submit',function(){
 		$.ajax({
 			method: 'POST',
 			url: '/orders',
 			data: $form.serialize()
 		})
-
 	})
+
+	// $('form.checkies').on('submit',function(){
+	// 	$form = $(this)
+		
+	// 	$.ajax({
+	// 		method: 'POST',
+	// 		url: '/orders',
+	// 		data: $form.serialize()
+	// 	})
+
+	// })
 	
 	// var track;
 	// var constraints = { audio: false, video: { facingMode: { exact: "environment" } } }

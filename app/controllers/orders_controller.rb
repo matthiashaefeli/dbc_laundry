@@ -11,33 +11,19 @@ skip_before_action :verify_authenticity_token
 	end
 
 	def create
-
-		 
-		# if request.xhr?
-		
-			# png =  Base64.decode64(params[:data]['data:image/png;base64,'.length .. -1])
+		binding.pry
 
 
-		# File.open('pic.png', 'w+b') { |f| f.write(png) }
+		if params[:box_and_location]
+			set = params[:box_and_location].split('-')
+			location = set[0]
+			box_in = set[1]
+		elsif params[:orders][:pick_up_address]
+			location = [:orders][:pick_up_address]
+			box_in = params[:orders][:box_id]
+		end
 
-
-		#  #need to take out this expression (data:image\/jpeg;base64)
-		
-		# code = Qrio::Qr.load("pic.png").qr.text
-		# if code == '@'
-		# 	code = 1
-		# end
-
-		b = Box.find_by(address: params[:orders][:pick_up_address])
-		# code = ''
-		
-		 
-		
-		
-		# end
-	
-		
-		@order = Order.create(client_id: current_client.id, business_id: 1, box_in: b.id, status: "In Box", paid: false)
+		@order = Order.create(client_id: current_client.id, business_id: 1, box_in: box_in.to_i, status: "In Box", paid: false)
 		redirect_to new_charge_path
 	end
 
