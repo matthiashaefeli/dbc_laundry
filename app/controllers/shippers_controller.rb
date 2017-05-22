@@ -10,8 +10,13 @@ class ShippersController < ApplicationController
    redirect_to root_path
   end
 
+  def shipper_edit
+    @shipper = Shipper.find(params[:id]) 
+    render "./shippers/registrations/edit.html.erb", locals: {shipper: @shipper}
+  end
+
   def shipper_update
-   @shipper = Shipper.find(current_shipper.id)
+   @shipper = Shipper.find(params[:id])
   if params[:shipper][:password] != ""
     @shipper.update_attributes(shipper_params)
   else  
