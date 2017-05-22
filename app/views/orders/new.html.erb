@@ -3,7 +3,7 @@
 <%= form_for :orders, url: orders_path, :method => :post do |f| %>
 <%= f.select :pick_up_address, options_for_select(box_array(current_client.business.boxes)) %>
 <%= f.select :box_id,
-options_for_select([1,2,3,4,5,6,7,8,9,10]) %>
+options_for_select(business.boxes.id) %>
 <%= f.submit %>
 <% end %>
 <!-- <P><%= link_to "add", orders_path, :method => :post %><p> -->
@@ -19,6 +19,7 @@ options_for_select([1,2,3,4,5,6,7,8,9,10]) %>
         <canvas></canvas>
         <hr>
         <form class="qrcode_form" action="/orders" method="post">
+        	<input type="hidden" name="authenticity_token" value="token_value">
 	        <input  id="something" type="text" name="box_and_location" value="">
 	        <button id="submit_button" type="submit">Create Order</button>
         </form>
