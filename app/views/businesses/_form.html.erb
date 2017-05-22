@@ -20,9 +20,10 @@
 		<% if order.status == "Processing" || order.status == "Shipping" || order.status == "Delivered" %>
 		<p><%= f.select :assign_shipper_to_order,
 				options_for_select(shipper_array(current_admin.business.shippers)) %></p>
+				<% end %>
 		<p><%= f.submit %></p>
 		<p><% end %></p>
-		<% end %>
+
 		</td>
 		<td><%= order.paid %></td>
 		<td><%= order.total %></td>
