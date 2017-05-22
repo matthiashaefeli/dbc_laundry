@@ -49,6 +49,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'rspec-rails',  '~> 3.5'
   gem 'capybara'
+  gem 'launchy'
 end
 gem 'simplecov', :require => false, :group => :test
 group :development do
