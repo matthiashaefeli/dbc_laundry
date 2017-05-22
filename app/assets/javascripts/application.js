@@ -26,6 +26,22 @@ $( document ).ready(function() {
     $(this).removeClass('animated pulse')
   })
 
+  $('.status-select').on('change', function(event){
+  	console.log("hello");
+
+  	var $form = $(this).closest('form');
+  	 $.ajax({
+            type: $form.attr('method'),
+            url: $form.attr('action'),
+            data: $form.serialize(),
+  	})
+  	 .done(function(response){
+  	 	console.log(response);
+  	 	debugger;
+
+  	 })
+	})
+
 	//-------- QR Code------
   
   // Taking Still photos with WEB RTC
