@@ -36,7 +36,11 @@ feature "Client can check its history" do
 
     expect(page).to_not have_content "Status for order number"
 
+    within(".admin-header") do
+      click_on("History")
+    end
 
+    expect(page).to have_content "Delivered"
 
   end
 end
