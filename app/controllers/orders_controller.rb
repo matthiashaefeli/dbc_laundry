@@ -12,9 +12,9 @@ skip_before_action :verify_authenticity_token
 
 	def create
 
-		 
+
 		# if request.xhr?
-		
+
 			# png =  Base64.decode64(params[:data]['data:image/png;base64,'.length .. -1])
 
 
@@ -22,7 +22,7 @@ skip_before_action :verify_authenticity_token
 
 
 		#  #need to take out this expression (data:image\/jpeg;base64)
-		
+
 		# code = Qrio::Qr.load("pic.png").qr.text
 		# if code == '@'
 		# 	code = 1
@@ -30,15 +30,13 @@ skip_before_action :verify_authenticity_token
 
 		b = Box.find_by(address: params[:orders][:pick_up_address])
 		# code = ''
-		
-		 
-		
-		
 		# end
-	
-		
-		@order = Order.create(client_id: current_client.id, business_id: 1, box_in: b.id, status: "In Box", paid: false)
-		redirect_to new_charge_path
+		if b != nil
+			@order = Order.create(client_id: current_client.id, business_id: 1, box_in: b.id, status: "In Box", paid: false)
+			redirect_to new_charge_path
+		else
+			redirect_to new_order_path flash[:alert] = "You must pick a box"
+		end
 	end
 
 	def update
@@ -59,7 +57,7 @@ skip_before_action :verify_authenticity_token
 			if shipper = Shipper.find_by(name: params[:order][:assign_shipper_to_order])
 				@order.update_attributes(status: params[:order][:order_status], shipper_id: shipper.id)
 				@order.save
-			else 
+			else
 				@order.update_attributes(status: params[:order][:order_status])
 				@order.save
 			end
