@@ -6,11 +6,6 @@
       <div class="col-md-3 menu-item d-flex justify-content-center">
        <i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"><%= link_to("Home", root_path)%></i>
       </div> 
-     
-      <div class="col-md-3 menu-item d-flex justify-content-center">
-        <i class="fa fa-2x fa-user-plus" aria-hidden="true"><%= link_to("Edit profile", edit_shipper_registration_path(current_shipper)) %> </i>
-      </div>
-
        <div class="col-md-3 menu-item d-flex justify-content-center">
        <i class="fa fa-2x fa-sign-out" aria-hidden="true"><%= link_to("Logout", destroy_shipper_session_path, method: "delete")%></i>
       </div> 
@@ -18,7 +13,7 @@
   </div>
 </div>
 
-<!-- SHIPPER DESKTOP NAVBAR -->
+<!-- SHIPPER MOVIL NAVBAR -->
 <div class="hidden-md-up">
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded hidden-md-up">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,11 +26,6 @@
        <div class="nav-item">
          <%= link_to("Home", root_path, class: "nav-link")%>
        </div> 
-     
-      <div class="nav-item">
-      <%= link_to("Edit profile", edit_shipper_registration_path(current_shipper), class: "nav-link") %>
-      </div>
-
        <div class="nav-item">
        <%= link_to("Logout", destroy_shipper_session_path, method: "delete", class: "nav-link")%>
       </div> 
