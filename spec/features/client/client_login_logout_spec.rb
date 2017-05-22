@@ -6,7 +6,7 @@ feature "Client can log in " do
     client = Client.create(name: "Client", phone: "1231234123", business: business, email: "client@client.com", password: "password")
     visit new_client_session_path
     within(".new_client") do
-      fill_in("Email", with: 'client@client.com')
+      fill_in("Enter Email", with: 'client@client.com')
       fill_in("Password", with: 'password')
     end
     click_on('Log in')
@@ -37,7 +37,7 @@ feature "Client can log in " do
     visit new_client_session_path
 
     within(".new_client") do
-      fill_in("Email", with: 'client@client.com')
+      fill_in("Enter Email", with: 'client@client.com')
       fill_in("Password", with: 'password')
     end
     click_on('Log in')
