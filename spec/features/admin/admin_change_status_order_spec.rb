@@ -19,7 +19,7 @@ require 'rails_helper'
   	end
   	click_on('Log in')
   	expect(page).to have_current_path root_path
-  	save_and_open_page
+  	
 
   	select('Processing', :from => 'order[order_status]')
   end

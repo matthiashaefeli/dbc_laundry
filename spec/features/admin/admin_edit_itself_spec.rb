@@ -2,7 +2,7 @@ require 'rails_helper'
 
 
 
- feature 'Admin edits shippers ' do 
+ feature 'Admin edits itself ' do 
  	 scenario "Valid admin can log in" do
   	#ADMIN LOGS IN 
   	business = Business.create(name: "wash", email: "wash@wash.com", hash_password: "password")
@@ -20,16 +20,12 @@ require 'rails_helper'
   	click_on('Log in')
   	expect(page).to have_current_path root_path
   	
-    click_on('Business')
-  	click_on('John')
-     
-     within(".edit_shipper") do
-        fill_in('shipper[name]', :with => 'Pepe Lepeu')
-        fill_in('shipper[password]', :with => 'password')
-      end
-      click_on('Update')
-      click_on('Shippers')
-   expect(page).to have_content 'Pepe Lepeu'
-    expect(page).to have_current_path all_shippers_path
+    click_on('Edit profile')
+    fill_in('admin_name', :with => 'Johaness')    
+    click_on('Update')
+
+    click_on('Edit profile')
+   
+    expect(page).to have_selector("input[value='Johaness']")
   end
 end

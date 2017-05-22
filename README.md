@@ -32,7 +32,7 @@ description here
 ..* List of admins
 ..* List of shippers
 ..* List of clients
-* As an admin I can edit admins and shippers
+* As an admin I can edit itself and shippers
 * As an admin I can delete admins, shippers and clients
 * As an admin I can see which shipper delivered which order
 

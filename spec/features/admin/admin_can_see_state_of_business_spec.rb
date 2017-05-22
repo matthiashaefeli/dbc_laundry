@@ -21,7 +21,7 @@ require 'rails_helper'
   	expect(page).to have_current_path root_path
   	
     click_on('Business')
-  	save_and_open_page
+  	
     expect(page).to have_content 'Tim'
     expect(page).to have_content 'Mr Happy face'
     expect(page).to have_content 'John'
