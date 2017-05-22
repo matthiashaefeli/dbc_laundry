@@ -48,8 +48,9 @@ body{
   text-decoration: none;
 }
 .menu-item{
-   border-right: 1px solid #293241;
+   border-right: 1px solid #0275d8;
 }
+
 
 .footer{
   background-color: #05E6FF;
@@ -62,13 +63,28 @@ body{
   padding: 0;
 }
 
+.site-footer{
+  padding-top: 15px;
+}
+
+.footer {
+  text-align: center;
+}
+
 .footer a{
   color:white;
 }
 
+.new-order-logo{
+
+}
 
 .client-edit-profile{
   margin-right: 5%;
+}
+.rights-reserved{
+  text-align:center;
+  margin-left:10%;
 }
 
 
@@ -83,7 +99,13 @@ body{
   color: #0275d8;
 }
 
+.pay-now{
+  display: inline;
+}
 
+.centered{
+  text-align: center;
+}
 
 
 /*MOBIL VERSIONS*/
@@ -114,12 +136,20 @@ body{
 }
 
 .btn-mobil-login {
-  background-color:red;
+  border: 2px solid #0275d8;
+  color: #0275d8;
+}
+.btn-mobil-login:hover{
+  background-color: #0275d8;
   color:white;
 }
-.btn-mobil-login a:hover{
-  background-color: blue;
+
+.btn-mobil-register:hover{
+  background-color: white;
+  border: 2px solid #0275d8;
+  color: #0275d8;
 }
+
 .btn-machine img {
   height: 150px;
   width:auto;

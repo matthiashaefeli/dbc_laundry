@@ -1,3 +1,4 @@
+
 <h3>SET LOCATION OR SCAN QR CODE</h3>
 
 <%= form_for :orders, url: orders_path, :method => :post do |f| %>
@@ -6,13 +7,8 @@
 options_for_select(boxes_count(current_client.business.boxes.count)) %>
 <%= f.submit %>
 <% end %>
-<!-- <P><%= link_to "add", orders_path, :method => :post %><p> -->
 <hr>
-
-	
 <button class="cam-activate">Launch Camera</button>
-
-
 <SECTION class='camie'>
 		<h5>AIM AT QR CODE</h5>
         <hr>
