@@ -1,6 +1,6 @@
 <h2>Create a new Shipper</h2>
 
-<%= form_for(:shippers) do |f| %>
+<%= form_for(:shipper, url: create_shipper_path) do |f| %>
   <%= f.hidden_field :business_id, value: current_admin.business.id%>
   <div class="form-group">
     <%= f.text_field :name, autofocus: true , class:"form-control", placeholder: "Name"%>
