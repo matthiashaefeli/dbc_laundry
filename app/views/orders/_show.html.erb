@@ -8,14 +8,12 @@
   <div class="col">
     Paid: <%= order.paid %>
     </div>
-    <div class="col">
   <% if order.paid == false %>
   <%= form_tag(new_charge_path, :method=>'get', class:"pay-now") do %>
   <%= hidden_field_tag "order_id", "#{order.id}"%>
   <%= submit_tag "pay now", class: "btn-link" %>
   <% end %>
   <% end %>
-  </div>
 </div>
 <div class="row">
   <div class="col">
