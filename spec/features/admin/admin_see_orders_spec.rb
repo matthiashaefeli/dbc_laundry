@@ -1,4 +1,4 @@
-feature 'Admin edits itself ' do 
+feature 'Admin can see orders ' do 
  	 scenario "Valid admin can log in" do
   	#ADMIN LOGS IN 
   	business = Business.create(name: "wash", email: "wash@wash.com", hash_password: "password")
