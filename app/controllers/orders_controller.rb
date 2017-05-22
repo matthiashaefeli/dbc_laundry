@@ -36,7 +36,7 @@ skip_before_action :verify_authenticity_token
 				@box = Box.find_by(address: params[:order][:delivered_address])
 				@order.update_attributes(:status => "Delivered", :box_out => @box.id)
 				@order.save
-				#UserNotifier.send_update_email(@order.client).deliver
+				UserNotifier.send_update_email(@order.client).deliver
 			end
 		else
 			if shipper = Shipper.find_by(name: params[:order][:assign_shipper_to_order])

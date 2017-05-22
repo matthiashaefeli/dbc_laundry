@@ -1,5 +1,5 @@
-  <h2>Create a new Box</h2>
-    <%= form_for @box, url: boxes_path do |f| %>
+  <h2>Edit a Box</h2>
+    <%= form_for @box, url: box_path(@box.id) do |f| %>
     <%= f.hidden_field :business_id, value: current_admin.business.id %>
   <div class="field">
     <%= f.label :name %><br />
@@ -10,6 +10,6 @@
     <%= f.text_field :address%>
   </div>
   <div class="actions">
-    <%= f.submit "Create Box" %>
+    <%= f.submit "Save changes" %>
   </div>
 <% end %>
