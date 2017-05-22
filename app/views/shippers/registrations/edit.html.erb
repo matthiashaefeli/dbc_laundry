@@ -1,6 +1,6 @@
 <h2>Edit Shipper</h2>
 
-<%= form_for(:shipper, url: update_shipper_path(shipper.id), html: { method: :put }) do |f| %>
+<%= form_for(:shipper, url: update_shipper_path(shipper.id), html: { method: :put, class: "edit_shipper" }) do |f| %>
     <%= f.hidden_field :business_id, value: shipper.business.id%>
   <div class="form-group">
     <%= f.text_field :name, autofocus: true, class:"form-control",placeholder: "Name" %>
