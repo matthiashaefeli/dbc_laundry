@@ -44,6 +44,8 @@ feature "Client can make a new order" do
     expect(page).to have_current_path new_charge_path
     expect(page).to have_content "Amount:"
 
-
+    within(".admin-header") do
+      click_on("Home")
+    end    
   end
 end
