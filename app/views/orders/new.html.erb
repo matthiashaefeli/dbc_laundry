@@ -1,23 +1,22 @@
-<h2>Set Box Direction</h2>
-<br>
-	<%= form_for :orders, url: orders_path, :method => :post do |f| %>
-	 <p><%= f.select :pick_up_address,
-				options_for_select(box_array(current_client.business.boxes)) %></p>
-		<p><%= f.submit %></p>
-    <% end %>
-<!-- <P><%= link_to "add", orders_path, :method => :post %><p> -->
-<section class="something">
-		<div class="something">
-			<div class="camera">
-				<video id="video"></video>
-				<form>
-					<button id="startbutton">Scan Code</button>
-				</form>
 
-			</div>
+<h3>SET LOCATION OR SCAN QR CODE</h3>
 
-			<canvas id="canvas" width="600" height="600">
-			</canvas>
-
-		</div>
-	</section>
+<%= form_for :orders, url: orders_path, :method => :post do |f| %>
+<%= f.select :pick_up_address, options_for_select(box_array(current_client.business.boxes)) %>
+<%= f.select :box_id,
+options_for_select(boxes_count(current_client.business.boxes.count)) %>
+<%= f.submit %>
+<% end %>
+<hr>
+<button class="cam-activate">Launch Camera</button>
+<SECTION class='camie'>
+		<h5>AIM AT QR CODE</h5>
+        <hr>
+        <canvas></canvas>
+        <hr>
+        <form class="qrcode_form" action="/orders" method="post">
+        	<input type="hidden" name="authenticity_token" value="token_value">
+	        <input  id="something" type="text" name="box_and_location" value="">
+	        <button id="submit_button" type="submit">Create Order</button>
+        </form>
+</SECTION>        
