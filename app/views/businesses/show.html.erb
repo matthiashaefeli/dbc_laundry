@@ -62,7 +62,7 @@
   </tr>
   <% current_admin.business.shippers.each do |shipper| %>
   <tr>
-    <td><%= shipper.name %></td>
+    <td><%=link_to(shipper.name, edit_shipper_path(shipper.id))%></td>
     <td><%= shipper.email %></td>
     <td><%= shipper.phone %></td>
   </tr>

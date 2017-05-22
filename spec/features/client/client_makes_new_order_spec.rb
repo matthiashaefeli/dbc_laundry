@@ -3,7 +3,9 @@ require 'rails_helper'
 feature "Client can make a new order" do
   scenario "Client navigates to new order page" do
     business = Business.create(name: "wash", email: "wash@wash.com", hash_password: "password")
+
     client = Client.create(name: "Client", phone: "1231234123", business: business, email: "client@client.com", password: "password", bag_id: 123)
+
     visit new_client_session_path
     within(".new_client") do
       fill_in("Enter Email", with: 'client@client.com')
@@ -21,7 +23,9 @@ feature "Client can make a new order" do
 
   scenario "Client creates a new order" do
     business = Business.create(name: "wash", email: "wash@wash.com", hash_password: "password")
+
     client = Client.create(name: "Client", phone: "1231234123", business: business, email: "client@client.com", password: "password", bag_id: 123)
+
     box = Box.create(name: 'University', business: business, address: 'Guadalupe St')
     visit new_client_session_path
     within(".new_client") do
@@ -47,6 +51,7 @@ feature "Client can make a new order" do
     within(".admin-header") do
       click_on("Home")
     end
+
   end
 
 end
