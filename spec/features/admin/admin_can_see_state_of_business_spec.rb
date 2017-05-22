@@ -2,13 +2,13 @@ require 'rails_helper'
 
 
 
- feature 'Admin clicks on a drop down menu and changes order status' do 
+ feature 'Admin clicks on business and sees business state(admins,clients,shippers)' do 
  	 scenario "Valid admin can log in" do
   	#ADMIN LOGS IN 
   	business = Business.create(name: "wash", email: "wash@wash.com", hash_password: "password")
-  	admin = Admin.create(name: "Admin", business: business, email: "admin@admin.com", password: "password")
+  	admin = Admin.create(name: "Tim", business: business, email: "admin@admin.com", password: "password")
   	box = Box.create(name: 'Frost Bank', business_id: business.id, address: 'Barbara Jordan Blvd')
-  	
+    shipper = Shipper.create(name: "John", email: "shipper@shipper.com", password: "password",  phone: "5122223344", business_id: business.id)
   	client = Client.create(name: "Mr Happy face", password: "password", email: "happy@client.com", phone: "4993333333", business_id: business.id, bag_id: 1234)
   	order = Order.create(id: 1, box_in: 1, box_out:1, client: client, business: business, status: 'Incomming', total: 100, paid: true)
   	
@@ -19,8 +19,12 @@ require 'rails_helper'
   	end
   	click_on('Log in')
   	expect(page).to have_current_path root_path
+  	
+    click_on('Business')
   	save_and_open_page
-
-  	select('Processing', :from => 'order[order_status]')
+    expect(page).to have_content 'Tim'
+    expect(page).to have_content 'Mr Happy face'
+    expect(page).to have_content 'John'
+    expect(page).to have_current_path business_path(business)
   end
 end
