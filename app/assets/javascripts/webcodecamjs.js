@@ -111,7 +111,7 @@ var WebCodeCamJS = function(element) {
             }
             const p = video.play();
             if (p && (typeof Promise !== 'undefined') && (p instanceof Promise)) {
-                p.catch(e => null);
+                p.catch((function(e){null}));
             }
             delay();
         }
@@ -121,7 +121,7 @@ var WebCodeCamJS = function(element) {
         delayBool = true;
         const p = video.pause();
         if (p && (typeof Promise !== 'undefined') && (p instanceof Promise)) {
-            p.catch(e => null);
+            p.catch((function(e){null}));
         }
         video.streamSrc(null);
         con.clearRect(0, 0, w, h);
@@ -137,7 +137,7 @@ var WebCodeCamJS = function(element) {
         delayBool = true;
         const p = video.pause();
         if (p && (typeof Promise !== 'undefined') && (p instanceof Promise)) {
-            p.catch(e => null);
+            p.catch((function(e){null}));
         }
     }
 

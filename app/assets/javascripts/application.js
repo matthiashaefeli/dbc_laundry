@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require tether
-//= require bootstrap
 //= require jquery_ujs
+//= require bootstrap
 //= require_tree .
 
 
@@ -35,18 +35,37 @@ $( document ).ready(function() {
   // srcObject
   // onloadedmetadata
   // drawImage
-	
+  $('section.camie').hide()
+  $('button.cam-activate').on('click',function(){
+  	$('section.camie').show()
 
-	$('form.checkies').on('submit',function(){
-		$form = $(this)
-		
+  	//This is from the webcamjs library created by https://github.com/andrastoth/WebCodeCamJS
+  	var arg = {
+  		resultFunction: function(result) {
+  			document.getElementById("something").value = result.code
+  		}
+  	};
+  	new WebCodeCamJS("canvas").init(arg).play();
+  })
+
+	$('form.qrcode_form').on('submit',function(){
 		$.ajax({
 			method: 'POST',
 			url: '/orders',
 			data: $form.serialize()
 		})
-
 	})
+
+	// $('form.checkies').on('submit',function(){
+	// 	$form = $(this)
+		
+	// 	$.ajax({
+	// 		method: 'POST',
+	// 		url: '/orders',
+	// 		data: $form.serialize()
+	// 	})
+
+	// })
 	
 	// var track;
 	// var constraints = { audio: false, video: { facingMode: { exact: "environment" } } }

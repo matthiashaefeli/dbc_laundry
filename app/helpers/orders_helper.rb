@@ -18,4 +18,10 @@ module OrdersHelper
     end
     s_array
   end
+
+
+  def boxes_count(count,location)
+    array_nums = [1..count].to_a
+    array_nums
+  end
 end
