@@ -46,32 +46,23 @@
       <%= yield %>
     </div>
 
-    <footer class="footer row justify-content-center">
-      <div class="row justify-content-start col-xs-12">
-      <% if !current_client && !current_admin && !current_shipper %>
-        <%= link_to("Admin Login ", new_admin_session_path) %>
-      <% end %>
-      <%if !current_client && !current_admin && current_shipper %>
-        <%= link_to("Shipper Logout ", destroy_shipper_session_path, method: "delete") %> <br>
-      <% elsif !current_client && !current_shipper && !current_admin  %>
-        <%= link_to("Shipper Login ", new_shipper_session_path) %> <br>
-      <% end %>
-      </div>
-      <br>
-
-
-      <div class="row justify-content-center col-lg-12 pull-right">
-      <ul class="site-footer list-inline">
+    <footer class="footer">
+      <ul class="list-inline site-footer">
         <li class="list-inline-item">DBC Laundry all rights reserved. 2017      </li>
         <li class="list-inline-item"><a href="https://github.com/matthiashaefeli"><i class="fa fa-github" aria-hidden="true">Matthias</i></a></li>
         <li class="list-inline-item"><a href="https://github.com/karinafraest"><i class="fa fa-github" aria-hidden="true">Karina</i></a></li>
         <li class="list-inline-item"><a href="https://github.com/RCAVelez"><i class="fa fa-github" aria-hidden="true">Raymond</i></a></li>
         <li class="list-inline-item"><a href="https://github.com/litola"> <i class="fa fa-github" aria-hidden="true">Rafael</i></a>
         </p></li>
+        <% if !current_client && !current_admin && !current_shipper %>
+        <li class="list-inline-item"><%= link_to("Admin Login ", new_admin_session_path) %></li>
+      <% end %>
+      <%if !current_client && !current_admin && current_shipper %>
+        <li class="list-inline-item"><%= link_to("Shipper Logout ", destroy_shipper_session_path, method: "delete") %> <br></li>
+      <% elsif !current_client && !current_shipper && !current_admin  %>
+        <li class="list-inline-item"><%= link_to("Shipper Login ", new_shipper_session_path) %> <br></li>
+      <% end %>
         </ul>
-
-      </div>
-
     </footer>
   </body>
 </html>
