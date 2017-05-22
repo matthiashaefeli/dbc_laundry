@@ -39,8 +39,9 @@ feature "Client can check its history" do
     within(".admin-header") do
       click_on("History")
     end
+    save_and_open_page
+    expect(page).to have_content "true"
 
-    expect(page).to have_content "Delivered"
 
   end
 end
