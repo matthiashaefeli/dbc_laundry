@@ -22,6 +22,7 @@ class OrdersController < ApplicationController
 
 		@order = Order.create(client_id: current_client.id, business_id: 1, box_in: box_in.to_i, status: "In Box", paid: false)
 		redirect_to new_charge_path
+
 	end
 
 	def update
@@ -42,7 +43,7 @@ class OrdersController < ApplicationController
 			if shipper = Shipper.find_by(name: params[:order][:assign_shipper_to_order])
 				@order.update_attributes(status: params[:order][:order_status], shipper_id: shipper.id)
 				@order.save
-			else 
+			else
 				@order.update_attributes(status: params[:order][:order_status])
 				@order.save
 			end

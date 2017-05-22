@@ -15,6 +15,18 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+*{
+  font-family: 'Roboto', sans-serif;
+}
+
+h1,h2,h3,h4,h5{
+  font-family: 'Bree Serif', 'serif';
+}
+
+i{
+  color: #0275d8;
+}
+
 body{
 }
 .container{
@@ -23,10 +35,13 @@ body{
 /*Admin dash */
 .admin-header{
   margin: 0px;
+  margin-top: 5px
 }
-.admin-menu a{
-  background-color: #FAFDFF;
+.unasigned{
+  font-family: "Roboto", sans-serif, !important;
+  color: red;
 }
+
 .logout{
   color:red;
   font-size: 1em;
@@ -46,6 +61,7 @@ body{
   margin:0;
   padding: 0;
 }
+
 .footer a{
   color:white;
 }
@@ -53,6 +69,18 @@ body{
 
 .client-edit-profile{
   margin-right: 5%;
+}
+
+
+/*Business show */
+.edit-col{
+  width: 100px;
+}
+.edit-bag input{
+  width:70%;
+}
+.blue{
+  color: #0275d8;
 }
 
 
@@ -65,7 +93,7 @@ body{
   height: 60px;
 }
 .navbar{
-background-color: #05E6FF;
+  background-color: #05E6FF;
 }
 .home-logo-mobil{
   height: 350px;

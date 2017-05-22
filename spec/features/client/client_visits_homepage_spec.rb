@@ -4,7 +4,7 @@ feature "visiting the clients homepage" do
   scenario "Client can navigate to log in" do
     visit "/"
 
-    within(".admin-header") do
+    within("body") do
       click_link("Login")
     end
 
@@ -14,7 +14,7 @@ feature "visiting the clients homepage" do
   scenario "Client can navigate to register" do
     visit "/"
 
-    within(".admin-header") do
+    within("body") do
       click_link("Register")
     end
 

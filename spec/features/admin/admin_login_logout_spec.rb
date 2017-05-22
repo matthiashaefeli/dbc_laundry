@@ -10,8 +10,8 @@ feature "admin can log in " do
       fill_in("Password", with: 'password')
     end
     click_on('Log in')
-
     expect(page).to have_current_path root_path
+    
   end
 
   scenario "Invalid admin cannot log in " do

@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Roboto" rel="stylesheet">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -30,7 +31,7 @@
   <!-- CLIENT NAVBAR -->
       <%= render "layouts/clients_nav.html.erb" if current_client %>
     <!-- </div> -->
-      
+
       <%= render "layouts/admins_nav.html.erb" if current_admin %>
 
       <%= render "layouts/shippers_nav.html.erb" if current_shipper %>
@@ -44,15 +45,15 @@
     <div class="container">
       <%= yield %>
     </div>
-  
-    <footer class="footer row justify-content-center">   
+
+    <footer class="footer row justify-content-center">
       <div class="row justify-content-center col-xs-12">
 
-        
+
       <% if !current_client && !current_admin && !current_shipper %>
         <%= link_to("Admin Login ", new_admin_session_path) %> <br>
       <% end %>
-  
+
       <%if !current_client && !current_admin && current_shipper %>
         <%= link_to("Shipper Logout ", destroy_shipper_session_path, method: "delete") %> <br>
       <% elsif !current_client && !current_shipper && !current_admin  %>
@@ -61,7 +62,7 @@
 
       </div>
       <br>
-      
+
 
       <div class="row justify-content-center col-lg-12">
       <p>DBC Laundry all rights reserved. 2017 / </p><p>
@@ -70,9 +71,9 @@
       <a href="https://github.com/RCAVelez"><i class="fa fa-github" aria-hidden="true">raymond</i></a>
       <a href="https://github.com/litola"> <i class="fa fa-github" aria-hidden="true">Rafael</i></a>
       </p>
-      
+
       </div>
-      
+
     </footer>
   </body>
 </html>

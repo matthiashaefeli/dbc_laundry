@@ -2,7 +2,6 @@
 <table class="table">
 <thead class="thead-inverse">
   <tr>
-    <th></th>
     <th>Bag Id</th>
     <th>Name</th>
     <th>Email</th>
@@ -13,14 +12,12 @@
   <% current_admin.business.clients.each do |client| %>
   <tr>
      <% if client.bag_id %>
-     <td><%= link_to "edit", edit_bag_path(client) %></td>
-    <td><%= client.bag_id %></td>
+     <td><%= link_to client.bag_id, edit_bag_path(client) %></td>
     <% else %>
-    <td><%= form_tag(add_bag_path(client), method: "post") do %>
+    <td class="edit-col"><%= form_tag(add_bag_path(client), method: "post", class: "edit-bag") do %>
       <%= text_field_tag(:bag_id) %> <%= submit_tag("set")%>
       <% end %>
     </td>
-    <td><%= client.bag_id %></td>
     <% end %>
     <td><%= client.name %></td>
     <td><%= client.email %></td>
@@ -62,7 +59,7 @@
   </tr>
   <% current_admin.business.shippers.each do |shipper| %>
   <tr>
-    <td><%= shipper.name %></td>
+    <td><%=link_to(shipper.name, edit_shipper_path(shipper.id))%></td>
     <td><%= shipper.email %></td>
     <td><%= shipper.phone %></td>
   </tr>
