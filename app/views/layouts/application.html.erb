@@ -31,29 +31,22 @@
   <!-- CLIENT NAVBAR -->
       <%= render "layouts/clients_nav.html.erb" if current_client %>
     <!-- </div> -->
-
       <%= render "layouts/admins_nav.html.erb" if current_admin %>
 
       <%= render "layouts/shippers_nav.html.erb" if current_shipper %>
-
-    <!-- Devise notice and alert -->
+    <% if flash[:notice] || flash[:alert] %>
     <div class="row justify-content-center">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <p class="notice flash-notice"><%= notice %></p>
+      <p class="alert flash-notice"><%= alert %></p>
     </div>
+    <% end %>
 
-    <div class="container">
+    <div class="container main-container">
       <%= yield %>
     </div>
 
     <footer class="footer">
       <ul class="list-inline site-footer">
-        <li class="list-inline-item">DBC Laundry all rights reserved. 2017      </li>
-        <li class="list-inline-item"><a href="https://github.com/matthiashaefeli"><i class="fa fa-github" aria-hidden="true">Matthias</i></a></li>
-        <li class="list-inline-item"><a href="https://github.com/karinafraest"><i class="fa fa-github" aria-hidden="true">Karina</i></a></li>
-        <li class="list-inline-item"><a href="https://github.com/RCAVelez"><i class="fa fa-github" aria-hidden="true">Raymond</i></a></li>
-        <li class="list-inline-item"><a href="https://github.com/litola"> <i class="fa fa-github" aria-hidden="true">Rafael</i></a>
-        </p></li>
         <% if !current_client && !current_admin && !current_shipper %>
         <li class="list-inline-item"><%= link_to("Admin Login ", new_admin_session_path) %></li>
       <% end %>
@@ -61,7 +54,13 @@
         <li class="list-inline-item"><%= link_to("Shipper Logout ", destroy_shipper_session_path, method: "delete") %> <br></li>
       <% elsif !current_client && !current_shipper && !current_admin  %>
         <li class="list-inline-item"><%= link_to("Shipper Login ", new_shipper_session_path) %> <br></li>
-      <% end %>
+      <% end %> |
+         <li class="list-inline-item">DBC Laundry all rights reserved. 2017</li>
+        <li class="list-inline-item optional"><a href="https://github.com/matthiashaefeli"><i class="fa fa-github" aria-hidden="true">Matthias</i></a></li>
+        <li class="list-inline-item optional"><a href="https://github.com/karinafraest"><i class="fa fa-github" aria-hidden="true">Karina</i></a></li>
+        <li class="list-inline-item optional"><a href="https://github.com/RCAVelez"><i class="fa fa-github" aria-hidden="true">Raymond</i></a></li>
+        <li class="list-inline-item optional"><a href="https://github.com/litola"> <i class="fa fa-github" aria-hidden="true">Rafael</i></a>
+        </p></li>
         </ul>
     </footer>
   </body>

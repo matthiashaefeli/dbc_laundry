@@ -112,6 +112,9 @@ body{
   text-align: center;
 }
 
+.flash-notice{
+  display: inline;
+}
 
 /*MOBIL VERSIONS*/
 .nav-mobil{
@@ -121,6 +124,9 @@ body{
 }
 .navbar{
   background-color: #05E6FF;
+}
+.main-container{
+  min-height: 500px;
 }
 .home-logo-mobil{
   height: 350px;
@@ -160,3 +166,8 @@ body{
   width:auto;
   margin-bottom: 5%;
 }
+.optional{
+  display: inline;
+}
+
+
