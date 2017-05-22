@@ -18,6 +18,14 @@
 
 
 $( document ).ready(function() {
+	
+// Action Cable 
+	console.log("application running")
+	$(".table-orders").on("change",".order-form",function(e){
+		e.preventDefault();
+		debugger;
+	})	
+
 
   $('.menu-item').mouseover(function(event) {
     $(this).addClass('animated pulse')
