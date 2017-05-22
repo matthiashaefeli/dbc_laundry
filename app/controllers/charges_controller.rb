@@ -1,6 +1,11 @@
 class ChargesController < ApplicationController
 
   def new
+    #params are used for late payments
+    if params[:order_id]
+      @order = Order.find(params[:order_id])
+      session[:order_id] = @order.id
+    end
   end
 
   def create
@@ -19,7 +24,14 @@ class ChargesController < ApplicationController
       :statement_descriptor => "Dbc Laundry",
       :currency => 'usd'
       )
-    @order = current_client.orders.last
+
+    #sessions is used for late payments
+    if session[:order_id]
+      @order = Order.find(session[:order_id])
+      session[:order_id] = nil
+    else
+      @order = current_client.orders.last
+    end
     @order.paid = true
     @order.total = @amount/100
     @order.save

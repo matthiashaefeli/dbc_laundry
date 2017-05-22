@@ -1,6 +1,13 @@
 <h5> Status for order number <%= order.id %></h5>
 <p>Order started on: <%= order.created_at.strftime("%B %d, %Y") %></p>
-<p> Payed: <%= order.paid %></p>
+<p> Payed: <%= order.paid %>
+  <% if order.paid == false %>
+  <%= form_tag(new_charge_path, :method=>'get') do %>
+  <%= hidden_field_tag "order_id", "#{order.id}"%>
+  <%= submit_tag "pay now", class: "btn-link" %>
+  <% end %>
+  <% end %>
+</p>
 <p> Payment: <%= order.total %></p>
 
 <div class="container">
