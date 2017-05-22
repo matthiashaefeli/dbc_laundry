@@ -16,7 +16,8 @@ class OrdersController < ApplicationController
 			location = set[0]
 			box_in = set[1]
 		elsif params[:orders][:pick_up_address]
-			location = [:orders][:pick_up_address]
+		
+			location = params[:orders][:pick_up_address]
 			box_in = params[:orders][:box_id]
 		end
 
