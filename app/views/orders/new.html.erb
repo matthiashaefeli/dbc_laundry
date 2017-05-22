@@ -3,7 +3,7 @@
 <%= form_for :orders, url: orders_path, :method => :post do |f| %>
 <%= f.select :pick_up_address, options_for_select(box_array(current_client.business.boxes)) %>
 <%= f.select :box_id,
-options_for_select(business.boxes.id) %>
+options_for_select(boxes_count(current_client.business.boxes.count)) %>
 <%= f.submit %>
 <% end %>
 <!-- <P><%= link_to "add", orders_path, :method => :post %><p> -->
