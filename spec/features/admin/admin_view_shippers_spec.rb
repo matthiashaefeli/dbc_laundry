@@ -18,7 +18,7 @@ feature "admin can log in and view shippers" do
     visit all_shippers_path
     expect(page).to have_current_path all_shippers_path
     expect(page).to have_content 'John'
-    save_and_open_page
+    
 
   end
 end
