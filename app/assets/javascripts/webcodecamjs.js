@@ -612,5 +612,3 @@ var WebCodeCamJS = function(element) {
         options: options
     };
 };
-
-module.exports = WebCodeCamJS;
