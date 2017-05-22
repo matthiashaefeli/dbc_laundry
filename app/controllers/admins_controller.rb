@@ -11,8 +11,18 @@ class AdminsController < ApplicationController
    redirect_to root_path
   end
 
+    def admin_update
+      @admin = Admin.find(current_admin.id)
+    if params[:admin][:password] != ""
+      @admin.update_attributes(admin_params)
+    else  
+      @admin.update_attributes(name: params[:admin][:name], email: params[:admin][:email])
+    end
+     redirect_to "/"
+    end
+
   protected
   def admin_params
-     params.require(:admins).permit(:name,:email, :password, :business_id)
+     params.require(:admin).permit(:name,:email, :password, :password_confirmation,:business_id)
   end
 end

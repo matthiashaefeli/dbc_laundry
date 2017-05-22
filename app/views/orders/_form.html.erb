@@ -1,14 +1,22 @@
-<%=link_to new_order_path do %>
+<%=link_to_if current_client.bag_id, new_order_path do %>
 <div class="row justify-content-center btn-machine">
    <img src="/images/new-machine-logo3.jpg" alt="new order machine" >
+
 </div>
 <% end %>
 <div>
 	<h1>Your Orders</h1><br>
 </div>
+  
 
 <% if current_client && current_client.orders %>
-<p> Bag: <%= current_client.bag_id %></p>
+	 <% if !current_client.bag_id %>
+   <br>
+		<p>Thanks for signing in, we are working with your bag.</p>
+	<% else %>
+		<p> Bag: <%= current_client.bag_id %></p>
+   <% end %>
+	
 <% current_client.orders.where(:history => false).each do |order| %>
 	<% if order.status == "Delivered" %>
 	<%= form_for :order, url: order_path(order.id), :method => :put do |f| %>
