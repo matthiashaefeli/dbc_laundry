@@ -48,4 +48,5 @@ feature "Client can make a new order" do
       click_on("Home")
     end    
   end
+
 end
