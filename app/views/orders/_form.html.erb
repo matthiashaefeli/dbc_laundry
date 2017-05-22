@@ -16,7 +16,6 @@
 
 <% if current_client && current_client.orders %>
 	 <% if !current_client.bag_id %>
-   <br>
 		<p>Thanks for signing in, we are working on your bag.</p>
 	<% else %>
 		<p> Bag: <%= current_client.bag_id %></p>
@@ -28,7 +27,7 @@
   <br>
   <% if order.status == "Delivered" %>
     <%= form_for :order, url: order_path(order.id), :method => :put do |f| %>
-        <%= f.submit "Add order to History" %>
+        <%= f.submit "Add order to History" ,class:"btn btn-info" %>
       <% end %>
     <% end %>
   </div>
