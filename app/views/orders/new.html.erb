@@ -1,5 +1,5 @@
 <div class="container new-order-container">
-<h3>SET LOCATION OR SCAN QR CODE</h3>
+<h3>SET LOCATION OR SCAN QR CODE test</h3>
 
 <%= form_for :orders, url: orders_path, :method => :post do |f| %>
 <%= f.select :pick_up_address, options_for_select(box_array(current_client.business.boxes)) %>
