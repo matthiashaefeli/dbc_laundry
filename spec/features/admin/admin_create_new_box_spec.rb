@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-feature "admin can log in and create a new Box user" do
+feature "admin can log in and create a new Box" do
   scenario "Valid admin can log in" do
-  #ADMIN LOGS IN 
+  #ADMIN LOGS IN
     business = Business.create(name: "wash", email: "wash@wash.com", hash_password: "password")
     admin = Admin.create(name: "Admin", business: business, email: "admin@admin.com", password: "password")
     visit new_admin_session_path
