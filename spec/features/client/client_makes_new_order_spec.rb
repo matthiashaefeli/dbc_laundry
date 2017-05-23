@@ -69,7 +69,6 @@ feature "Client can make a new order" do
 
     click_on("pay now")
 
-    save_and_open_page
     expect(page).to have_content "Amount: $15.00"
   end
 

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature "admin can see shipper who delivered something" do
-  scenario "Valid admin can log in" do
+  scenario "admin sees the shipper and delivery destination" do
   #ADMIN LOGS IN 
 
     business = Business.create(name: "wash", email: "wash@wash.com", hash_password: "password")

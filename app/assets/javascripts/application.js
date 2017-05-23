@@ -18,6 +18,16 @@
 
 
 $( document ).ready(function() {
+	
+// Action Cable 
+	console.log("application running")
+	
+	//save on change in order form status
+	// $(".table-orders").on("change",".order-form",function(e){
+	// 	// e.preventDefault();
+	// 	// debugger;
+	// })	
+
 
   $('.menu-item').mouseover(function(event) {
     $(this).addClass('animated pulse')
@@ -27,7 +37,6 @@ $( document ).ready(function() {
   })
 
   $('.status-select').on('change', function(event){
-
   	var $form = $(this).closest('form');
   	var $dataIn = $form.siblings('.remove-and-insert').children();
 
@@ -43,6 +52,19 @@ $( document ).ready(function() {
   	})
 	})
 
+  $(".alt").on('click',function(e){
+  	e.preventDefault();
+  	
+  	if ($(this).siblings('#orders_pick_up_address')[0].value == "Select deliver address") {
+  		alert('You need to select a location');
+  	}
+  	//what if a box is occupied OMG!
+  	else{
+  		$(this).parent().submit()
+  	}
+  })
+  	
+                
 	//-------- QR Code------
 
   // Taking Still photos with WEB RTC

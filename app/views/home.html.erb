@@ -2,7 +2,7 @@
   <!-- ALL HOME MENU -->
   <% if !current_client && !current_admin && !current_shipper %>
     <%= render "/home_mobil.html.erb"  %>
-  <% end %>
+  <% end %> 
 
 <%= render "orders/form" if current_client %>
 <%= render "businesses/form" if current_admin %>

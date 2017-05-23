@@ -1,6 +1,14 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  #action cable dbc laundry
+  config.web_socket_server_url = "wss://dbc-laundry-test.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['https://dbc-laundry-test.herokuapp.com', 'https://dbc-laundry-test.herokuapp.com']
+  
+  # action cable test heroku 
+  # config.web_socket_server_url = "wss://test-actioncable-laundry.herokuapp.com/cable"
+  # config.action_cable.allowed_request_origins = ['https://test-actioncable-laundry.herokuapp.com/', 'https://test-actioncable-laundry.herokuapp.com/']
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
