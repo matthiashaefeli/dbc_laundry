@@ -18,7 +18,7 @@ feature "Client can make a new order" do
     end
 
     expect(page).to have_current_path new_order_path
-    expect(page).to have_content "Set Box Direction"
+    expect(page).to have_content "SET LOCATION OR SCAN QR CODE"
   end
 
   scenario "Client creates a new order" do

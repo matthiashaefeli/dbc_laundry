@@ -1,24 +1,30 @@
 <div>
   <h1>Order history for <%= current_client.name %></h1>
 </div>
-
+<br>
 
 <table style="width:70%">
+<thead class="thead-inverse">
   <tr>
     <th>Date  </th>
-    <th>Status    </th>
-    <th>Paid?     </th>
+    <th>Paid    </th>
     <th>Total     </th>
   </tr>
-    <tr>
+     <% i=0 %>
     <% current_client.orders.each do |order| %>
       <% if order.status ==  "Delivered" %>
-      <td><%= order.created_at.strftime("%B %d, %Y")  %> </td>
-      <td>  <%= order.status %>     </td>
-      <td>  <%= order.paid %>       </td>
-      <td>  <%= order.total %>      </td>
+      <tr class="row<%= i%>">
+      <% if i == 0 %>
+        <% i = 1 %>
+      <% else %>
+         <% i = 0 %>
       <% end %>
-    </tr>
+      <td><%= order.created_at.strftime("%B %d, %Y")  %> </td>
+      <td>  <%= order.paid %>       </td>
+      <td>  $<%= order.total %>      </td>
+      </tr>
+      <% end %>
     <% end %>
+    </thead>
 </table>
 <br>
