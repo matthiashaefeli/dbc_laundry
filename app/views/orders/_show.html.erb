@@ -1,4 +1,4 @@
-<h5> Status for order number <%= order.id %></h5>
+<h5 id="order_id" data-order-id="<%= order.id %>"  > Status for order number <%= order.id %></h5>
 <div class="row">
   <div class="col">
     Order started on: <%= order.created_at.strftime("%B %d, %Y") %>
