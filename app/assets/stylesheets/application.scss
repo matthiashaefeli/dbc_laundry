@@ -16,11 +16,11 @@
 @import "font-awesome";
 
 *{
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 h1,h2,h3,h4,h5{
-  font-family: 'Bree Serif', 'serif';
+  font-family: 'Raleway', sans-serif;
 }
 
 .business-name{
@@ -40,10 +40,17 @@ body{
 /*Admin dash */
 .admin-header{
   margin: 0px;
-  margin-top: 5px
+  margin-top: 5px;
+
 }
+
+.admin-header a{
+    font-family: 'Raleway', sans-serif, !important;
+}
+
+
 .unasigned{
-  font-family: "Roboto", sans-serif, !important;
+  font-family: 'Titillium Web', sans-serif, !important;
   color: red;
 }
 
@@ -135,7 +142,8 @@ body{
   height: 150px;
   margin-top: 5%;
   margin-bottom: 5%;
-  background-color: grey;
+  border: 1px solid #E9F0F2;
+  border-radius: 25px;
 }
 
 .btn-machine img:hover{
