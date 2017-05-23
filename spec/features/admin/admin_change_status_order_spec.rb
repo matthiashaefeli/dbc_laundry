@@ -3,8 +3,7 @@ require 'rails_helper'
 
 
  feature 'Admin clicks on a drop down menu and changes order status' do
- 	 scenario "Valid admin can log in" do
-  	#ADMIN LOGS IN
+ 	 scenario "valid admin can change the status of an order" do
   	business = Business.create(name: "wash", email: "wash@wash.com", hash_password: "password")
   	admin = Admin.create(name: "Admin", business: business, email: "admin@admin.com", password: "password")
   	box = Box.create(name: 'Frost Bank', business_id: business.id, address: 'Barbara Jordan Blvd')
@@ -23,6 +22,6 @@ require 'rails_helper'
     within(".remove-and-insert") do
   	 select('Processing', :from => 'order[order_status]')
     end
-    click_on("update")
+      click_on("update")
   end
 end

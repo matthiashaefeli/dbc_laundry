@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature "admin can log in and create a new admin user" do
   scenario "Valid admin can log in" do
-  #ADMIN LOGS IN 
+  #ADMIN LOGS IN
     business = Business.create(name: "wash", email: "wash@wash.com", hash_password: "password")
     admin = Admin.create(name: "Admin", business: business, email: "admin@admin.com", password: "password")
     visit new_admin_session_path
@@ -12,6 +12,7 @@ feature "admin can log in and create a new admin user" do
     end
     click_on('Log in')
     expect(page).to have_current_path root_path
+
   #ADMIN CLICKS Setup
     click_on('Setup')
     expect(page).to have_content 'Create Admin user'
