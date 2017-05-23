@@ -3,7 +3,7 @@ require 'rails_helper'
 
 
  feature 'Admin can create admins ' do 
- 	 scenario "Valid admin can log in" do
+ 	 scenario "Admin creates admin" do
   	#ADMIN LOGS IN 
   	business = Business.create(name: "wash", email: "wash@wash.com", hash_password: "password")
   	admin = Admin.create(name: "Tim", business: business, email: "admin@admin.com", password: "password")
@@ -26,15 +26,15 @@ require 'rails_helper'
 
     within('.create_admin') do 
       fill_in('admin_name', :with => 'Jabba')
-      fill_in('admin_email', :with => 'admin@admin.com')
+      fill_in('admin_email', :with => 'thehut@admin.com')
       fill_in('admin_password', :with => 'password')
       fill_in('admin_password_confirmation', :with => 'password')
     end   
      
     click_on('Create admin')
-
+    expect(page).to have_current_path root_path
     click_on('Business')
-    
+    expect(page).to have_content 'Jabba'
     expect(page).to have_current_path business_path(business.id)
   end
 end

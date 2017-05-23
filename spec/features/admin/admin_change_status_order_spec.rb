@@ -3,7 +3,7 @@ require 'rails_helper'
 
 
  feature 'Admin clicks on a drop down menu and changes order status' do 
- 	 scenario "Valid admin can log in" do
+ 	 scenario "Admin can change order status" do
   	#ADMIN LOGS IN 
   	business = Business.create(name: "wash", email: "wash@wash.com", hash_password: "password")
   	admin = Admin.create(name: "Admin", business: business, email: "admin@admin.com", password: "password")
@@ -20,7 +20,10 @@ require 'rails_helper'
   	click_on('Log in')
   	expect(page).to have_current_path root_path
   	
+    within('.remove-and-insert') do 
 
   	select('Processing', :from => 'order[order_status]')
+  end
+    click_on('Update')
   end
 end

@@ -2,8 +2,8 @@ require 'rails_helper'
 
 
 
- feature 'Admin edits itself ' do 
- 	 scenario "Valid admin can log in" do
+ feature 'Admin can edits itself in profile' do 
+ 	 scenario "Admin edits itself" do
   	#ADMIN LOGS IN 
   	business = Business.create(name: "wash", email: "wash@wash.com", hash_password: "password")
   	admin = Admin.create(name: "Tim", business: business, email: "admin@admin.com", password: "password")

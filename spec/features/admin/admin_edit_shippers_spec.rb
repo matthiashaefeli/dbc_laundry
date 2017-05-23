@@ -2,8 +2,8 @@ require 'rails_helper'
 
 
 
- feature 'Admin edits shippers ' do 
- 	 scenario "Valid admin can log in" do
+ feature 'Admin can edit shippers ' do 
+ 	 scenario "Admin edits shippers" do
   	#ADMIN LOGS IN 
   	business = Business.create(name: "wash", email: "wash@wash.com", hash_password: "password")
   	admin = Admin.create(name: "Tim", business: business, email: "admin@admin.com", password: "password")
