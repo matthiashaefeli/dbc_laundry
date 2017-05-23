@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
 			location = set[0]
 			box_in = set[1]
 		elsif params[:orders][:pick_up_address]
-		
+			
 			location = params[:orders][:pick_up_address]
 			box_in = params[:orders][:box_id]
 		end
@@ -54,6 +54,32 @@ class OrdersController < ApplicationController
 
 	def shippers
 		render "shippers.html.erb"
+	end
+
+	def update_status
+		if request.xhr?
+			status = params[:order][:order_status]
+			case status
+			when 'In Box'
+				orders = Order.where(status: 'In Box')
+			when 'Incomming'
+				orders = Order.where(status: 'Incomming')
+			when 'Processing'
+				orders = Order.where(status: 'Processing')
+			when 'Shipping'
+				orders = Order.where(status: 'Shipping')
+			when 'Delivered'
+				orders = Order.where(status: 'Delivered')
+			else
+				orders = Order.all
+			end
+			@orders = orders
+			respond_to do |format|
+				format.html { render partial:'businesses/orders', layout:false }
+			end
+		else 
+			@orders = Order.all 
+		end 
 	end
 
 	def history
