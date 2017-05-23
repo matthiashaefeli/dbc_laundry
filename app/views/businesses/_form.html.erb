@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <table style="width: 100%" class="table-orders">
 	<tr>
 		<th>Order Id</th>
@@ -12,21 +13,15 @@
 	<td><%= order.id %></td>
 	<td><%= order.client.name %></td>
 	<td>
-	<%= form_for :order, url: order_path(order.id), :method => :put do |f| %>
-	<p class="order-form" data-order-id="<%= order.id%>" ><%= f.select :order_status,
-			options_for_select([[order.status],['In Box'],
-			['Incomming'],['Processing'],
-			['Shipping']], params[:order_status]) %></p>
-		<% if order.status == "Processing" || order.status == "Shipping" || order.status == "Delivered" %>
-		<p><%= f.select :assign_shipper_to_order,
-				options_for_select(shipper_array(current_admin.business.shippers)) %></p>
-				<% end %>
-		<p><%= f.submit %></p>
-		<p><% end %></p>
 
-		</td>
-		<td><%= order.paid %></td>
-		<td><%= order.total %></td>
-		</tr>
-	<% end %>
-</table>
+
+<%= form_for :order, url: root_path, :method => :get do |f| %>
+	<p class='status-select' data-order-id="<%= order.id%>">
+	<%= f.label :Order_by_status %>
+	<%= f.select :order_status,
+			options_for_select([['All'],['In Box'],
+			['Incomming'],['Processing'],
+			['Shipping'],['Delivered']]) %></p>
+	<% end %><br>
+
+<%= render 'businesses/orders' %>

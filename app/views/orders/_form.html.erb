@@ -1,9 +1,9 @@
 <% if current_client.bag_id %>
-  <%=link_to new_order_path do %>
-  <div class="row justify-content-center btn-machine">
+  <div class="btn-machine">
+  <%=link_to new_order_path, class: "btn-machine-link" do %>
      <img src="/images/new-machine-logo3.jpg" alt="new order machine" class="new-order-logo">
-  </div>
   <% end %>
+    </div>
 <% else %>
   <div class="row justify-content-center btn-machine">
     <img src="/images/new-machine-logo3.jpg" alt="new order machine" class="new-order-logo">
@@ -20,9 +20,14 @@
 	<% else %>
 		<p> Bag: <%= current_client.bag_id %></p>
   <% end %>
-
+  <% i=0 %>
   <% current_client.orders.where(:history => false).each do |order| %>
-  <div class="container">
+  <div class="container row<%= i%>">
+  <% if i == 0 %>
+    <% i = 1 %>
+  <% else %>
+    <% i = 0 %>
+  <% end %>
 	<%= render partial: "orders/show", locals: {order: order} if current_client.orders %>
   <br>
   <% if order.status == "Delivered" %>
