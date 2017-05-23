@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
 	end
 
 	def create
+
 		if params[:box_and_location]
 			set = params[:box_and_location].split('-')
 			location = set[0]

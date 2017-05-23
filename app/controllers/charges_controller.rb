@@ -2,6 +2,7 @@ class ChargesController < ApplicationController
 
   def new
     #params are used for late payments
+    
     if params[:order_id]
       @order = Order.find(params[:order_id])
       session[:order_id] = @order.id
