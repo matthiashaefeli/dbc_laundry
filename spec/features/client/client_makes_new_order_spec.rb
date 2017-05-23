@@ -40,10 +40,10 @@ feature "Client can make a new order" do
 
     visit new_order_path
 
-    within(".container") do
+    within(".new-order-container") do
       select "Guadalupe St", :from => "orders[pick_up_address]"
     end
-    click_on('Save Orders')
+    click_on('create order')
 
     expect(page).to have_current_path new_charge_path
     expect(page).to have_content "Amount:"
