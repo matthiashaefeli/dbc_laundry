@@ -27,7 +27,7 @@ $( document ).ready(function() {
   })
 
   $('.status-select').on('change', function(event){
-  	console.log("hello");
+  	
 
   	var $form = $(this).closest('form');
   	 $.ajax({
@@ -37,11 +37,24 @@ $( document ).ready(function() {
   	})
   	 .done(function(response){
   	 	console.log(response);
-  	 	debugger;
+  	 	
 
   	 })
 	})
 
+  $(".alt").on('click',function(e){
+  	e.preventDefault();
+  	
+  	if ($(this).siblings('#orders_pick_up_address')[0].value == "Select deliver address") {
+  		alert('You need to select a location');
+  	}
+  	//what if a box is occupied OMG!
+  	else{
+  		$(this).parent().submit()
+  	}
+  })
+  	
+                
 	//-------- QR Code------
 
   // Taking Still photos with WEB RTC

@@ -2,11 +2,11 @@
 <h3>SET LOCATION OR SCAN QR CODE</h3>
 
 <%= form_for :orders, url: orders_path, :method => :post do |f| %>
-<%= f.select :pick_up_address, options_for_select(box_array(current_client.business.boxes)) %>
+<%= f.select :pick_up_address, options_for_select(box_array(current_client.business.boxes)) %>  <%# Repeating multiple times %>
 <%= f.select :box_id,
 options_for_select(boxes_count(current_client.business.boxes.count)) %> <br>
 </br>
-<%= f.submit "create order", class: "btn btn-info" %>
+<%= f.submit "create order", class: "btn btn-info alt" %>
 <% end %>
 <hr>
 <button class="cam-activate btn btn-info">Launch Camera</button>
@@ -18,7 +18,7 @@ options_for_select(boxes_count(current_client.business.boxes.count)) %> <br>
         <form class="qrcode_form" action="/orders" method="post">
         	<input type="hidden" name="authenticity_token" value="token_value">
 	        <input  id="something" type="text" name="box_and_location" value="">
-	        <button id="submit_button" type="submit" class="btn btn-info">Create Order</button>
+	        <button id="submit_button" type="submit" class="btn btn-info qr">Create Order</button>
         </form>
 </SECTION>
 </div>
