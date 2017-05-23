@@ -4,36 +4,13 @@ class ApplicationController < ActionController::Base
 
   def home
     if current_admin
-      # binding.pry
-      if request.xhr?
-        status = params[:order][:order_status]
-        case status
-
-          when 'In Box'
-           @orders = Order.where(status: 'In Box')
-          when 'Incomming'
-            @orders = Order.where(status: 'Incomming')
-          when 'Processing'
-            @orders = Order.where(status: 'Processing')
-          when 'Shipping'
-            @orders = Order.where(status: 'Shipping')
-          when 'Delivered'
-            @orders = Order.where(status: 'Delivered')
-          else
-            @orders = Order.all
-        end
-          respond_to do |format|
-          format.html '_orders.html.erb'
-          format.js 
-          end
-      else 
-        @orders = Order.all 
-      end 
-        render "./static_pages/admins_dash.html.erb"
+      @orders = Order.all
+      render "./static_pages/admins_dash.html.erb"
     else
       render "./home.html.erb"
     end
   end
+
 
   protected
   # devise accept name 

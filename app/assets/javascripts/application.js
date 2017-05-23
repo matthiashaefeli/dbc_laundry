@@ -27,19 +27,20 @@ $( document ).ready(function() {
   })
 
   $('.status-select').on('change', function(event){
-  	console.log("hello");
 
   	var $form = $(this).closest('form');
+  	var $dataIn = $form.siblings('.remove-and-insert').children();
+
+
   	 $.ajax({
             type: $form.attr('method'),
             url: $form.attr('action'),
             data: $form.serialize(),
+            dataType: 'html'
   	})
   	 .done(function(response){
-  	 	console.log(response);
-  	 	debugger;
-
-  	 })
+  	 		$dataIn.replaceWith(response)
+  	})
 	})
 
 	//-------- QR Code------
