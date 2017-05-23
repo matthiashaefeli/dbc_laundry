@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # Serve websocket cable requests in-process
+  mount ActionCable.server => '/cable'
+  
 	resources :businesses
   get 'orders/history', to: 'orders#history', as: 'history'
   get '/orders/shippers', to: 'orders#shippers', as: 'all_shippers'

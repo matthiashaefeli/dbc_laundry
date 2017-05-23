@@ -18,6 +18,16 @@
 
 
 $( document ).ready(function() {
+	
+// Action Cable 
+	console.log("application running")
+	
+	//save on change in order form status
+	// $(".table-orders").on("change",".order-form",function(e){
+	// 	// e.preventDefault();
+	// 	// debugger;
+	// })	
+
 
   $('.menu-item').mouseover(function(event) {
     $(this).addClass('animated pulse')

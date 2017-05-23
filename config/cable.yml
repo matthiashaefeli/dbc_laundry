@@ -6,5 +6,7 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
-  channel_prefix: dbc_loundry_production
+  url: redis://redistogo:261a34068185b2931b23fca57e68929d@greeneye.redistogo.com:10806/
+  #heroku test 
+  # url: redis://redistogo:ce527e5b9445d48929a030a67a9b8cf4@greeneye.redistogo.com:10556/
+  # channel_prefix: dbc_loundry_production
