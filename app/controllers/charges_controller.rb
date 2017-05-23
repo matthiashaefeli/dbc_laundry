@@ -6,9 +6,6 @@ class ChargesController < ApplicationController
     if params[:order_id]
       @order = Order.find(params[:order_id])
       session[:order_id] = @order.id
-    else 
-      # flash[:notice] = 'You Can\'t reload page on payment for your safety :)'
-      # redirect_to :root
     end
   end
 
