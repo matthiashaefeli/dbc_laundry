@@ -21,7 +21,6 @@ class OrdersController < ApplicationController
 		end
 
 		@order = Order.create(client_id: current_client.id, business_id: 1, box_in: b.id , status: "In Box", paid: false)
-		binding.pry
 		redirect_to new_charge_path
 
 	end
