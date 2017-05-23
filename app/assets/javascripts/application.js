@@ -64,7 +64,18 @@ $( document ).ready(function() {
   	}
   })
   	
-                
+     $('section.camie').hide()
+
+     $('button.cam-activate').on('click',function(){
+     	$('section.camie').show()
+     	 var txt = "innerText" in HTMLElement.prototype ? "innerText" : "textContent";
+            var arg = {
+                resultFunction: function(result) {
+                	document.getElementById('something').value = result.code;
+                }
+            };
+            new WebCodeCamJS("canvas").init(arg).play();
+     })         
 	//-------- QR Code------
 
   // Taking Still photos with WEB RTC
