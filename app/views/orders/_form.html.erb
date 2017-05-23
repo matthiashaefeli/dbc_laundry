@@ -1,9 +1,9 @@
 <% if current_client.bag_id %>
-  <%=link_to new_order_path do %>
-  <div class="row justify-content-center btn-machine">
+  <div class="btn-machine">
+  <%=link_to new_order_path, class: "btn-machine-link" do %>
      <img src="/images/new-machine-logo3.jpg" alt="new order machine" class="new-order-logo">
-  </div>
   <% end %>
+    </div>
 <% else %>
   <div class="row justify-content-center btn-machine">
     <img src="/images/new-machine-logo3.jpg" alt="new order machine" class="new-order-logo">
