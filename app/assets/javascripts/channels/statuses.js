@@ -1,4 +1,4 @@
-App.updates = App.cable.subscriptions.create({channel: 'UpdatesChannel', data: "client_id"},   {  
+App.updates = App.cable.subscriptions.create({channel: 'UpdatesChannel'},   {  
 
   received: function(data) {
     var h5_array = $("h5")

@@ -38,6 +38,8 @@ class OrdersController < ApplicationController
 				@order.update_attributes(:status => "Delivered", :box_out => @box.id)
 				@order.save
 				UserNotifier.send_update_email(@order.client).deliver
+				current_shipper.update_attributes(box_id: params[:order][:box_id])
+				current_shipper.save
 			end
 		else
 			if shipper = Shipper.find_by(name: params[:order][:assign_shipper_to_order])
