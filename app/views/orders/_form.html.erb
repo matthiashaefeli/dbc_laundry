@@ -1,13 +1,40 @@
+<% if current_client.bag_id %>
+  <div class="btn-machine">
+  <%=link_to new_order_path, class: "btn-machine-link" do %>
+     <img src="/images/new-machine-logo3.jpg" alt="new order machine" class="new-order-logo">
+  <% end %>
+    </div>
+<% else %>
+  <div class="row justify-content-center btn-machine">
+    <img src="/images/new-machine-logo3.jpg" alt="new order machine" class="new-order-logo">
+  </div>
+<% end %>
+<hr>
 <div>
-	<h1>Your Orders</h1>
+	<h1>Your Orders</h1><br>
 </div>
+
 <% if current_client && current_client.orders %>
-<% current_client.orders.each do |order| %>
+	 <% if !current_client.bag_id %>
+		<p>Thanks for signing in, we are working on your bag.</p>
+	<% else %>
+		<p> Bag: <%= current_client.bag_id %></p>
+  <% end %>
+  <% i=0 %>
+  <% current_client.orders.where(:history => false).each do |order| %>
+  <div class="container row<%= i%>">
+  <% if i == 0 %>
+    <% i = 1 %>
+  <% else %>
+    <% i = 0 %>
+  <% end %>
 	<%= render partial: "orders/show", locals: {order: order} if current_client.orders %>
+  <br>
+  <% if order.status == "Delivered" %>
+    <%= form_for :order, url: order_path(order.id), :method => :put do |f| %>
+        <%= f.submit "Add order to History" ,class:"btn btn-info" %>
+      <% end %>
+    <% end %>
+  </div>
+	<% end %>
 <% end %>
-<% end %>
-
-
-
-
-

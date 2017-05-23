@@ -20,7 +20,6 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'qrio'
-
 gem 'sendgrid-ruby'
 gem 'stripe'
 
@@ -39,6 +38,7 @@ gem 'jbuilder', '~> 2.5'
   gem 'bootstrap', '~> 4.0.0.alpha6'
   gem 'json'
   gem 'font-awesome-sass'
+  gem 'redis'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -50,8 +50,9 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'rspec-rails',  '~> 3.5'
   gem 'capybara'
+  gem 'launchy'
 end
-
+gem 'simplecov', :require => false, :group => :test
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'

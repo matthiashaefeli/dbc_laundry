@@ -6,15 +6,15 @@
     <th>Box out</th>
     <th>Order status</th> 
   </tr>
-		<% current_shipper.business.orders.where(status: "Shipping").each do |order| %>
+		<% current_shipper.business.orders.where(status: "Shipping",shipper_id: current_shipper.id).each do |order| %>
 	<tr>
 	<td><%= order.id %></td>
-	<td><%= order.box_in %></td>
+	<td><% box = Box.find(order.box_in) %><%= box.address %></td>
 	<td>
 	<%= form_for :order, url: order_path(order.id), :method => :put do |f| %>
-	 <p>
-    <%= f.number_field :box_id, :step => 1.0 %>
-    <%= f.submit %>
+	 <p><%= f.select :delivered_address,
+				options_for_select(box_array(current_shipper.business.boxes)), class: "form-group" %></p>
+		<p><%= f.submit%></p>
     <% end %>
   </p>
 	</td>

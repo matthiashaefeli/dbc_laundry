@@ -15,8 +15,8 @@
       <th scope="row"><%=b.id%></th>
       <td><%=b.name%></td>
       <td><%=b.address%></td>
-      <td><%= link_to("edit",edit_box_path(b.id)) %> <%= link_to("delete", box_path(b.id) , method: "delete") %></td>
-    </tr> 
+      <td><%= link_to("edit", box_path(b.id)) %><span class="blue"> | </span><%= link_to("delete", box_path(b.id) , method: "delete") %></td>
+    </tr>
   <% end %>
 
 </table>

@@ -12,12 +12,23 @@
 //
 //= require jquery
 //= require tether
-//= require bootstrap
 //= require jquery_ujs
+//= require bootstrap
 //= require_tree .
 
 
 $( document ).ready(function() {
+	
+// Action Cable 
+	console.log("application running")
+	
+	//save on change in order form status
+	// $(".table-orders").on("change",".order-form",function(e){
+	// 	// e.preventDefault();
+	// 	// debugger;
+	// })	
+
+
   $('.menu-item').mouseover(function(event) {
     $(this).addClass('animated pulse')
   })
@@ -25,8 +36,37 @@ $( document ).ready(function() {
     $(this).removeClass('animated pulse')
   })
 
+  $('.status-select').on('change', function(event){
+  	var $form = $(this).closest('form');
+  	var $dataIn = $form.siblings('.remove-and-insert').children();
+
+
+  	 $.ajax({
+            type: $form.attr('method'),
+            url: $form.attr('action'),
+            data: $form.serialize(),
+            dataType: 'html'
+  	})
+  	 .done(function(response){
+  	 		$dataIn.replaceWith(response)
+  	})
+	})
+
+  $(".alt").on('click',function(e){
+  	e.preventDefault();
+  	
+  	if ($(this).siblings('#orders_pick_up_address')[0].value == "Select deliver address") {
+  		alert('You need to select a location');
+  	}
+  	//what if a box is occupied OMG!
+  	else{
+  		$(this).parent().submit()
+  	}
+  })
+  	
+                
 	//-------- QR Code------
-  
+
   // Taking Still photos with WEB RTC
   // https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Taking_still_photos
 
@@ -34,56 +74,88 @@ $( document ).ready(function() {
   // srcObject
   // onloadedmetadata
   // drawImage
-	var track;
-	var constraints = { audio: false, video: { facingMode: { exact: "environment" } } }
+ //  $('section.camie').hide()
+ //  $('button.cam-activate').on('click',function(){
+ //  	$('section.camie').show()
 
-	navigator.mediaDevices.getUserMedia(constraints)
-	.then(function(mediaStream) {
-		var video = document.querySelector('video'); 
-		video.srcObject = mediaStream;
-		track = mediaStream.getTracks()[0];
-		video.onloadedmetadata = function(e) {
-			video.play();
-		};
-	})
-	.catch(function(err) { console.log(err.name + ": " + err.message); }); 
+ //  	//This is from the webcamjs library created by https://github.com/andrastoth/WebCodeCamJS
+ //  	var arg = {
+ //  		resultFunction: function(result) {
+ //  			document.getElementById("something").value = result.code
+ //  		}
+ //  	};
+ //  	new WebCodeCamJS("canvas").init(arg).play();
+ //  })
 
-	function startup() {
-		var video = $('#video');
-		var canvas = $('#canvas');
-		var startbutton = document.getElementById('startbutton'); 
+	// $('form.qrcode_form').on('submit',function(){
+	// 	$.ajax({
+	// 		method: 'POST',
+	// 		url: '/orders',
+	// 		data: $form.serialize()
+	// 	})
+	// })
 
-		startbutton.addEventListener('click', function(e){  
-			e.preventDefault();
-			takepicture();
+	// $('form.checkies').on('submit',function(){
+	// 	$form = $(this)
 
-		}, false);  
-	}
+	// 	$.ajax({
+	// 		method: 'POST',
+	// 		url: '/orders',
+	// 		data: $form.serialize()
+	// 	})
 
-	function takepicture() {
-		var context = canvas.getContext('2d');
-		context.drawImage(video, 0, 0, 400, 400);
-		var dataURL = canvas.toDataURL();
-		
-		sendPicture(dataURL);
-		cameraOff()
-	}
+	// })
 
-	function sendPicture(image){
+	// var track;
+	// var constraints = { audio: false, video: { facingMode: { exact: "environment" } } }
 
-		$.ajax({
-			method: 'POST',
-			url: '/orders',
-			data: {data: image}
-		})
-	}
+	// navigator.mediaDevices.getUserMedia(constraints)
+	// .then(function(mediaStream) {
+	// 	var video = document.querySelector('video');
+	// 	video.srcObject = mediaStream;
+	// 	track = mediaStream.getTracks()[0];
+	// 	video.onloadedmetadata = function(e) {
+	// 		video.play();
+	// 	};
+	// })
+	// .catch(function(err) { console.log(err.name + ": " + err.message); });
 
-	function cameraOff() {
-	    video.pause();
-	    video.src = "";
-	    track.stop();
-	}
+	// function startup() {
+	// 	var video = $('#video');
+	// 	var canvas = $('#canvas');
+	// 	var startbutton = document.getElementById('startbutton');
 
-	window.addEventListener('load', startup, false);
+	// 	startbutton.addEventListener('click', function(e){
+	// 		e.preventDefault();
+	// 		takepicture();
+
+	// 	}, false);
+	// }
+
+	// function takepicture() {
+	// 	var context = canvas.getContext('2d');
+	// 	context.drawImage(video, 0, 0, 400, 400);
+	// 	var dataURL = canvas.toDataURL();
+
+	// 	sendPicture(dataURL);
+	// 	cameraOff()
+	// }
+
+	// function sendPicture(image){
+
+	// 	$.ajax({
+	// 		method: 'POST',
+	// 		url: '/orders',
+	// 		data: {data: image}
+	// 	})
+	// }
+
+	// function cameraOff() {
+	//     video.pause();
+	//     video.src = "";
+	//     track.stop();
+	// }
+
+	// window.addEventListener('load', startup, false);
 
 });
