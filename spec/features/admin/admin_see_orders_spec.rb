@@ -1,5 +1,5 @@
 feature 'Admin can see orders ' do 
- 	 scenario "Valid admin can log in" do
+ 	 scenario "Admin can see an order created" do
   	#ADMIN LOGS IN 
   	business = Business.create(name: "wash", email: "wash@wash.com", hash_password: "password")
   	admin = Admin.create(name: "Tim", business: business, email: "admin@admin.com", password: "password")
@@ -17,7 +17,7 @@ feature 'Admin can see orders ' do
   	expect(page).to have_current_path root_path
   
     
-   expect(page).to have_content 'Order Id'
+   expect(page).to have_content 'Mr Happy face'
 
   end
 end

@@ -3,7 +3,7 @@ require 'rails_helper'
 
 
  feature 'Admin clicks on business and sees business state(admins,clients,shippers)' do 
- 	 scenario "Valid admin can log in" do
+ 	 scenario "Admin can see business state" do
   	#ADMIN LOGS IN 
   	business = Business.create(name: "wash", email: "wash@wash.com", hash_password: "password")
   	admin = Admin.create(name: "Tim", business: business, email: "admin@admin.com", password: "password")
