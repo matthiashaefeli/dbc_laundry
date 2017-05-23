@@ -24,6 +24,6 @@ feature "admin can log in and update profile" do
     find_field('Name').value == "Admin Edit"
     find_field('Email').value == "admin1@admin.com"
 
-    save_and_open_page
+   
   end
 end
