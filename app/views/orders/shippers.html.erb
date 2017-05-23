@@ -1,4 +1,3 @@
-
 <% current_admin.business.shippers.each do |shipper| %>
 	<h2><%= shipper.name %></h2>
 	<table width="50%">
@@ -7,8 +6,14 @@
 			<th>Client Name</th>
 			<th>Delivered Adress</th>
 		</tr>
+		  <% i=0 %>
 	<% current_admin.business.orders.where(shipper_id: shipper.id).each do |order| %>
-		<tr>
+		<tr class="row<%= i%>">
+		<% if i == 0 %>
+    	<% i = 1 %>
+  	<% else %>
+    	<% i = 0 %>
+  	<% end %>
 			<td><%= order.id %></td>
 			<td><%= order.client.name %></td>
 			<td><% box = Box.find(order.box_out) %><%= box.address %></td>

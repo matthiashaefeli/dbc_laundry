@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 	resources :businesses
   get 'orders/history', to: 'orders#history', as: 'history'
   get '/orders/shippers', to: 'orders#shippers', as: 'all_shippers'
-	resources :orders
+	get 'orders/update_status', to: 'orders#update_status', as: 'order_update_status'
+  
+  resources :orders
+  
+  
   resources :charges, only: [:new, :create]
 
   resources :boxes

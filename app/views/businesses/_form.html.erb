@@ -1,5 +1,6 @@
 
-<%= form_for :order, url: root_path, :method => :get do |f| %>
+<div>
+<%= form_for :order, url: order_update_status_path, :method => :get, remote: true do |f| %>
 	<p class='status-select'>
 	<%= f.label :Order_by_status %>
 	<%= f.select :order_status,
@@ -9,3 +10,4 @@
 	<% end %><br>
 
 <%= render 'businesses/orders' %>
+</div>

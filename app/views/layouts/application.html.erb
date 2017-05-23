@@ -45,6 +45,7 @@
       <%= yield %>
     </div>
 
+
     <footer class="footer">
       <ul class="list-inline site-footer">
         <% if !current_client && !current_admin && !current_shipper %>
@@ -56,10 +57,10 @@
         <li class="list-inline-item"><%= link_to("Shipper Login ", new_shipper_session_path) %> <br></li>|
       <% end %>
          <li class="list-inline-item">DBC Laundry all rights reserved. 2017</li>
-        <li class="list-inline-item optional"><a href="https://github.com/matthiashaefeli"><i class="fa fa-github" aria-hidden="true">Matthias</i></a></li>
-        <li class="list-inline-item optional"><a href="https://github.com/karinafraest"><i class="fa fa-github" aria-hidden="true">Karina</i></a></li>
-        <li class="list-inline-item optional"><a href="https://github.com/RCAVelez"><i class="fa fa-github" aria-hidden="true">Raymond</i></a></li>
-        <li class="list-inline-item optional"><a href="https://github.com/litola"> <i class="fa fa-github" aria-hidden="true">Rafael</i></a>
+        <li class="list-inline-item optional hidden-sm-down"><a href="https://github.com/matthiashaefeli"><i class="fa fa-github" aria-hidden="true">Matthias</i></a></li>
+        <li class="list-inline-item optional hidden-sm-down"><a href="https://github.com/karinafraest"><i class="fa fa-github" aria-hidden="true">Karina</i></a></li>
+        <li class="list-inline-item optional hidden-sm-down"><a href="https://github.com/RCAVelez"><i class="fa fa-github" aria-hidden="true">Raymond</i></a></li>
+        <li class="list-inline-item optional hidden-sm-down"><a href="https://github.com/litola"> <i class="fa fa-github" aria-hidden="true">Rafael</i></a>
         </p></li>
         </ul>
     </footer>
