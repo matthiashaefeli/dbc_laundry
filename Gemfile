@@ -38,6 +38,7 @@ gem 'jbuilder', '~> 2.5'
   gem 'bootstrap', '~> 4.0.0.alpha6'
   # gem 'json'
   gem 'font-awesome-sass'
+  gem 'redis'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
