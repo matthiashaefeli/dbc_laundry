@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature "admin can log in and update profile" do
-  scenario "Valid admin can log in" do
+  scenario "admin updates profile" do
   #ADMIN LOGS IN 
     business = Business.create(name: "wash", email: "wash@wash.com", hash_password: "password")
     admin = Admin.create(name: "Admin", business: business, email: "admin@admin.com", password: "password")
@@ -19,8 +19,11 @@ feature "admin can log in and update profile" do
     fill_in("Email", with: 'admin1@admin.com')
     click_on('Update')
     click_on('Edit profile')
+
+    
     find_field('Name').value == "Admin Edit"
     find_field('Email').value == "admin1@admin.com"
 
+    save_and_open_page
   end
 end
