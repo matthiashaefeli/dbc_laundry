@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://redistogo:ef048f4351de38ad950386bddb81731f@greeneye.redistogo.com:10834/
+  url: redis://redistogo:ce527e5b9445d48929a030a67a9b8cf4@greeneye.redistogo.com:10556/
   # channel_prefix: dbc_loundry_production
