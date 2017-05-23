@@ -3,7 +3,7 @@ module OrdersHelper
   def status_bar(order)
     status_percentage = {
       "In Box" => "5",
-      "Incomming" => "22",
+      "Incoming" => "22",
       "Processing" => "50",
       "Shipping" => "75",
       "Delivered" => "100"

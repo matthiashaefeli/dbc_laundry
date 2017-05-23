@@ -10,7 +10,7 @@ require 'rails_helper'
   	box = Box.create(name: 'Frost Bank', business_id: business.id, address: 'Barbara Jordan Blvd')
     shipper = Shipper.create(name: "John", email: "shipper@shipper.com", password: "password",  phone: "5122223344", business_id: business.id)
   	client = Client.create(name: "Mr Happy face", password: "password", email: "happy@client.com", phone: "4993333333", business_id: business.id, bag_id: 1234)
-  	order = Order.create(id: 1, box_in: 1, box_out:1, client: client, business: business, status: 'Incomming', total: 100, paid: true)
+  	order = Order.create(id: 1, box_in: 1, box_out:1, client: client, business: business, status: 'Incoming', total: 100, paid: true)
   	
   	visit new_admin_session_path
   	within(".container") do
