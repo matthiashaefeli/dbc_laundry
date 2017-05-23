@@ -14,14 +14,14 @@ class OrdersController < ApplicationController
 		if params[:box_and_location]
 			set = params[:box_and_location].split('-')
 			location = set[0]
-			box_in = set[1]
+			b = Box.find_by(address: location)
 		elsif params[:orders][:pick_up_address]
-			
 			location = params[:orders][:pick_up_address]
-			box_in = params[:orders][:box_id]
+			b = Box.find_by(address: location)
 		end
 
-		@order = Order.create(client_id: current_client.id, business_id: 1, box_in: box_in.to_i, status: "In Box", paid: false)
+		@order = Order.create(client_id: current_client.id, business_id: 1, box_in: b.id , status: "In Box", paid: false)
+		binding.pry
 		redirect_to new_charge_path
 
 	end
@@ -79,9 +79,9 @@ class OrdersController < ApplicationController
 			respond_to do |format|
 				format.html { render partial:'businesses/orders', layout:false }
 			end
-		else 
-			@orders = Order.all 
-		end 
+		else
+			@orders = Order.all
+		end
 	end
 
 	def history
