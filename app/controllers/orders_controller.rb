@@ -26,7 +26,6 @@ class OrdersController < ApplicationController
 	end
 
 	def update
-		binding.pry
 		@order = Order.find(params[:id])
 		if params[:commit] == "Add order to History"
 			@order.history = true
