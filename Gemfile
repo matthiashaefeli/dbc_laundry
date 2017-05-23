@@ -36,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
   gem 'devise'
   gem 'jquery-rails'
   gem 'bootstrap', '~> 4.0.0.alpha6'
-  # gem 'json'
+  gem 'json'
   gem 'font-awesome-sass'
   gem 'redis'
 
