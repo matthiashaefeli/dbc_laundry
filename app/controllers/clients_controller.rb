@@ -1,9 +1,10 @@
 class ClientsController < ApplicationController
 def add_bag
-    if current_admin && !helpers.bag_in_use(params[:bag_id]) 
+    if current_admin && !helpers.bag_in_use(params[:bag_id])
       @client = Client.find(params[:id])
       @client.bag_id = params[:bag_id]
       @client.save
+      UserNotifier.send_bag_email(@client).deliver
     else
         flash[:alert] = "Bag is already in use"
     end
@@ -21,6 +22,7 @@ def add_bag
       @client = Client.find(params[:id])
       @client.bag_id = params[:client][:bag_id]
       @client.save
+      UserNotifier.send_bag_email(@client).deliver
       redirect_to business_path
     else
       flash[:alert] = "Bag is already in use"

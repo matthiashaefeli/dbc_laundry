@@ -61,8 +61,8 @@ class OrdersController < ApplicationController
 			case status
 			when 'In Box'
 				orders = Order.where(status: 'In Box')
-			when 'Incomming'
-				orders = Order.where(status: 'Incomming')
+			when 'Incoming'
+				orders = Order.where(status: 'Incoming')
 			when 'Processing'
 				orders = Order.where(status: 'Processing')
 			when 'Shipping'
