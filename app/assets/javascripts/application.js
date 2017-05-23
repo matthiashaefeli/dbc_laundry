@@ -21,10 +21,12 @@ $( document ).ready(function() {
 	
 // Action Cable 
 	console.log("application running")
-	$(".table-orders").on("change",".order-form",function(e){
-		e.preventDefault();
-		debugger;
-	})	
+	
+	//save on change in order form status
+	// $(".table-orders").on("change",".order-form",function(e){
+	// 	// e.preventDefault();
+	// 	// debugger;
+	// })	
 
 
   $('.menu-item').mouseover(function(event) {
