@@ -23,6 +23,11 @@ h1,h2,h3,h4,h5{
   font-family: 'Bree Serif', 'serif';
 }
 
+.business-name{
+  color: white;
+  text-align: center;
+}
+
 i{
   color: #0275d8;
 }
@@ -53,7 +58,7 @@ body{
 
 
 .footer{
-  background-color: #05E6FF;
+  background-color: #33CCFF;
   color:white;
   position: fixed;
   height: 8%;
@@ -107,6 +112,35 @@ body{
   text-align: center;
 }
 
+.flash-notice{
+  display: inline;
+}
+
+.form-dropdown{
+  border: 1px solid #33CCFF;
+}
+
+.delivery-update {
+  margin: 5px;
+}
+.delivery-option {
+  margin-right: 15px;
+}
+
+.btn-machine{
+  text-align: center;
+}
+
+.btn-machine img {
+  height: 150px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  background-color: grey;
+}
+
+.btn-machine img:hover{
+  height: 175px;
+}
 
 /*MOBIL VERSIONS*/
 .nav-mobil{
@@ -117,6 +151,11 @@ body{
 .navbar{
   background-color: #05E6FF;
 }
+.main-container{
+  min-height: 500px;
+  margin-top: 5%;
+}
+
 .home-logo-mobil{
   height: 350px;
   /*background-color: blue;*/
@@ -150,8 +189,11 @@ body{
   color: #0275d8;
 }
 
-.btn-machine img {
-  height: 150px;
-  width:auto;
-  margin-bottom: 5%;
+.optional{
+  display: inline;
 }
+
+.row1{
+  background-color: #F7FAFE;
+}
+

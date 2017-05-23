@@ -1,20 +1,24 @@
-
 <% current_admin.business.shippers.each do |shipper| %>
 	<h2><%= shipper.name %></h2>
-		
-	<% current_admin.business.orders.where(shipper_id: shipper.id).each do |order| %>
 	<table width="50%">
 		<tr>
 			<th>Order Id</th>
 			<th>Client Name</th>
 			<th>Delivered Adress</th>
 		</tr>
-		<tr>
+		  <% i=0 %>
+	<% current_admin.business.orders.where(shipper_id: shipper.id).each do |order| %>
+		<tr class="row<%= i%>">
+		<% if i == 0 %>
+    	<% i = 1 %>
+  	<% else %>
+    	<% i = 0 %>
+  	<% end %>
 			<td><%= order.id %></td>
 			<td><%= order.client.name %></td>
 			<td><% box = Box.find(order.box_out) %><%= box.address %></td>
 		</tr>
-	</table>
 	<% end %>
+	</table>
 	<br>
 <% end %>

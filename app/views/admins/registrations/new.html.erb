@@ -2,7 +2,8 @@
   <div class="row">
     <div class='col'>
       <h2>Create Admin user</h2>
-          <%= form_for(:admin) do |f| %>
+          <%= form_for :admin, :html => { :class =>
+'create_admin' } do |f| %>
           <%= f.hidden_field :business_id, value: current_admin.business.id%>
          <div class="form-group">
           <%= f.text_field :name, autofocus: true , class:"form-control", placeholder: "Name"%>
@@ -24,7 +25,7 @@
         </div>
 
         <div class="form-group actions">
-          <%= f.submit "Create admin", class: "btn btn-success" %>
+          <%= f.submit "Create admin", class: "btn btn-info" %>
         </div>
       <% end %><br>
       <br>

@@ -1,0 +1,25 @@
+require 'rails_helper'
+
+feature "admin can see shipper who delivered something" do
+  scenario "Valid admin can log in" do
+  #ADMIN LOGS IN 
+
+    business = Business.create(name: "wash", email: "wash@wash.com", hash_password: "password")
+    admin = Admin.create(name: "Tim", business: business, email: "admin@admin.com", password: "password")
+    box = Box.create(name: 'Frost Bank', business_id: business.id, address: 'Barbara Jordan Blvd')
+    shipper = Shipper.create(name: "John", email: "shipper@shipper.com", password: "password",  phone: "5122223344", business_id: business.id)
+    client = Client.create(name: "Mr Happy face", password: "password", email: "happy@client.com", phone: "4993333333", business_id: business.id, bag_id: 1234)
+    order = Order.create(box_in: 1, client_id: 1, business_id: 1, status: 'Delivered', total: 100, paid: true, shipper_id: shipper.id, box_out: box.id)
+    visit new_admin_session_path
+
+    within(".container") do
+      fill_in("Email", with: 'admin@admin.com')
+      fill_in("Password", with: 'password')
+    end
+    click_on('Log in')
+    expect(page).to have_current_path root_path
+  #ADMIN CLICKS Setup
+    click_on('Shippers')
+    expect(page).to have_content 'John'
+  end
+end

@@ -4,19 +4,27 @@
 <br>
 
 <table style="width:70%">
+<thead class="thead-inverse">
   <tr>
     <th>Date  </th>
     <th>Paid    </th>
     <th>Total     </th>
   </tr>
-    <tr>
+     <% i=0 %>
     <% current_client.orders.each do |order| %>
       <% if order.status ==  "Delivered" %>
+      <tr class="row<%= i%>">
+      <% if i == 0 %>
+        <% i = 1 %>
+      <% else %>
+         <% i = 0 %>
+      <% end %>
       <td><%= order.created_at.strftime("%B %d, %Y")  %> </td>
       <td>  <%= order.paid %>       </td>
       <td>  $<%= order.total %>      </td>
+      </tr>
       <% end %>
-    </tr>
     <% end %>
+    </thead>
 </table>
 <br>
