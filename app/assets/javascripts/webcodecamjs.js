@@ -567,7 +567,7 @@ var WebCodeCamJS = function(element) {
             qrcode.sourceCanvas = display;
             initialized = true;
             setEventListeners();
-            debugger
+            
             DecodeWorker = new Worker(options.decoderWorker);
             if (options.decodeQRCodeRate || options.decodeBarCodeRate) {
                 setCallBack();
