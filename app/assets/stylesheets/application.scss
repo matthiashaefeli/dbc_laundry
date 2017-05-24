@@ -15,13 +15,30 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-*{
-  font-family: 'Titillium Web', sans-serif;
+/*custom fonts*/
+@font-face{
+  font-family: 'Simplifica';
+  src: font-url('SIMPLIFICATypeface.ttf');
 }
 
-h1,h2,h3,h4,h5{
-  font-family: 'Raleway', sans-serif;
+
+a{
+  font-family: 'Simplifica';
+  font-size: 26px;
+  letter-spacing: 3px
 }
+
+h1{
+  font-family: 'Simplifica';
+  letter-spacing: 3px
+}
+
+/**h1,h2,h3,h4,h5{
+  font-family: 'Simplifica';
+}*/
+
+
+
 
 .business-name{
   color: white;
@@ -91,7 +108,7 @@ body{
 }
 
 .new-order-logo{
-
+  background-color: rgba(0,0,0,0.2);
 }
 
 .client-edit-profile{
@@ -234,4 +251,6 @@ body{
 .row1{
   background-color: #F7FAFE;
 }
+
+
 
