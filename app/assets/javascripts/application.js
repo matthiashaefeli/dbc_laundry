@@ -23,14 +23,7 @@ $( document ).ready(function() {
 	console.log("application running")
 
 	
-		$('body.second_page').vegas({
-			slides: [
-				{ src: "teaserbox_15219484.jpg" },
-				{ src: "2c6dfa5a1f44e7e3ae1b536a52db99e9.jpg" },
-				{ src: "slider_image_1.jpg" },
-				{ src: "1458073562516.jpeg" }
-			]
-		});
+		
 
   $('.menu-item').mouseover(function(event) {
     $(this).addClass('animated pulse')
