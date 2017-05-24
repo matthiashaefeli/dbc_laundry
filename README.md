@@ -1,5 +1,5 @@
-# Dirty Laundry
-
+# Dirty Laundry 
+ 
 # TEAM
 * Karina Franco    [@karinafraest](https://github.com/karinafraest)
 * Rafale Lara    [@litola](https://github.com/litola)
@@ -44,7 +44,7 @@ description here
 
 
 # How to use
-
+ click
 
 # Features
 
