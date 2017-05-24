@@ -229,21 +229,6 @@ body{
   max-width: 700px;
 }
 
-.btn-mobil-login {
-  border: 2px solid #0275d8;
-  color: #0275d8;
-}
-.btn-mobil-login:hover{
-  background-color: #0275d8;
-  color:white;
-}
-
-.btn-mobil-register:hover{
-  background-color: white;
-  border: 2px solid #0275d8;
-  color: #0275d8;
-}
-
 .optional{
   display: inline;
 }
@@ -252,5 +237,21 @@ body{
   background-color: #F7FAFE;
 }
 
+.btn-mobil-login {
+  border: 2px solid #0275d8;
+  color:white;
+  background-color: #0275d8;
+}
 
+.btn-mobil-login:hover{
+  background-color: rgba(255,255,255,0.5);
+  border: 2px solid #0275d8;
+  color: #0275d8;
+}
+
+.btn-mobil-register:hover{
+  background-color: rgba(255,255,255,0.5);
+  border: 2px solid #0275d8;
+  color: #0275d8;
+}
 
