@@ -28,7 +28,7 @@
 			<span class="delivery-option"><%= f.select :assign_shipper_to_order,
 					options_for_select(shipper_array(current_admin.business.shippers)) %>
 					<% end %></span>
-			<span><%= f.submit "update" %></span>
+			<span><%= f.submit "update" , class: "btn btn-info"%></span>
 			<% end %>
 
 			</td>

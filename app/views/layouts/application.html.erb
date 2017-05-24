@@ -24,9 +24,11 @@
   <body>
   <!-- HOME HEADER WITHOUT LOGIN -->
       <% if !current_client && !current_admin && !current_shipper %>
-        <div class="nav-mobil">
-          <h1 class="business-name">Quick Wash</h1>
-        </div>
+        <%=link_to root_path do %>
+          <div class="nav-mobil">
+            <h1 class="business-name">Quick Wash</h1>
+          </div>
+        <% end %>
       <% end %>
   <!-- CLIENT NAVBAR -->
       <%= render "layouts/clients_nav.html.erb" if current_client %>
