@@ -19,7 +19,7 @@
 		<td><%= order.id %></td>
 		<td><%= order.client.name %></td>
 		<td>
-		<%= form_for :order, url: order_path(order.id), :method => :put, html:{:class => "form-inline delivery-update"} do |f| %>
+		<%= form_for :order, url: order_path(order.id), :method => :put, html:{:class => "form-inline delivery-update"}, remote: true do |f| %>
 		<span class="delivery-option"><%= f.select :order_status,
 				options_for_select([[order.status],['In Box'],
 				['Incoming'],['Processing'],
@@ -28,7 +28,7 @@
 			<span class="delivery-option"><%= f.select :assign_shipper_to_order,
 					options_for_select(shipper_array(current_admin.business.shippers)) %>
 					<% end %></span>
-			<span><%= f.submit "update" , class: "btn btn-info"%></span>
+			<span><%= f.submit "update" , class: "btn btn-info update-btn-form"%></span>
 			<% end %>
 
 			</td>

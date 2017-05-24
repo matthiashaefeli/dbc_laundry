@@ -28,7 +28,8 @@ $( document ).ready(function() {
 	// 	// debugger;
 	// })	
 
-
+  // update admin order with ajax
+  $('')
   $('.menu-item').mouseover(function(event) {
     $(this).addClass('animated pulse')
   })
