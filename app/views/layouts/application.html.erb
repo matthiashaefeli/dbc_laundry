@@ -2,7 +2,7 @@
 <html>
 
   <head>
-    <title>Dbc Laundry</title>
+    <title>Pronto Clean</title>
 
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
@@ -24,11 +24,15 @@
   <body>
   <!-- HOME HEADER WITHOUT LOGIN -->
       <% if !current_client && !current_admin && !current_shipper %>
-        <%=link_to root_path do %>
           <div class="nav-mobil">
-            <h1 class="business-name">Quick Wash</h1>
+          <div class="nav-mobil-link-container">
+          <%=link_to root_path do %>
+            <img src="/images/clean-logo.png" alt="small logo" class="small-logo hidden-xs-down">
+            <h1 class="business-name">Pronto Clean</h1>
+            <% end %>
+            </div>
           </div>
-        <% end %>
+
       <% end %>
   <!-- CLIENT NAVBAR -->
       <%= render "layouts/clients_nav.html.erb" if current_client %>

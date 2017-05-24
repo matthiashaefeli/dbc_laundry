@@ -16,7 +16,7 @@
 
       <div class="col-md-3 menu-item d-flex justify-content-center">
         <i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"><%= link_to("Logout", destroy_client_session_path, method: "delete")%></i>
-      </div> <br> 
+      </div> <br>
 
       <% elsif !current_admin && !current_client%>
       <div class="col-sm-12 col-md-3 menu-item d-flex justify-content-center">
@@ -51,9 +51,9 @@
        <li class="nav-item">
         <%= link_to("History", history_path, class: "nav-link")%>
       </li>
-  
+
        <li class="nav-item">
-        <%= link_to("Edit profile", edit_client_registration_path(current_client), class: "nav-link") %> 
+        <%= link_to("Edit profile", edit_client_registration_path(current_client), class: "nav-link") %>
       </li>
       <li class="nav-item">
         <%= link_to("Logout", destroy_client_session_path, method: "delete", class: "nav-link")%>
