@@ -154,13 +154,15 @@ body{
 }
 
 .small-logo{
+  margin-top: 5px;
   max-height: 50px;
   max-width: 50px;
-  display: inline;
+  float: left;
 }
 
 .business-name{
-  display: inline;
+  display: inline-block;
+  position: bottom;
 }
 /*MOBIL VERSIONS*/
 .nav-mobil{
@@ -170,7 +172,12 @@ body{
   /*background: #1e5799;*/  /*Old browsers */
 }
 
+.nav-mobil-link-container{
+  margin-left: 20px;
+}
+
 .nav-mobil a:hover{
+  margin-left: 10px;
   text-decoration: none;
 }
 
