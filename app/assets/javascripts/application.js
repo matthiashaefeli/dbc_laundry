@@ -201,4 +201,51 @@ $( document ).ready(function() {
 
 	// window.addEventListener('load', startup, false);
 
+
+	$(".col").on("click", ".edit-box", ".edit-master", function(event){
+		event.preventDefault();
+		
+		var $td = $(this);
+		$.ajax({
+            type: 'GET',
+            url: $td.find('a').attr('href'),
+            datatype: 'html'
+
+    })
+
+		.done(function(response){
+			$td.parent().append(response);
+			$td.siblings(".remove").remove();
+			$td.remove();
+			
+  	 		
+
+  	})
+	})
+
+	$(".col").on("click", ".save-changes", ".edit-master", function(event){
+		event.preventDefault();
+		
+		var $form = $(this).parent();
+		var $data = $(this).closest(".add-data")
+
+		$.ajax({
+						type: $form.attr('method'),
+            url: $form.attr('action'),
+            data: $form.serialize()
+		})
+		.done(function(response){
+			$data.replaceWith(response);
+
+
+		})
+	})
 });
+
+
+
+
+
+
+
+
