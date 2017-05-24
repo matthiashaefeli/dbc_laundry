@@ -30,22 +30,22 @@ $( document ).ready(function() {
 	// })	
 
   // update admin order with ajax
-  $(".update-btn-form").hide()
-  $('.remove-and-insert').on("change", ".delivery-option", function(e){
-    e.preventDefault();
-    var select = $(this)
-    var $form = $(this).parent()
-    var data = $(this).parent().serialize()
-    $.ajax({
-      type: $form.attr('method'),
-      url: $form.attr('action'),
-      data: data,
-      // dataType: 'json'
-    	})
-    	 .done(function(){
-        console.log("saved")
-    	})
-  	})
+  // $(".update-btn-form").hide()
+  // $('.remove-and-insert').on("change", ".delivery-option", function(e){
+  //   e.preventDefault();
+  //   var select = $(this)
+  //   var $form = $(this).parent()
+  //   var data = $(this).parent().serialize()
+  //   $.ajax({
+  //     type: $form.attr('method'),
+  //     url: $form.attr('action'),
+  //     data: data,
+  //     // dataType: 'json'
+  //   	})
+  //   	 .done(function(){
+  //       console.log("saved")
+  //   	})
+  // 	})
 
   //Shipper option 
    $('.remove-and-insert').on("change", ".delivery-option", function(e){
@@ -67,22 +67,40 @@ $( document ).ready(function() {
        }
   
   // update admin order with ajax
-    $('.remove-and-insert').on("change", "#order_assign_shipper_to_order", function(e){
-      e.preventDefault();
-      var select = $(this)
-      var $form = $(this).parent().parent()
-      var data = $(this).parent().parent().serialize()
-      $.ajax({
-        type: $form.attr('method'),
-        url: $form.attr('action'),
-        data: data,
-        // dataType: 'json'
-        })
-         .done(function(){
-          console.log("saved")
-        })
-      })
-  
+    // $('.remove-and-insert').on("change", "#order_assign_shipper_to_order", function(e){
+    //   e.preventDefault();
+    //   var select = $(this)
+    //   var $form = $(this).parent().parent()
+    //   var data = $(this).parent().parent().serialize()
+    //   $.ajax({
+    //     type: $form.attr('method'),
+    //     url: $form.attr('action'),
+    //     data: data,
+    //     // dataType: 'json'
+    //     })
+    //      .done(function(){
+    //       console.log("saved")
+    //     })
+    //   })
+ 
+
+  $('.status-select').on('change', function(event){
+
+  	var $form = $(this).closest('form');
+  	var $dataIn = $form.siblings('.remove-and-insert').children();
+
+
+  	 $.ajax({
+            type: $form.attr('method'),
+            url: $form.attr('action'),
+            data: $form.serialize(),
+            dataType: 'html'
+  	})
+  	 .done(function(response){
+  	 		$dataIn.replaceWith(response)
+  	})
+	})
+
 
   $(".alt").on('click',function(e){
   	e.preventDefault();
