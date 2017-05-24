@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   def home
     if current_admin
       @orders = Order.all
-      render "./static_pages/admins_dash.html.erb"
+      render "./businesses/_form"
     else
       render "./home.html.erb"
     end
