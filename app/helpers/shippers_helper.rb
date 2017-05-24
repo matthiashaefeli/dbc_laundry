@@ -7,4 +7,13 @@ module ShippersHelper
 		end
 		b_array
 	end
+
+  def selected_shipper(order)
+    if order.shipper_id
+      shipper = Shipper.find(order.shipper_id).name
+    else
+      shipper = "Select Shipper"
+    end
+  end
+  
 end
