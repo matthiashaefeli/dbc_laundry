@@ -182,7 +182,12 @@ $( document ).ready(function() {
     })
 
 		.done(function(response){
-  	 		$td.parent().append(response);
+			$td.parent().append(response);
+			$td.siblings(".remove").remove();
+			$td.remove();
+			
+  	 		
+
   	})
 	})
 
@@ -198,7 +203,8 @@ $( document ).ready(function() {
             data: $form.serialize()
 		})
 		.done(function(response){
-			$data.replaceWith(response)
+			$data.replaceWith(response);
+
 
 		})
 	})

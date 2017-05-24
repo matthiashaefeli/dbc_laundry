@@ -14,7 +14,7 @@
       <tr>
         <th scope="row"><%=box.id%></th>
         <td class=edit-box><%= link_to(box.name, box_path(box.id), remote: true) %></td>
-        <td><%=box.address%></td>
+        <td class="remove"><%=box.address%></td>
       </tr>
     <% end %>
     </tbody>
