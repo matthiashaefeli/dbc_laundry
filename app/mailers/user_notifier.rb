@@ -24,7 +24,7 @@ class UserNotifier < ApplicationMailer
     from = Email.new(email: 'dbc-laundry@gmail.com')
     subject = 'Your bag id: '
     to = Email.new(email: @client.email)
-    content = Content.new(type: 'text/plain', value: "Hi #{client.name}! <br> Thank you for your patience, your bag is: #{ @client.bag_id }.<br> Log in to start making orders!")
+    content = Content.new(type: 'text/plain', value: "Hi #{@client.name}! <br> Thank you for your patience, your bag is: #{ @client.bag_id }.<br> Log in to start making orders!")
     mail = Mail.new(from, subject, to, content)
 
     sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
