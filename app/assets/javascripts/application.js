@@ -50,20 +50,38 @@ $( document ).ready(function() {
   //Shipper option 
    $('.remove-and-insert').on("change", ".delivery-option", function(e){
       if ($(this).children()[0].value == "Shipping"){
-         $(this).siblings('.shipper').show()
+         $(this).siblings().show()
       }else if ($(this).children()[0].value != "Shipping"){
         $(this).siblings('.shipper').hide()  
       }
     })
     
     function clearShippers() { 
+
        for (var x =0 ;  x < $(".delivery-option").children("#order_order_status").length; x++){
         if ($($(".delivery-option").children("#order_order_status")[x]).find(":selected").text() != "Shipping"){
          $($(".delivery-option").children("#order_order_status")[x]).parent().siblings("span.delivery-option.shipper").children().hide()
+          
         }
         }
        }
   
+  // update admin order with ajax
+    $('.remove-and-insert').on("change", "#order_assign_shipper_to_order", function(e){
+      e.preventDefault();
+      var select = $(this)
+      var $form = $(this).parent().parent()
+      var data = $(this).parent().parent().serialize()
+      $.ajax({
+        type: $form.attr('method'),
+        url: $form.attr('action'),
+        data: data,
+        // dataType: 'json'
+        })
+         .done(function(){
+          console.log("saved")
+        })
+      })
   
 
   $(".alt").on('click',function(e){

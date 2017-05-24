@@ -26,7 +26,7 @@
 				['Shipping']], params[:order_status])%></span>
 			
 			<span class="delivery-option shipper"><%= f.select :assign_shipper_to_order,
-					options_for_select(shipper_array(current_admin.business.shippers)) %>
+					options_for_select(shipper_array(current_admin.business.shippers), selected: selected_shipper(order))%>
 			</span>
 			<span><%= f.submit "update" , class: "btn btn-info update-btn-form"%></span>
 			<% end %>
