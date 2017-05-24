@@ -1,5 +1,4 @@
 module OrdersHelper
-
   def status_bar(order)
     status_percentage = {
       "In Box" => "5",
@@ -17,11 +16,5 @@ module OrdersHelper
       s_array << [shipper.name]
     end
     s_array
-  end
-
-
-  def boxes_count(count)
-    array_nums = [1..count].to_a
-    array_nums
   end
 end
