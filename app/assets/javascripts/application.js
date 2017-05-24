@@ -23,7 +23,7 @@ $( document ).ready(function() {
 	console.log("application running")
 
 	
-		$('body').vegas({
+		$('body.second_page').vegas({
 			slides: [
 				{ src: "teaserbox_15219484.jpg" },
 				{ src: "2c6dfa5a1f44e7e3ae1b536a52db99e9.jpg" },
