@@ -8,6 +8,16 @@ RSpec.describe OrdersController, :type => :controller do
     end
   end
 
+  describe "GET show" do
+    let(:business){Business.create(name: "Wishi washy", email: "wishy@washy.com", hash_password: "password")}
+    let(:client){Client.create(name: "Client", phone: "1231234123", business: business, email: "client@client.com", password: "password")}
+    let(:order){Order.create(client_id: client.id, business_id: business.id, box_in: 1, status: "In Box", paid: false)}
+    it "has a 200 status code" do
+      post :show, params: { id: order.id}
+      expect(response.status).to eq(204)
+    end
+  end
+
   describe "responds to" do 
     let(:business){Business.create(name: "Wishi washy", email: "wishy@washy.com", hash_password: "password")}
     let(:order){Order.create(client_id: client.id, business_id: business.id, box_in: 1, status: "In Box", paid: false)}
