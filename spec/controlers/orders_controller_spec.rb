@@ -15,4 +15,41 @@ RSpec.describe OrdersController, :type => :controller do
       expect(response.status).to eq(200)
     end
   end
+
+  describe "order controller" do 
+    it "has a 200 status code with In box" do
+      post :update_status, xhr: true, params: { order: { order_status: 'In Box' }}
+      expect(response.status).to eq(200)
+    end
+
+    it "has a 200 status code with Incoming" do
+      post :update_status, xhr: true, params: { order: { order_status: 'Incoming' }}
+      expect(response.status).to eq(200)
+    end
+
+   it "has a 200 status code with Processing" do
+      post :update_status, xhr: true, params: { order: { order_status: 'Processing' }}
+      expect(response.status).to eq(200)
+    end
+
+    it "has a 200 status code with Shipping" do
+      post :update_status, xhr: true, params: { order: { order_status: 'Shipping' }}
+      expect(response.status).to eq(200)
+    end
+
+    it "has a 200 status code with Delivered" do
+      post :update_status, xhr: true, params: { order: { order_status: 'Delivered' }}
+      expect(response.status).to eq(200)
+    end
+
+    it "has a 200 status code with Delivered" do
+      post :update_status, xhr: true, params: { order: { order_status: '' }}
+      expect(response.status).to eq(200)
+    end
+
+      it "has a 200 status code with Delivered" do
+      post :update_status, params: { order: { order_status: '' }}
+      expect(response.status).to eq(200)
+    end
+  end
 end
