@@ -59,7 +59,7 @@ RSpec.describe OrdersController, :type => :controller do
 
       it "has a 200 status code with Delivered" do
       post :update_status, params: { order: { order_status: '' }}
-      expect(response.status).to eq(200)
+      expect(response.status).to eq(204)
     end
   end
 end

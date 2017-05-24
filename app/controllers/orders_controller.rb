@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
 	end
 
 	def create
+		
 
 		if params[:box_and_location]
 			set = params[:box_and_location].split('-')
@@ -27,6 +28,7 @@ class OrdersController < ApplicationController
 	end
 
 	def update
+
 		@order = Order.find(params[:id])
 		if params[:commit] == "Add order to History"
 			@order.history = true
@@ -49,7 +51,11 @@ class OrdersController < ApplicationController
 				@order.save
 			end
 		end
-		redirect_to root_path
+		if request.xhr?
+			@order.to_json
+		else	
+			redirect_to root_path
+		end
 	end
 
 	def shippers

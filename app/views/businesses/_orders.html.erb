@@ -23,12 +23,13 @@
 		<span class="delivery-option"><%= f.select :order_status,
 				options_for_select([[order.status],['In Box'],
 				['Incoming'],['Processing'],
-				['Shipping']], params[:order_status]) %></span>
+				['Shipping']], params[:order_status])%></span>
 			<% if order.status == "Processing" || order.status == "Shipping" || order.status == "Delivered" %>
-			<span class="delivery-option"><%= f.select :assign_shipper_to_order,
-					options_for_select(shipper_array(current_admin.business.shippers)) %>
-					<% end %></span>
-			<span><%= f.submit "update" , class: "btn btn-info"%></span>
+			<span class="delivery-option shipper"><%= f.select :assign_shipper_to_order,
+					options_for_select(shipper_array(current_admin.business.shippers), selected: selected_shipper(order))%>
+			</span>
+			<% end %>
+			<span><%= f.submit "update" , class: "btn btn-info update-btn-form"%></span>
 			<% end %>
 
 			</td>
