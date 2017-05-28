@@ -1,49 +1,77 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>DbcLoundry</title>
-    <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <head>
+    <title>Pronto Clean</title>
+
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all'%>
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Titillium+Web" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.js"
+    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+
   </head>
 
   <body>
-    <!-- Devise notice and alert -->
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" href="/">DBC Cleaner</a>
+  <!-- HOME HEADER WITHOUT LOGIN -->
+      <% if !current_client && !current_admin && !current_shipper %>
+          <div class="nav-mobil">
+          <div class="nav-mobil-link-container">
+          <%=link_to root_path do %>
+            <img src="/images/clean-logo.png" alt="small logo" class="small-logo hidden-xs-down">
+            <h1 class="business-name">Pronto Clean</h1>
+            <% end %>
+            </div>
+          </div>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-     
-    </ul>
-  
-      <%if current_client  %>
-       <%= link_to("Logout", destroy_client_session_path, method: "delete", class:"btn btn-danger")%>
-      <% else %>
-        <%= link_to("Login", new_client_session_path,  class:"btn btn-success") %>
-        <%= link_to("Register", new_client_registration_path,  class:"btn btn-primary") %> 
       <% end %>
+  <!-- CLIENT NAVBAR -->
+      <%= render "layouts/clients_nav.html.erb" if current_client %>
+    <!-- </div> -->
+      <%= render "layouts/admins_nav.html.erb" if current_admin %>
 
-  </div>
-</nav>
+      <%= render "layouts/shippers_nav.html.erb" if current_shipper %>
+    <% if flash[:notice] || flash[:alert] %>
+    <div class="row justify-content-center">
+      <p class="notice flash-notice"><%= notice %></p>
+      <p class="alert flash-notice"><%= alert %></p>
+    </div>
+    <% end %>
 
-    <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <div class="container main-container">
       <%= yield %>
     </div>
+
+
+    <footer class="footer">
+      <ul class="list-inline site-footer">
+        <% if !current_client && !current_admin && !current_shipper %>
+        <li class="list-inline-item"><%= link_to("Admin Login ", new_admin_session_path) %></li>
+      <% end %>
+      <%if !current_client && !current_admin && current_shipper %>
+        <li class="list-inline-item"><%= link_to("Shipper Logout ", destroy_shipper_session_path, method: "delete") %> <br></li>
+      <% elsif !current_client && !current_shipper && !current_admin  %>
+        <li class="list-inline-item"><%= link_to("Shipper Login ", new_shipper_session_path) %> <br></li>|
+      <% end %>
+         <li class="list-inline-item">DBC Laundry all rights reserved. 2017</li>
+        <li class="list-inline-item optional hidden-sm-down"><a href="https://github.com/matthiashaefeli"><i class="fa fa-github" aria-hidden="true">Matthias</i></a></li>
+        <li class="list-inline-item optional hidden-sm-down"><a href="https://github.com/karinafraest"><i class="fa fa-github" aria-hidden="true">Karina</i></a></li>
+        <li class="list-inline-item optional hidden-sm-down"><a href="https://github.com/RCAVelez"><i class="fa fa-github" aria-hidden="true">Raymond</i></a></li>
+        <li class="list-inline-item optional hidden-sm-down"><a href="https://github.com/litola"> <i class="fa fa-github" aria-hidden="true">Rafael</i></a>
+        </p></li>
+        </ul>
+    </footer>
   </body>
 </html>

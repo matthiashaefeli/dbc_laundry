@@ -1,0 +1,22 @@
+<div class='add-data'>
+  <h2>All Boxes this business has</h2>
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>#</th>
+        <th>Box Name</th>
+        <th>Box Address</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody class='edit-master'>
+    <% current_admin.business.boxes.each do |box| %>
+      <tr>
+        <th scope="row"><%=box.id%></th>
+        <td class=edit-box><%= link_to(box.name, box_path(box.id), remote: true) %></td>
+        <td class="remove"><%=box.address%></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

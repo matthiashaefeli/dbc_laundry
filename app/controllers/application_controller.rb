@@ -3,8 +3,14 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def home
-    render "./home.html.erb"
+    if current_admin
+      @orders = Order.all
+      render "./businesses/_form"
+    else
+      render "./home.html.erb"
+    end
   end
+
 
   protected
   # devise accept name 

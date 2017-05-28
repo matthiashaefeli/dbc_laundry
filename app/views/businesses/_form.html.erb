@@ -1,23 +1,12 @@
-<table style="width: 100%">
-	<tr>
-		<th>Order Id</th>
-		<th>Status Laundry</th>
-		<th>Status Payment</th>
-	</tr>
-	<tr>
-	<% @orders = Order.all %>
-	<% @orders.each do |order| %>
-	<td><%= order.id %></td>
-	<td>
-		<select name="post[order_status]" id="order_status">
-			<option value="1">In Box</option>
-			<option value="1">Incomming</option>
-			<option value="2">Processing</option>
-			<option value="3">Shiping</option>
-		</select>
-		<p><%= link_to "Save change", order_path(order.id), :method => :put %></p>
-		</td>
-		<td><%= order.paid %></td>
-		</tr>
-	<% end %>
-</table>
+<div>
+<%= form_for :order, url: order_update_status_path, :method => :get, remote: true do |f| %>
+	<p class='status-select'>
+	<%= f.label :Order_by_status %>
+	<%= f.select :order_status,
+			options_for_select([['All'],['In Box'],
+			['Incoming'],['Processing'],
+			['Shipping'],['Delivered']]) %></p>
+	<% end %><br>
+
+<%= render 'businesses/orders' %>
+</div>

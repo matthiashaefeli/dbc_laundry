@@ -1,32 +1,10 @@
-this is "home"
-<br>
+<!-- show in mobil -->
+  <!-- ALL HOME MENU -->
+  <% if !current_client && !current_admin && !current_shipper %>
+    <%= render "/home_mobil.html.erb"  %>
+  <% end %> 
 
-<% if current_admin %>
-  <%= link_to("Admin Logout", destroy_admin_session_path, method: "delete") %> <br>
-<% else %>
-  <%= link_to("Admin Login", new_admin_session_path) %> <br>
-<% end %>
-
-<%if current_client  %>
-  <%= link_to("Client Logout", destroy_client_session_path, method: "delete") %> <br>
-<% else %>
-  <%= link_to("Client Login", new_client_session_path) %> <br>
-<% end %>
-
-<%if current_shipper  %>
-  <%= link_to("Shipper Logout", destroy_shipper_session_path, method: "delete") %> <br>
-<% else %>
-  <%= link_to("Shipper Login", new_shipper_session_path) %> <br>
-<% end %>
-<br>
-<br>
-<% if current_client %>
-<%= render "orders/form" %>
-<% end %>
-<% if current_admin %>
-<%= render "businesses/form" %>
-<% end %>
-
-
-
+<%= render "orders/form" if current_client %>
+<%= render "businesses/form" if current_admin %>
+<%= render "shippers/form" if current_shipper %>
 
